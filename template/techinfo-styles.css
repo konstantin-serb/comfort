@@ -1,0 +1,50 @@
+
+/**** Секция тех-инфо ****/
+
+.techinfo {
+	padding: 40px 0 80px;
+	border-bottom: 1px solid #BDE3FB;
+}
+
+.techinfo h1 {
+	font-size: 50px;
+	font-weight: 700;
+	color: #00407A;
+}
+
+.techinfo a {
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 9px 20px;
+	border: 1px solid #BDE3FB;
+	border-radius: 25px;
+	width: fit-content;
+	margin: 20px 0;
+	word-wrap: break-word;
+}
+
+.techinfo a:hover {
+	border: 1px solid #00407A;
+}
+
+.techinfo a img {
+	margin-left: 20px;
+}
+
+
+
+@media  (max-width: 480px) {
+
+    .techinfo h1 {
+    	font-size: 36px;
+    }
+}
+
+@media  (max-width: 320px) {
+
+    .techinfo h1 {
+    	font-size: 24px;
+    }
+}

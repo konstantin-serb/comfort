@@ -1,0 +1,155 @@
+
+/***** компания банер ****/
+
+.company-banner {
+	background: url(images/company.svg) no-repeat center center;
+	background-size: cover;
+}
+
+.company-banner h1 {
+	font-size: 50px;
+	font-weight: 700;
+	color: #fff;
+	padding: 290px 0;
+	margin: 0;
+}
+
+/***** Секция компания линкс ****/
+
+.company-links {
+	padding: 40px 0;
+}
+
+.company-links .block {
+	margin: 40px 20px;
+	padding: 40px 20px;
+	border: 1px solid #BDE3FB;
+	border-radius: 4px;
+}
+
+.company-links p {
+	font-size: 20px;
+}
+
+.company-links .block .d-flex {
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.company-links .project-button {
+	margin: 0 auto 20px;
+}
+
+.company-links .project-button img {
+	margin-left: 0;
+	margin-right: 15px;
+}
+
+/***** Секция компания инфо ****/
+
+.company-info {
+	padding: 5px 0 40px;
+	border-bottom: 1px solid #BDE3FB;
+}
+
+.company-info .company-info-left {
+	display: flex;
+	flex-direction: column;
+	width: 20%;
+}
+
+.company-info .company-info-left img {
+	margin: 0 auto 40px;
+}
+
+.company-info .company-info-left img:nth-child(1) {
+	width: 100%;
+}
+.company-info .company-info-right {
+	width: 75%;
+}
+
+.company-info .company-info-right p {
+	margin: 0 0 20px 0;
+	font-size: 20px;
+}
+
+
+@media  (max-width: 768px) {
+
+    .company-info .block {
+    	flex-direction: column;
+    }
+
+    .company-info .company-info-left {
+    	width: 100%;
+    	flex-direction: row;
+    	justify-content: space-between;
+    	margin-bottom: 40px;
+    }
+
+    .company-info .company-info-right {
+    	width: 100%;
+    }
+
+    .company-info .company-info-left img:nth-child(1) {
+	    width: 35%;
+    }
+
+    .company-info .company-info-left img {
+	    margin: 0;
+    }    
+
+}
+
+@media  (max-width: 480px) {
+
+    .company-banner h1 {
+    	padding: 200px 0;
+    }
+
+    .company-links {
+	    padding: 20px 0;
+    }
+
+    .company-links .block {
+    	padding: 0 10px;
+    }
+
+    .company-links .block .d-flex {
+    	flex-direction: column;
+    }
+
+    .company-links .project-button {
+    	margin-left: 7px;
+    }
+
+}
+
+@media  (max-width: 320px) {
+
+	.company-banner h1 {
+		font-size: 24px;
+		padding: 100px 0;
+	}
+
+	.company-links p {
+		font-size: 16px;
+	}
+
+	.company-links .project-button {
+		font-size: 14px;
+		margin-left: 0;
+	}
+
+	.company-info .company-info-left img:nth-child(2) {
+	    width: 35%;
+    }
+
+    .company-info .company-info-right p {
+    	font-size: 16px;
+    }
+
+}
+
+

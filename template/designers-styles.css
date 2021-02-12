@@ -1,0 +1,29 @@
+
+/***** дизайнерам ******/
+
+.designers {
+	padding: 40px 0 80px;
+	border-bottom: 1px solid #007AC9;
+}
+
+.designers h1 {
+	font-size: 50px;
+	font-weight: 700;
+	color: #00407A;
+}
+
+
+
+@media  (max-width: 480px) {
+
+    .designers h1 {
+    	font-size: 36px;
+    }
+}
+
+@media  (max-width: 320px) {
+
+    .designers h1 {
+    	font-size: 24px;
+    }
+}

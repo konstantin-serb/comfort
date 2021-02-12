@@ -1,0 +1,680 @@
+@media  (max-width: 1910px) {
+
+    .proposition {
+        flex-direction: row;
+        top: initial;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: max-content;
+        padding: 10px;
+    }
+
+    .proposition div {
+        display: none;
+    }
+
+    .proposition a {
+        border-top: none;
+        border-right: 1px solid #E95D2A;
+        padding: 5px 10px;
+    }
+
+    .proposition a:last-child {
+        border-right: none;
+    }
+
+}
+
+
+@media  (max-width: 768px) {
+
+	/****** Окно поиск ******/
+
+	.modal-bcg .search form {
+	    width: 80%;
+    }
+
+    /****** Окно каталог средний ******/
+
+    .catalog-mr {
+    	display: block;
+    	position: absolute;
+    	left: 0;
+    	right: 0;
+    	top: 15px;
+    	border: 2px solid #007AC9;
+    	box-sizing: border-box;
+    	width: 95%;
+    	margin: auto;
+    	padding: 20px;
+    	background: #fff;
+    	transform: scaleY(0);
+    	transform-origin: 0 0;
+    	z-index: 10;
+    }
+
+    .catalog-mr .heading {
+    	font-size: 18px;
+    	font-weight: 700;
+    	color: #202023;
+    }
+
+    .catalog-mr .catalog-close-mr img {
+    	width: 18px;
+	    height: 18px;
+	    padding: 11px;
+	    border-radius: 20px;
+	    background-color : #DFF1FD;
+	    cursor: pointer;
+    }
+
+    .catalog-mr .catalog-close-mr img:hover {
+    	transform: scale(1.2);
+    }
+
+    .catalog-mr .catalog-mr-block {
+    	padding: 30px 0;
+    	flex-wrap: wrap;
+    }
+
+    .catalog-mr .catalog-mr-part {
+    	width: 50%;
+    }
+
+    .catalog-mr .catalog-mr-item {
+    	margin-bottom: 20px;
+    }
+
+    .catalog-mr .catalog-mr-item div {
+    	width: 80%;
+    	font-size: 16px;
+    	font-weight: 600;
+    	color: #007AC9;
+    	padding: 5px 12px;
+    	border: 1px solid #BDE3FB;
+    	border-radius: 15px;
+    }
+
+    .catalog-mr .catalog-mr-item a {
+    	margin: 15px 0 15px 15px;
+    	background: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        display: block;
+        width: max-content;
+    }
+
+    .catalog-mr .catalog-mr-item a:hover {
+    	color: #007AC9;
+    }
+
+    /****** Окно бургер меню ******/
+
+    .burger-menu {
+        display: block;
+    	transform: scaleY(0);
+    	transform-origin: 0 0;
+    	position: absolute;
+    	left: 0;
+    	right: 0;
+    	top: 15px;
+    	width: 95%;
+    	margin: auto;
+    	background: #fff;
+    	z-index: 9;
+        border-bottom: 10px solid #00407A;
+    }
+
+    .burger-menu .burger-menu-top{
+        padding: 40px;
+        background: #00407A;
+    }
+
+    .burger-menu .burger-menu-catalog {
+    	background: #E95D2A;
+    	color: #fff;
+    }
+
+    .burger-menu .burger-menu-catalog:hover {
+    	background: #fff;
+    	color: #E95D2A;
+    }
+
+    .burger-menu .burger-menu-catalog img {
+    	margin-right: 10px;
+    }
+
+    .burger-menu .burger-close {
+    	cursor: pointer;
+    }
+
+    .burger-menu .burger-close:hover {
+        transform: scale(1.2);
+    }
+
+    .burger-menu .burger-menu-mid {
+    	flex-direction: column;
+    	padding: 20px 40px;
+    	border-bottom: 1px solid #007ac9;
+    }
+
+    .burger-menu .burger-menu-mid .burger-menu-mid-serch {
+    	display: none;
+    }
+
+    .burger-menu .burger-menu-mid a {
+    	font-size: 14px;
+    	color: #202023;
+    	margin: 20px 0;
+    }
+
+    .burger-menu .burger-menu-mid a:hover {
+    	color: #00407A;
+    }
+
+    .burger-menu .burger-menu-bottom {
+    	padding: 40px;
+    }
+
+    .burger-menu .burger-menu-bottom .burger-menu-bottom-links1 {
+    	margin-right: 40px;
+    }
+
+    .burger-menu .burger-menu-bottom .burger-menu-bottom-links1 a {
+    	font-size: 16px;
+    	font-weight: 600;
+    	color: #007AC9;
+    	display: flex;
+    	align-items: center;    	
+    }
+
+    .burger-menu .burger-menu-bottom .burger-menu-bottom-links1 a img {
+    	margin-right: 10px;
+    }
+
+    .burger-menu .burger-menu-bottom .burger-menu-bottom-links2 {
+    	font-size: 14px;
+    	color: #202023;
+    	display: flex;
+    	flex-direction: column;
+    	justify-content: space-between;
+    }
+
+    .burger-menu .burger-menu-bottom .burger-menu-bottom-social {
+    	padding-top: 100px;
+    }
+
+    .burger-menu .burger-menu-bottom .burger-menu-bottom-social a {
+        margin-right: 50px;
+    }
+
+    .burger-menu .burger-menu-bottom .burger-menu-bottom-social a img {
+    	transform: scale(2);
+    }
+
+    /* proposition */
+
+    .proposition  {
+        padding: 5px;
+    }
+
+    .proposition a {
+        padding: 0 5px;
+    }
+
+    /****** Хедер ******/
+
+    header .header-hr {
+    	display: none;
+    }
+
+    header .header-mr {
+    	display: block;
+    }
+
+    header .header-mr .head-mr-top {
+    	padding: 10px 0;
+    	flex-direction: row;
+    	border-bottom: 1px solid #BDE3FB;
+    }
+
+    header .header-mr .head-mr-top a {
+    	font-size: 16px;
+    	font-weight: 600;
+    	color: #007AC9;
+    	margin-right: 20px;
+    	display: flex;
+    	align-items: center;
+    }
+
+    header .header-mr .head-mr-top img {
+    	margin-right: 10px;
+    }
+
+    header .header-mr .head-mr-bottom {
+    	padding: 20px 0;
+    }
+
+    header .header-mr .head-mr-bottom .logo-head p {
+        font-size: 15px;
+	    margin: 5px 15px;
+	    color: #89898B;
+    }
+
+    header .header-mr .head-mr-bottom .head-mr-bottom-search,
+    header .header-mr .head-mr-bottom .head-mr-bottom-burger {
+    	padding: 10px;
+    	background: #DFF1FD;
+    }
+
+    header .header-mr .head-mr-bottom .catalog-button-mr {
+    	color: #fff;
+	    background: #E95D2A;
+    }
+
+    header .header-mr .head-mr-bottom .catalog-button-mr img {
+    	margin-right: 10px;
+    }
+
+    header .header-mr .head-mr-bottom .head-ms-burger {
+    	display: none;
+    }
+
+    /****** Секция 1 ******/
+
+    .sect-1 {
+	    background: url(images/hero-768.svg) no-repeat center center;
+	    background-size: cover;
+    }
+
+    .sect-1 .block {
+	    padding: 110px 20px;
+    }
+
+    /****** Секция 2 ******/
+
+    .sect-2 {
+    	padding: 80px 0 15px;
+    }
+
+    .sect-2 .block {
+    	flex-wrap: wrap;
+    }
+
+    .sect-2 .sect-2-left,
+    .sect-2 .sect-2-right {
+	    width: 100%;
+    }
+
+    .sect-2 .sect-2-right {
+    	position: relative;
+    	margin-top: 40px;
+    }
+
+    .sect-2 .years25 {
+    	position: absolute;
+    	top: 40px;
+    	right: 20px;
+    }
+
+    .sect-2 .sect-2-img {
+    	border-radius: 0;
+    }
+
+    /****** Секция 3 ******/
+
+    .sect-3 .block {
+    	flex-wrap: wrap;
+    }
+
+    .sect-3 .sect-3-half{
+	    width: 100%;
+    }
+
+    .sect-3 {
+	    padding: 40px 0;
+    }
+
+    /****** Секция 4 ******/
+
+    .sect-4 {
+	    padding: 40px 0;
+    }
+
+    .sect-4 .block {	
+        padding: 20px 0 40px;
+        margin: 0 15px;   
+    }
+
+    .sect-4 .block h1,
+    .sect-4 .block p {
+	    margin-left: 20px;
+	    margin-right: 20px;
+    }
+
+    .sect-4 .project-button {
+    	margin-left: 20px;
+    }
+
+    .sect-4 ..project-button img {
+    	margin-left: 15px;
+    }
+
+    /****** Футер ******/
+
+    footer .d-flex {
+    	flex-wrap: wrap;
+    }
+
+    footer .foot-left {
+    	padding: 0 20px;
+    }
+
+    footer .foot-left,
+    footer .foot-right {
+    	width: 100%;
+    }
+
+    footer .foot-left-block {
+    	width: 100%;
+    }
+
+    footer .foot-left-block .foot-logo {
+    	padding: 40px 0;
+    }
+
+    footer .foot-left-block .foot-links {
+    	margin: 20px 0;
+    }
+
+    footer .foot-down {
+	    padding: 15px 0;
+    }   
+
+}
+
+@media  (max-width: 767px) {
+    /* proposition */
+
+    .proposition  {
+        display: none;;
+    }
+}
+
+@media  (max-width: 480px) {
+
+	/****** Окно бургер меню ******/
+
+	.burger-menu {
+		width: 99%;
+		padding-bottom: 40px;
+	}
+
+	.burger-menu .burger-menu-top {
+		padding: 30px 20px;
+	}
+
+	.burger-menu .burger-menu-mid {
+		padding: 20px;
+	}
+
+	.burger-menu .burger-menu-mid .burger-menu-mid-serch {
+		display: block;
+	}
+
+	.burger-menu .burger-menu-mid .burger-menu-mid-serch .burger-search-text {
+		width: 100%;
+		border: 1px solid #BDE3FB;
+	}
+
+	.burger-menu .burger-menu-mid .burger-menu-mid-serch {
+		margin-top: 15px;
+		position: relative;
+	}
+
+	.burger-menu .burger-menu-mid .burger-menu-mid-serch label input {
+	    width: 0.1px;
+	    height: 0.1px;
+	    opacity: 0;
+	    z-index: -10;
+	    cursor: pointer;
+    }
+
+    .burger-menu .burger-menu-mid .burger-menu-mid-serch label {
+    	width: 24px;
+    	height: 24px;
+    	background: url(images/search-white.svg) no-repeat center center;
+    	position: absolute;
+    	top: 10px;
+    	right: 10px;
+    }
+
+	.burger-menu .burger-menu-bottom {
+    	padding: 20px;
+    }
+
+    .burger-menu .burger-menu-bottom .d-flex {
+        flex-direction: column;
+    }
+
+    .burger-menu .burger-menu-bottom .burger-menu-bottom-links2 a {
+    	margin: 25px 0;
+    }
+
+    /****** Окно каталог средний ******/
+
+    .catalog-mr .catalog-mr-block .catalog-mr-part {
+    	width: 100%;
+    }
+
+	/***** Хедер ****/
+
+	header .header-mr .head-mr-bottom .head-mr-bottom-search,
+	header .header-mr .head-mr-bottom .catalog-button-mr,
+	header .header-mr .head-mr-bottom .head-mr-bottom-burger {
+		display: none;
+	}
+
+	header .header-mr .head-mr-bottom {
+    	padding: 10px 0;
+    }
+
+	header .header-mr .head-mr-bottom .head-ms-burger {
+    	display: flex;
+    	background: #DFF1FD;
+    	color: #00407A;
+    }
+
+    header .header-mr .head-mr-bottom .head-ms-burger img {
+    	margin-right: 10px;
+    }
+
+    /***** Секция 1 ****/
+
+    .sect-1 .block {
+	    padding: 80px 20px;
+    }
+
+    .sect-1 h1 {
+    	font-size: 50px;
+    }
+
+    /****** Секция 2 ******/
+
+    .sect-2 {
+	    padding: 40px 0;
+    }
+	
+	.sect-2 h3 {
+		font-size: 24px;
+	}
+
+    .sect-2 p {
+    	font-size: 16px;
+    }
+
+    .sect-2 .years25 {
+    	top: 20px;
+    }
+
+    /****** Секция 3 ******/
+
+    .sect-3 {
+	    padding: 40px 0;
+    }
+
+    .sect-3 h3 {
+    	margin: 0 0 10px 0;
+    	font-size: 45px;
+    }
+
+    .sect-3 .sect-3-item {
+    	font-size: 24px;
+    } 
+
+    /****** Секция 4 ******/
+
+    .sect-4 {
+	    padding: 40px 0;
+    }
+
+    .sect-4 .block h1 {
+	    font-size: 36px;
+	    margin-top: 5px;
+    }
+
+    .sect-4 .block p {
+	    font-size: 18px;
+    }
+    
+}
+
+@media  (max-width: 320px) {
+
+	/****** Окно бургер меню ******/
+
+	.burger-menu .burger-menu-top,
+	.burger-menu .burger-menu-mid,
+	.burger-menu .burger-menu-bottom {
+		padding: 10px;
+	}
+
+	.burger-menu .burger-menu-top {
+		justify-content: center;
+	}
+
+	.burger-menu .burger-menu-catalog,
+	.burger-menu img:nth-child(1),
+	.burger-menu .burger-close {
+		transform: scale(.7);
+	}
+
+	.burger-menu .burger-close:hover {
+		transform: scale(.9);
+	}
+
+	/****** Окно каталог средний ******/
+
+	.catalog-mr .catalog-mr-item a {
+    	margin: 5px 0;
+    	background: #fff;
+    	font-size: 11px;
+    }
+
+	/****** Хедер ******/
+
+	header .header-mr .head-mr-top {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	header .header-mr .head-mr-top a {
+		margin: 3px 0;
+	}
+
+	header .header-mr .head-ms-burger {
+        margin-left: -60px;
+	}
+
+	header .header-mr .head-mr-bottom .logo-head {
+		transform: scale(0.7);
+		width: 30%;
+		margin-left: -20px;
+	}
+
+	/***** Секция 1 ****/
+
+    .sect-1 .block {
+	    padding: 40px 20px;
+    }
+
+    .sect-1 h1 {
+    	font-size: 30px;
+    }
+
+    /***** Секция 2 ****/
+
+    .sect-2 {
+	    padding: 40px 0 15px;
+    }
+    
+    .sect-2 .sect-2-img {
+    	height: 250px;
+    }
+
+    .sect-2 a {
+        margin-top: 24px;
+        padding: 7px 15px;
+    }
+
+    .sect-2 .years25 {
+	    width: 70px;
+	    height: 70px;
+	    background-size: cover;
+	    top: 10px;
+	    right: 10px;
+    }
+
+    /****** Секция 3 ******/
+
+    .sect-3 h3 {
+    	font-size: 35px;
+    }
+
+    .sect-3 .sect-3-item {
+    	font-size: 18px;
+    }
+
+    /****** Секция 4 ******/
+
+    .sect-4 .block h1 {
+	    font-size: 27px;
+    }
+
+    .sect-4 .block p {
+	    font-size: 16px;
+    }
+
+    /**** Футер ***/
+
+    footer .foot-left-block p {
+	    font-size: 16px;
+    }
+
+    footer .foot-down {
+	    padding: 20px 0;
+	    flex-direction: column;
+	    justify-content: space-between;
+    }
+
+    footer .foot-down div {
+	    font-size: 14px;
+    }
+
+    footer .foot-down div img {
+	    margin-right: 10px;
+    }
+
+}
