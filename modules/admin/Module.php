@@ -33,12 +33,12 @@ class Module extends \yii\base\Module
                         'allow' =>  true,
                         'matchCallback' =>  function($rule, $action)
                         {
-
-                            if(!empty(Yii::$app->user->identity->is_admin)) {
-                                return Yii::$app->user->identity->is_admin;
-                            } else {
-                                return header("location: /site/index");
-                            }
+                            return Yii::$app->user->identity->is_admin;
+//                            if(!empty(Yii::$app->user->identity->is_admin)) {
+//                                return Yii::$app->user->identity->is_admin;
+//                            } else {
+//                                return header("location: /site/index");
+//                            }
 
 
                         }

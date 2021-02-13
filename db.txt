@@ -1,0 +1,128 @@
+News:
+
+id
+slug - string
+title - string
+text - text
+description - text
+image - string
+mini - string
+status - int
+time_create - int
+time_update - int
+user_create - int
+user_update - int
+type_view - int
+
+newstag:
+id
+title -str
+slug - str
+
+news_tag:
+id
+news_id : integer
+tag_id : integer
+
+
+Cart:
+
+id
+slug - string
+title - string
+text - text
+description - text
+info - text
+model - string
+manufacturer - int
+availability - int
+subcategory_id - int
+status - int
+time_create - int
+time_update - int
+user_create - int
+user_update - int
+
+Category:
+id
+title - string
+slug - string
+order - int
+
+Subcategory:
+id
+title -str
+slug -str
+category_id -int
+order - int
+
+Tag:
+id
+title -str
+slug - str
+
+Cart_tag:
+id
+cart_id
+tag_id
+
+
+Project
+
+id
+slug - string
+title - string
+text - text
+description - text
+image - string
+mini - string
+status - int
+time_create - int
+time_update - int
+user_create - int
+user_update - int
+type_view - int
+
+projecttag:
+id
+title -str
+slug - str
+
+project_tag:
+id
+project_id
+tag_id
+
+Site:
+id
+tel-kyiv - str
+tel-voda - str
+tel-life - str
+address - str
+email - str
+fb -text
+insta -text
+in - text
+title_main - str
+title_main2 - str
+title_about - str
+image_main - str
+image_about - str
+mini_about - str
+text_main - text
+text_about1 - text
+text_about2 - text
+
+About_tag
+id
+id_tag
+
+images_product
+id
+image : string
+mini : string
+
+img_cart
+id
+id_cart : int
+id_image : int

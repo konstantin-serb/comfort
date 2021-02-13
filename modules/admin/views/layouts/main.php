@@ -39,17 +39,26 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             [
-                'label' => 'Main',
+                'label' => 'Админпанель',
                 'url' => ['/admin'],
 
             ],
             [
-                'label' => 'Сущности',
+                'label' => 'Товары',
                 'items' => [
-                    ['label' => 'Статьи', 'url' => ['/admin/user']],
-                    ['label' => 'Категории', 'url' => ['/']],
-                    ['label' => 'Теги', 'url' => ['/']],
-                    ['label' => 'Картинки', 'url' => ['/']],
+                    ['label' => 'Товары', 'url' => ['/admin/cart']],
+                    ['label' => 'Категории', 'url' => ['/admin/category']],
+                    ['label' => 'Подкатегории', 'url' => ['/admin/subcategory']],
+                    ['label' => 'Теги', 'url' => ['/admin/tag']],
+
+
+                ],
+            ],
+            [
+                'label' => 'Статьи',
+                'items' => [
+                    ['label' => 'Новости', 'url' => ['/admin/news']],
+                    ['label' => 'Проекты', 'url' => ['/admin/project']],
                 ],
             ],
 
