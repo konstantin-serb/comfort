@@ -19,7 +19,7 @@
 	height: 40px;
 	border-radius: 20px;
 	cursor: pointer;
-	background: url(images/closetr.svg) no-repeat center center;
+	background: url(../images/closetr.svg) no-repeat center center;
 }
 
 .catalog-cart-slider .catalog-cart-slider-close:hover {

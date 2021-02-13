@@ -136,7 +136,7 @@
 	width: 18px;
 	height: 18px;
 	border-radius: 9px;
-	background: url(images/arrow-down.svg) no-repeat center center #007AC9;
+	background: url(../images/arrow-down.svg) no-repeat center center #007AC9;
 }
 
 .page-catalog .page-catalog-cont .page-catalog-cont-sort .page-catalog-cont-div select {

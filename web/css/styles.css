@@ -142,7 +142,7 @@ button:focus {
 
 .modal-bcg .search .search-img {
 	display: block;
-	background: url(images/search.svg) no-repeat center center;
+	background: url(../images/search.svg) no-repeat center center;
 	margin: -36px 15px 0 auto;
 	z-index: 11;
 	width: 30px;
@@ -165,7 +165,7 @@ button:focus {
     right: 20px;
 	width: 40px;
 	height: 40px;
-	background: url(images/close.svg);
+	background: url(../images/close.svg);
 	cursor: pointer;
 }
 
@@ -374,7 +374,7 @@ header .header-sr {
 /****** Секция 1 ******/
 
 .sect-1 {
-	background: url(images/hero.svg) no-repeat center center;
+	background: url(../images/hero.svg) no-repeat center center;
 	background-size: cover;
 }
 
@@ -464,12 +464,12 @@ header .header-sr {
 .sect-2 .years25 {
 	width: 146px;
 	height: 146px;
-	background: url(images/25.svg) no-repeat center center;
+	background: url(../images/25.svg) no-repeat center center;
 	margin: 0 auto;
 }
 
 .sect-2 .sect-2-img {
-	background: url(images/img.svg) no-repeat center center;
+	background: url(../images/img.svg) no-repeat center center;
 	background-size: cover;
 	width: 100%;
 	height: 400px;
@@ -523,7 +523,7 @@ header .header-sr {
 }
 
 .sect-3 .sect-3-item-bcg {
-	background: url(images/img2.svg) no-repeat center center;
+	background: url(../images/img2.svg) no-repeat center center;
 	background-size: cover;
 	color: #fff;
 }

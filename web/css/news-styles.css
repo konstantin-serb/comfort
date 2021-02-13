@@ -81,12 +81,12 @@
 }
 
 .news .news-page .news-page-item-img {
-	background: url(images/img3.svg) no-repeat center center;
+	background: url(../images/img3.svg) no-repeat center center;
 	background-size: cover; 
 }
 
 .news .news-page .projects-page-item-img {
-	background: url(images/img2.svg) no-repeat center center;
+	background: url(../images/img2.svg) no-repeat center center;
 	background-size: cover;
 }
 

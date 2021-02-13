@@ -2,7 +2,7 @@
 /***** компания банер ****/
 
 .company-banner {
-	background: url(images/company.svg) no-repeat center center;
+	background: url(../images/company.svg) no-repeat center center;
 	background-size: cover;
 }
 

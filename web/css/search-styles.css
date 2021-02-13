@@ -61,7 +61,7 @@
 }
 
 .search-form .checkbox input[type=checkbox]:checked + span:before {
-	background: url(images/check.svg) no-repeat center center #007AC9;	 
+	background: url(../images/check.svg) no-repeat center center #007AC9;
 }
 
 .search-form .arw {
@@ -71,7 +71,7 @@
 	width: 20px;
 	height: 20px;
 	border-radius: 10px;
-	background: url(images/arrow-down.svg) no-repeat center center #007AC9;
+	background: url(../images/arrow-down.svg) no-repeat center center #007AC9;
 }
 
 .search-form select {
@@ -111,7 +111,7 @@
 	width: 24px;
 	height: 24px;
 	border-radius: 12px;
-	background: url(images/search-white.svg) no-repeat center center;
+	background: url(../images/search-white.svg) no-repeat center center;
 	position: absolute;
 	top: 9px;
 	left: 10px;
@@ -159,7 +159,7 @@
 	width: 18px;
 	height: 18px;
 	border-radius: 9px;
-	background: url(images/arrow-down.svg) no-repeat center center #007AC9;
+	background: url(../images/arrow-down.svg) no-repeat center center #007AC9;
 }
 
 .search-result .search-result-div select {

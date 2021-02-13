@@ -40,7 +40,7 @@
 }
 
 .article ul {
-	list-style-image: url(images/check2.svg);
+	list-style-image: url(../images/check2.svg);
 }
 
 .article li {
