@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\models;
 
+use app\components\KotTranslit;
 use Yii;
 
 /**
@@ -13,6 +14,7 @@ use Yii;
  * @property string|null $text
  * @property string|null $description
  * @property string|null $info
+ * @property float|null $price
  * @property string|null $model
  * @property string|null $manufacturer
  * @property int|null $availability
@@ -25,6 +27,12 @@ use Yii;
  */
 class Cart extends \yii\db\ActiveRecord
 {
+    const STATUS_VISIBLE = 1;
+    const STATUS_INVISIBLE = 0;
+    const AVAILABILITY = 1;
+    const NOT_AVAILABILITY = 0;
+
+
     /**
      * {@inheritdoc}
      */
@@ -53,19 +61,49 @@ class Cart extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'slug' => 'Slug',
-            'title' => 'Title',
-            'text' => 'Text',
-            'description' => 'Description',
-            'info' => 'Info',
-            'model' => 'Model',
-            'manufacturer' => 'Manufacturer',
-            'availability' => 'Availability',
-            'subcategory_id' => 'Subcategory ID',
-            'status' => 'Status',
+            'title' => 'Название',
+            'text' => 'Текст',
+            'description' => 'Описание',
+            'info' => 'Информация о товаре',
+            'price' => 'Цена',
+            'model' => 'Модель',
+            'manufacturer' => 'Производитель',
+            'availability' => 'Наличие на складе',
+            'subcategory_id' => 'Подкатегория',
+            'status' => 'Статус',
             'time_create' => 'Time Create',
             'time_update' => 'Time Update',
             'user_create' => 'User Create',
             'user_update' => 'User Update',
         ];
     }
+
+
+    public function getManufacturer()
+    {
+        $manufacturer = Manufacturer::findOne($this->manufacturer);
+        return $manufacturer->manufactured;
+    }
+
+
+    public function createSlug($word)
+    {
+        $slug = strtolower(KotTranslit::rusTranslit($word));
+        $carts = $this->find()->where(['slug' => $slug])->one();
+        if (!$carts || $carts->id == $this->id) {
+            return $slug;
+        } else {
+            return strtolower($slug . '-' . Yii::$app->security->generateRandomString(4));
+        }
+    }
+    
+    
+    public function getSubcategory()
+    {
+        $sub = Subcategory::findOne($this->subcategory_id);
+        return $sub->title;
+    }
+
+
+
 }

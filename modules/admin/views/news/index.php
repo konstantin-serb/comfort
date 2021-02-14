@@ -1,5 +1,6 @@
 <?php
 
+use app\components\StringHelper;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -7,7 +8,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\modules\admin\models\NewsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'News';
+$this->title = 'Новости';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="news-index">
@@ -15,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create News', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить статью', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -27,18 +28,51 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'slug',
+//            'slug',
             'title',
-            'text:ntext',
-            'description:ntext',
+//            'text:html',
+            [
+                'attribute' => 'description',
+                'format' => 'raw',
+                'value' => function($article) {
+                    if (strlen($article->description) > 100) {
+                        $points = '...';
+                        return  StringHelper::getShort($article->description, 100). $points;
+                    }
+
+                },
+            ],
             //'image',
             //'mini',
-            //'status',
+            [
+                'attribute' => 'status',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    if ($model->status == 0) {
+                        return '<span class="red-color">Не видно на сайте</span>';
+                    } else if ($model->status == 1) {
+                        return '<span class="blue-color">Видно на сайте</span>';
+                    }
+
+                }
+            ],
             //'time_create:datetime',
             //'time_update:datetime',
             //'user_create',
             //'user_update',
-            //'type_view',
+//            'type_view',
+            [
+                'attribute' => 'type_view',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    if ($model->type_view == 9) {
+                        return '<span class="blue-color">Тип показа без изображения</span>';
+                    } else if ($model->type_view == 10) {
+                        return '<span class="green-color">Тип показа с изображением</span>';
+                    }
+
+                }
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

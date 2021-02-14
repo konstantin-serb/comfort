@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Cart */
 
-$this->title = 'Create Cart';
-$this->params['breadcrumbs'][] = ['label' => 'Carts', 'url' => ['index']];
+$this->title = 'Добавить товар';
+$this->params['breadcrumbs'][] = ['label' => 'Товары', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cart-create">
@@ -15,6 +15,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
+        'modelMan' => $modelMan,
+        'manufacArray' => $manufacArray,
+        'subCatArray' => $subCatArray,
+        'option' => $option,
     ]) ?>
 
 </div>

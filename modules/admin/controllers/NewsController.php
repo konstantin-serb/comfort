@@ -2,12 +2,17 @@
 
 namespace app\modules\admin\controllers;
 
+use app\components\Storage;
+use app\modules\admin\models\forms\CreateNewsForm;
+use app\modules\admin\models\forms\UpdateNewsForm;
+use app\modules\admin\models\forms\UploadNewsPictureForm;
 use Yii;
 use app\modules\admin\models\News;
 use app\modules\admin\models\NewsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * NewsController implements the CRUD actions for News model.
@@ -64,15 +69,59 @@ class NewsController extends Controller
      */
     public function actionCreate()
     {
-        $model = new News();
+        $model = new CreateNewsForm();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $id = $model->save()) {
+            return $this->redirect(['view', 'id' => $id]);
         }
 
         return $this->render('create', [
             'model' => $model,
         ]);
+    }
+
+
+    public function actionAddImage($id)
+    {
+        $model = new UploadNewsPictureForm();
+        $model->newsId = $id;
+        if ($model->load(Yii::$app->request->post())) {
+            $image = UploadedFile::getInstance($model, 'image');
+            if (is_uploaded_file($image->tempName)) {
+                if ($model->addImage($image)) {
+                    return $this->redirect(['view', 'id' => $id]);
+                }
+            }
+        }
+        return $this->render('add-image', [
+            'model' => $model,
+        ]);
+    }
+
+
+    public function actionImageView($id)
+    {
+        $model = News::findOne($id);
+
+        return $this->render('image-view', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionDeleteImage($id)
+    {
+        $news = News::findOne($id);
+        if ($news->image) {
+            if (Storage::clean($news->image) && Storage::clean($news->mini)) {
+                $news->image = null;
+                $news->mini = null;
+                if($news->save()) {
+                    return $this->redirect(['view', 'id' => $id]);
+                }
+            }
+        }
+
+
     }
 
     /**
@@ -84,14 +133,17 @@ class NewsController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $news = $this->findModel($id);
+        $model = new UpdateNewsForm();
+        $model->id = $id;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $id]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'news' => $news,
         ]);
     }
 
@@ -104,9 +156,13 @@ class NewsController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        $news = News::findOne($id);
+        if ($news->image) {
+            if (Storage::clean($news->image) && Storage::clean($news->mini)) {
+                $news->delete();
+                return $this->redirect(['index']);
+            }
+        }
     }
 
     /**

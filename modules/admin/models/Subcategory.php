@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\models;
 
+use app\components\KotTranslit;
 use Yii;
 
 /**
@@ -23,16 +24,6 @@ class Subcategory extends \yii\db\ActiveRecord
         return 'subcategory';
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function rules()
-    {
-        return [
-            [['category_id', 'order'], 'integer'],
-            [['title', 'slug'], 'string', 'max' => 255],
-        ];
-    }
 
     /**
      * {@inheritdoc}
@@ -41,10 +32,29 @@ class Subcategory extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
+            'title' => 'Название',
             'slug' => 'Slug',
-            'category_id' => 'Category ID',
-            'order' => 'Order',
+            'category_id' => 'Родительская категория',
+            'order' => 'Порядок',
         ];
+    }
+
+
+    public function createSlug($word)
+    {
+        $slug = strtolower(KotTranslit::rusTranslit($word));
+        $model = $this->find()->where(['slug' => $slug])->one();
+        if (!$model || $model->id == $this->id) {
+            return $slug;
+        } else {
+            return strtolower($slug . '-' . Yii::$app->security->generateRandomString(4));
+        }
+    }
+
+
+    public function getCategoryName()
+    {
+        $category = Category::findOne($this->category_id);
+        return $category->title;
     }
 }

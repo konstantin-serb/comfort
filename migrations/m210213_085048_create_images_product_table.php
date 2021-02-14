@@ -16,6 +16,8 @@ class m210213_085048_create_images_product_table extends Migration
             'id' => $this->primaryKey(),
             'image' => $this->string(),
             'mini' => $this->string(),
+            'cart_id' => $this->integer(),
+            'sort' => $this->integer(),
         ]);
     }
 

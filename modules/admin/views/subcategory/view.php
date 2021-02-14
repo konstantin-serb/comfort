@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\modules\admin\models\Subcategory */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Subcategories', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Подкатегории', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -31,8 +31,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'title',
-            'slug',
-            'category_id',
+//            'slug',
+            [
+                'attribute' => 'category_id',
+                'format' => 'raw',
+                'value' => function($model) {
+                    return $model->getCategoryName();
+                }
+            ],
             'order',
         ],
     ]) ?>

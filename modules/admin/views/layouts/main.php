@@ -7,6 +7,7 @@ use app\widgets\Alert;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
@@ -44,12 +45,18 @@ AppAsset::register($this);
 
             ],
             [
+                'label' => 'Сайт',
+                'url' => ['/admin/mysite/view', 'id' => 1],
+
+            ],
+            [
                 'label' => 'Товары',
                 'items' => [
                     ['label' => 'Товары', 'url' => ['/admin/cart']],
                     ['label' => 'Категории', 'url' => ['/admin/category']],
                     ['label' => 'Подкатегории', 'url' => ['/admin/subcategory']],
-                    ['label' => 'Теги', 'url' => ['/admin/tag']],
+                    ['label' => 'Теги', 'url' => ['/admin/producttag']],
+                    ['label' => 'Техническая информация', 'url' => ['/admin/techinfo']],
 
 
                 ],
@@ -89,6 +96,10 @@ AppAsset::register($this);
 
     <div class="container">
         <?= Breadcrumbs::widget([
+            'homeLink' => [
+                'label' => 'Главная ',
+                'url' => Url::to(['/admin']),
+            ],
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>

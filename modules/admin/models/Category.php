@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\models;
 
+use app\components\KotTranslit;
 use Yii;
 
 /**
@@ -40,9 +41,21 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
+            'title' => 'Название',
             'slug' => 'Slug',
-            'order' => 'Order',
+            'order' => 'Порядковый номер',
         ];
+    }
+
+
+    public function createSlug($word)
+    {
+        $slug = strtolower(KotTranslit::rusTranslit($word));
+        $model = $this->find()->where(['slug' => $slug])->one();
+        if (!$model || $model->id == $this->id) {
+            return $slug;
+        } else {
+            return strtolower($slug . '-' . Yii::$app->security->generateRandomString(4));
+        }
     }
 }

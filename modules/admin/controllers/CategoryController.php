@@ -2,6 +2,9 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\forms\CreateCategoryForm;
+use app\modules\admin\models\forms\UpdateCategoryForm;
+use app\modules\admin\models\Subcategory;
 use Yii;
 use app\modules\admin\models\Category;
 use app\modules\admin\models\CategorySearch;
@@ -57,17 +60,13 @@ class CategoryController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Category model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
+
     public function actionCreate()
     {
-        $model = new Category();
+        $model = new CreateCategoryForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
@@ -75,23 +74,19 @@ class CategoryController extends Controller
         ]);
     }
 
-    /**
-     * Updates an existing Category model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
-
+        $cat = $this->findModel($id);
+        $model = new UpdateCategoryForm();
+        $model->id = $cat->id;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'cat' => $cat,
         ]);
     }
 
@@ -104,9 +99,15 @@ class CategoryController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        $category = Category::findOne($id);
+        $subcategory = Subcategory::find()->where(['category_id'=>$id])->one();
+        if($subcategory) {
+            Yii::$app->session->setFlash('danger', 'Нельзя удалить категорию, у которой есть дочерние субкатегории. Сначала удалите все субкатегории этой категории');
+            return $this->redirect(['index']);
+        } else {
+            $category->delete();
+            return $this->redirect(['index']);
+        }
     }
 
     /**

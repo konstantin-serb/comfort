@@ -10,6 +10,8 @@ use Yii;
  * @property int $id
  * @property string|null $image
  * @property string|null $mini
+ * @property int|null $cart_id
+ * @property int|null $sort
  */
 class ImagesProduct extends \yii\db\ActiveRecord
 {
@@ -38,8 +40,29 @@ class ImagesProduct extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'image' => 'Image',
-            'mini' => 'Mini',
+            'image' => 'Изображение',
+            'mini' => 'Миниатюра',
+            'cart_id' => 'Id товара',
+            'sort' => 'Сортировка',
         ];
+    }
+
+    public function getMini()
+    {
+        if ($this->mini) {
+            return '/uploads/' . $this->mini;
+        } else {
+            return '/uploads/mini/no-image.jpg';
+        }
+    }
+
+
+    public function getImage()
+    {
+        if ($this->mini) {
+            return '/uploads/' . $this->image;
+        } else {
+            return '/uploads/no-image.jpg';
+        }
     }
 }

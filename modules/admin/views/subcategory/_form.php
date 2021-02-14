@@ -14,11 +14,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'categoryId')->dropDownList($categoryArray) ?>
 
-    <?= $form->field($model, 'category_id')->textInput() ?>
-
-    <?= $form->field($model, 'order')->textInput() ?>
+<!--    --><?//= $form->field($model, 'order')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

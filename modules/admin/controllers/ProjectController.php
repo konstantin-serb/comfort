@@ -2,12 +2,18 @@
 
 namespace app\modules\admin\controllers;
 
+use app\components\Storage;
+use app\modules\admin\models\forms\CreateProjectForm;
+use app\modules\admin\models\forms\UpdateProjectForm;
+use app\modules\admin\models\forms\UploadNewsPictureForm;
+use app\modules\admin\models\forms\UploadProjectPictureForm;
 use Yii;
 use app\modules\admin\models\Project;
 use app\modules\admin\models\ProjectSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ProjectController implements the CRUD actions for Project model.
@@ -64,15 +70,59 @@ class ProjectController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Project();
+        $model = new CreateProjectForm();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $id = $model->save()) {
+            return $this->redirect(['view', 'id' => $id]);
         }
 
         return $this->render('create', [
             'model' => $model,
         ]);
+    }
+
+
+    public function actionAddImage($id)
+    {
+        $model = new UploadProjectPictureForm();
+        $model->projectId = $id;
+        if ($model->load(Yii::$app->request->post())) {
+            $image = UploadedFile::getInstance($model, 'image');
+            if (is_uploaded_file($image->tempName)) {
+                if ($model->addImage($image)) {
+                    return $this->redirect(['view', 'id' => $id]);
+                }
+            }
+        }
+        return $this->render('add-image', [
+            'model' => $model,
+        ]);
+    }
+
+
+    public function actionImageView($id)
+    {
+        $model = Project::findOne($id);
+
+        return $this->render('image-view', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionDeleteImage($id)
+    {
+        $news = Project::findOne($id);
+        if ($news->image) {
+            if (Storage::clean($news->image) && Storage::clean($news->mini)) {
+                $news->image = null;
+                $news->mini = null;
+                if($news->save()) {
+                    return $this->redirect(['view', 'id' => $id]);
+                }
+            }
+        }
+
+
     }
 
     /**
@@ -84,14 +134,17 @@ class ProjectController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $project = $this->findModel($id);
+        $model = new UpdateProjectForm();
 
+        $model->id = $id;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $id]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'project' => $project,
         ]);
     }
 

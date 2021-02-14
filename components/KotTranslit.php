@@ -37,7 +37,7 @@ class KotTranslit
 
     public static function rusTranslit($string) {
         $converter = self::$converter;
-        return strtr($string, $converter);
+        return strtolower(strtr($string, $converter));
     }
 
 }

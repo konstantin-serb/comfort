@@ -2,9 +2,14 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\Cart;
+use app\modules\admin\models\Category;
+use app\modules\admin\models\forms\CreateSubcategoryForm;
+use app\modules\admin\models\forms\UpdateSubcategoryForm;
 use Yii;
 use app\modules\admin\models\Subcategory;
 use app\modules\admin\models\SubcategorySearch;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -64,14 +69,17 @@ class SubcategoryController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Subcategory();
+        $model = new CreateSubcategoryForm();
+        $categoryObjects = Category::find()->orderBy('order')->all();
+        $categoryArray = ArrayHelper::map($categoryObjects, 'id', 'title');
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $id = $model->save()) {
+            return $this->redirect(['view', 'id' => $id]);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'categoryArray' => $categoryArray,
         ]);
     }
 
@@ -84,7 +92,12 @@ class SubcategoryController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $subCat = $this->findModel($id);
+        $model = new UpdateSubcategoryForm();
+        $model->id = $subCat->id;
+
+        $categoryObjects = Category::find()->orderBy('order')->all();
+        $categoryArray = ArrayHelper::map($categoryObjects, 'id', 'title');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -92,6 +105,8 @@ class SubcategoryController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'subCat' => $subCat,
+            'categoryArray' => $categoryArray,
         ]);
     }
 
@@ -104,9 +119,17 @@ class SubcategoryController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $subcategory = Subcategory::findOne($id);
+        $cart = Cart::find()->where(['subcategory_id' => $id])->one();
+        if($cart){
+            Yii::$app->session->setFlash('danger', 'Нельзя удалить подкатегорию, которая присвоена какому-либо товару');
+            return $this->redirect(['index']);
+        } else {
+            $subcategory->delete();
+            return $this->redirect(['index']);
+        }
 
-        return $this->redirect(['index']);
+
     }
 
     /**

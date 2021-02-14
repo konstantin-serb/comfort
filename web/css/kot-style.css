@@ -1,0 +1,53 @@
+
+.red-color {
+    color: red;
+}
+
+.blue-color {
+    color: blue;
+}
+
+.green-color {
+    color: green;
+}
+
+.buttonPlus {
+    width: 5em;
+    margin-bottom: 1.8em;
+    margin-left:0.5em;
+
+}
+
+.inputPlus {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items:flex-end
+}
+
+.inputPlus div:first-child{
+}
+
+.inputPlus div:first-child{
+    flex-grow: 10;
+}
+
+.buttonAdd {
+    display: block;
+    padding: 0.5em;
+    font-size: 1.45rem;
+    text-align: center;
+    border-radius: 0.2em;
+    cursor: pointer;
+}
+
+.buttonAdd:hover {
+    text-decoration: none;
+}
+
+.image {
+    width: 100%;
+    margin-bottom: 1em;
+    padding-right: 0.5em;
+}

@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\models;
 
+use app\components\KotTranslit;
 use Yii;
 
 /**
@@ -23,6 +24,10 @@ use Yii;
  */
 class News extends \yii\db\ActiveRecord
 {
+    const STATUS_VISIBLE = 1;
+    const STATUS_INVISIBLE = 0;
+    const WITH_IMAGE = 10;
+    const WITHOUT_IMAGE = 9;
     /**
      * {@inheritdoc}
      */
@@ -51,17 +56,48 @@ class News extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'slug' => 'Slug',
-            'title' => 'Title',
-            'text' => 'Text',
-            'description' => 'Description',
-            'image' => 'Image',
-            'mini' => 'Mini',
-            'status' => 'Status',
+            'title' => 'Название',
+            'text' => 'Текст',
+            'description' => 'Описание',
+            'image' => 'Изображение',
+            'mini' => 'Миниатюра',
+            'status' => 'Статус',
             'time_create' => 'Time Create',
             'time_update' => 'Time Update',
             'user_create' => 'User Create',
             'user_update' => 'User Update',
-            'type_view' => 'Type View',
+            'type_view' => 'Тип показа',
         ];
+    }
+
+    public function createSlug($word)
+    {
+        $slug = strtolower(KotTranslit::rusTranslit($word));
+        $carts = $this->find()->where(['slug' => $slug])->one();
+        if (!$carts || $carts->id == $this->id) {
+            return $slug;
+        } else {
+            return strtolower($slug . '-' . Yii::$app->security->generateRandomString(4));
+        }
+    }
+
+
+    public function getMini()
+    {
+        if ($this->mini) {
+            return '/uploads/' . $this->mini;
+        } else {
+            return '/uploads/mini/no-image.jpg';
+        }
+    }
+
+
+    public function getImage()
+    {
+        if ($this->mini) {
+            return '/uploads/' . $this->image;
+        } else {
+            return '/uploads/no-image.jpg';
+        }
     }
 }

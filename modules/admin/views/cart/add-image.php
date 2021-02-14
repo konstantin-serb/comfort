@@ -1,0 +1,19 @@
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+
+?>
+
+<h1>Страница добавления изображений</h1>
+
+
+<?php $form = ActiveForm::begin()?>
+
+<?=$form->field($model, 'image')->fileInput()?>
+
+<div class="form-group">
+    <?= Html::submitButton('Загрузить', ['class' => 'btn btn-success']) ?>
+</div>
+
+<?php ActiveForm::end()?>

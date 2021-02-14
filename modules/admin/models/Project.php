@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\models;
 
+use app\components\KotTranslit;
 use Yii;
 
 /**
@@ -23,6 +24,11 @@ use Yii;
  */
 class Project extends \yii\db\ActiveRecord
 {
+    const STATUS_VISIBLE = 1;
+    const STATUS_INVISIBLE = 0;
+    const WITH_IMAGE = 10;
+    const WITHOUT_IMAGE = 9;
+
     /**
      * {@inheritdoc}
      */
@@ -31,17 +37,6 @@ class Project extends \yii\db\ActiveRecord
         return 'project';
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function rules()
-    {
-        return [
-            [['text', 'description'], 'string'],
-            [['status', 'time_create', 'time_update', 'user_create', 'user_update', 'type_view'], 'integer'],
-            [['slug', 'title', 'image', 'mini'], 'string', 'max' => 255],
-        ];
-    }
 
     /**
      * {@inheritdoc}
@@ -50,18 +45,45 @@ class Project extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'slug' => 'Slug',
-            'title' => 'Title',
-            'text' => 'Text',
-            'description' => 'Description',
-            'image' => 'Image',
-            'mini' => 'Mini',
-            'status' => 'Status',
+            'slug' => 'Слаг',
+            'title' => 'Название',
+            'text' => 'Текст',
+            'description' => 'Описание',
+            'image' => 'Изображение',
+            'mini' => 'Миниатюра',
+            'status' => 'Статус',
             'time_create' => 'Time Create',
             'time_update' => 'Time Update',
             'user_create' => 'User Create',
             'user_update' => 'User Update',
-            'type_view' => 'Type View',
+            'type_view' => 'Тип показа',
         ];
+    }
+
+
+    public function createSlug($word)
+    {
+        $slug = strtolower(KotTranslit::rusTranslit($word));
+        $carts = $this->find()->where(['slug' => $slug])->one();
+        if (!$carts || $carts->id == $this->id) {
+            return $slug;
+        } else {
+            return strtolower($slug . '-' . Yii::$app->security->generateRandomString(4));
+        }
+    }
+
+    public function getMini()
+    {
+        if ($this->mini) {
+            return '/uploads/' . $this->mini;
+        }
+    }
+
+
+    public function getImage()
+    {
+        if ($this->mini) {
+            return '/uploads/' . $this->image;
+        }
     }
 }
