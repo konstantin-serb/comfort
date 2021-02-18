@@ -4,6 +4,8 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
+
+
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'language' => 'ru-RU',
@@ -18,6 +20,20 @@ $config = [
         ],
     ],
     'components' => [
+
+        'assetManager' => [
+            'bundles' => [
+                'yii\web\JqueryAsset' => [
+                    'sourcePath' => null,
+                    'basePath' => '@webroot',
+                    'baseUrl' => '@web',
+                    'js' => [
+                        'js/jquery-3.3.1.js',
+                    ]
+                ],
+            ],
+        ],
+
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '9B6dAj2p_jkISjjb73R1PuEVD5g5y0ei',

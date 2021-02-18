@@ -1,5 +1,9 @@
 <?php
 
+$this->registerJsFile('/owl/owl.carousel.min.js', [
+    'depends' => \yii\web\JqueryAsset::class,
+]);
+
 $this->registerJsFile('/js/scripts.js', [
     'depends' => \yii\web\JqueryAsset::class,
 ]);
@@ -29,7 +33,7 @@ $this->registerJsFile('/js/scripts.js', [
             партнерство</h1>
         <button>
             Стати партнером
-            <img src="../web/images/arrow-white.svg" alt="">
+            <img src="/images/arrow-white.svg" alt="">
         </button>
     </div>
 </section>
@@ -49,7 +53,7 @@ $this->registerJsFile('/js/scripts.js', [
             </p>
             <a href="company.html">
                 Більше про компанію
-                <img src="../web/images/arrow-blue.svg" alt="">
+                <img src="/images/arrow-blue.svg" alt="">
             </a>
         </div>
         <div class="sect-2-right">
@@ -72,14 +76,14 @@ $this->registerJsFile('/js/scripts.js', [
                 Новое административное здание АО SEB bankas ул. Р.Баравико, Вильнюс, 2020, Литва
                 <a href="projects.html" class="project-button">
                     Детальніше
-                    <img src="../web/images/arrow-white.svg" alt="">
+                    <img src="/images/arrow-white.svg" alt="">
                 </a>
             </div>
             <div class="sect-3-item">
                 Завод Oреон Глобал ПЭТ, Клайпеда, Литва, 2014
                 <a href="projects.html" class="project-button">
                     Детальніше
-                    <img src="../web/images/arrow-white.svg" alt="">
+                    <img src="/images/arrow-white.svg" alt="">
                 </a>
             </div>
         </div>
@@ -89,14 +93,14 @@ $this->registerJsFile('/js/scripts.js', [
                 Отель „Hilton Garden Inn“, Вильнюс, 2019
                 <a href="projects.html" class="project-button-img">
                     Детальніше
-                    <img src="../web/images/arrow-white.svg" alt="">
+                    <img src="/images/arrow-white.svg" alt="">
                 </a>
             </div>
             <div class="sect-3-item">
                 Snow Arena, Друскининкай, Литва, 2011
                 <a href="projects.html" class="project-button">
                     Детальніше
-                    <img src="../web/images/arrow-white.svg" alt="">
+                    <img src="/images/arrow-white.svg" alt="">
                 </a>
             </div>
         </div>
@@ -105,7 +109,7 @@ $this->registerJsFile('/js/scripts.js', [
     <div class="block">
         <a href="projects.html" class="sect-3-but">
             Більше проектів
-            <img src="../web/images/arrow-white.svg" alt="">
+            <img src="/images/arrow-white.svg" alt="">
         </a>
     </div>
 </section>
@@ -118,7 +122,7 @@ $this->registerJsFile('/js/scripts.js', [
         <p>Досвід Comfort Heat та високі стандарти компанії є міцною основою в реалізації проектів будь-якої складності.</p>
         <a href="#" class="project-button">
             Стати партнером
-            <img src="../web/images/arrow-blue.svg" alt="">
+            <img src="/images/arrow-blue.svg" alt="">
         </a>
     </div>
 </section>

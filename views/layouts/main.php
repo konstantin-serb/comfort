@@ -1,15 +1,19 @@
 <?php
-
-/* @var $this \yii\web\View */
-/* @var $content string */
+/**
+ *
+ */
 
 use yii\helpers\Html;
 use app\assets\AppComfortAsset;
 use yii\helpers\Url;
-use yii\web\JqueryAsset;
+use app\models\Mysite;
+use app\models\Category;
+use app\models\Subcategory;
 
 AppComfortAsset::register($this);
 
+$site = Mysite::findOne(1);
+$category = Category::find()->all();
 
 ?>
 <?php $this->beginPage() ?>
@@ -137,22 +141,24 @@ AppComfortAsset::register($this);
                 </label>
             </form>
         </div>
+
         <a href="<?=Url::to(['news'])?>">Новини</a>
-        <a href="service.html">Сервіс та обслуговування</a>
-        <a href="techinfo.html">Технічна інформація</a>
-        <a href="designers.html">Дизайнерам та архітекторам</a>
-        <a href="company.html">Компанія</a>
+        <a href="<?=Url::to(['service'])?>">Сервіс та обслуговування</a>
+        <a href="<?=Url::to(['techinfo'])?>">Технічна інформація</a>
+        <a href="<?=Url::to(['designers'])?>">Дизайнерам та архітекторам</a>
+        <a href="<?=Url::to(['about'])?>">Компанія</a>
+        <a href="<?=Url::to(['search'])?>">search</a>
     </div>
     <div class="burger-menu-bottom">
         <div class="d-flex">
             <div class="burger-menu-bottom-links1">
-                <a href="tel:+380967246400">
+                <a href="tel:<?=$site->tel_kyiv?>>">
                     <img src="images/kyivstar.svg" alt="">
-                    +38 096 724 64 00
+                    <?=$site->tel_kyiv?>
                 </a><br>
-                <a href="tel:+380997246400">
+                <a href="tel:<?=$site->tel_voda?>">
                     <img src="images/vodafone.svg" alt="">
-                    +38 099 724 64 00
+                    <?=$site->tel_voda?>
                 </a>
             </div>
             <div class="burger-menu-bottom-links2">
@@ -189,38 +195,13 @@ AppComfortAsset::register($this);
     <div class="catalog" id="catalog">
         <div class="d-flex">
             <div class="catalog-left">
-                <button>
-                    Тепла підлога
+                <?php foreach($category as $item):?>
+                <button id="category-<?=$item->id?>">
+                    <?=$item->title?>
                     <img src="images/arrow-orange.svg" alt="">
                 </button>
-                <button>
-                    Опалення
-                    <img src="images/arrow-orange.svg" alt="">
-                </button>
-                <button>
-                    Вуличні системи
-                    <img src="images/arrow-orange.svg" alt="">
-                </button>
-                <button>
-                    Технологічний обігрів
-                    <img src="images/arrow-orange.svg" alt="">
-                </button>
-                <button>
-                    Нагрівальні мати
-                    <img src="images/arrow-orange.svg" alt="">
-                </button>
-                <button>
-                    Нагрівальні кабелі
-                    <img src="images/arrow-orange.svg" alt="">
-                </button>
-                <button>
-                    Терморегулятори
-                    <img src="images/arrow-orange.svg" alt="">
-                </button>
-                <button>
-                    Додаткове обладнання
-                    <img src="images/arrow-orange.svg" alt="">
-                </button>
+                <?php endforeach;?>
+
             </div>
             <div class="catalog-right">
                 <a href="catalog.html">
@@ -261,9 +242,9 @@ AppComfortAsset::register($this);
                 <a href="<?=Url::to(['search'])?>">search</a>
             </div>
             <div class="head-top-right">
-                <a href="#"><img src="images/fb-blue.svg" alt=""></a>
-                <a href="#"><img src="images/insta-blue.svg" alt=""></a>
-                <a href="#"><img src="images/in-blue.svg" alt=""></a>
+                <a href="<?=$site->fb?>"><img src="images/fb-blue.svg" alt=""></a>
+                <a href="<?=$site->insta?>"><img src="images/insta-blue.svg" alt=""></a>
+                <a href="<?=$site->in?>"><img src="images/in-blue.svg" alt=""></a>
             </div>
         </div>
 
@@ -282,18 +263,18 @@ AppComfortAsset::register($this);
                     </div>
                 </a>
                 <div class="d-flex head-phones aic">
-                    <a href="tel:+380967246400">
+                    <a href="tel:<?=$site->tel_kyiv?>">
                         <img src="images/kyivstar.svg" alt="">
-                        +38 096 724 64 00
+                        <?=$site->tel_kyiv?>
                     </a>
-                    <a href="tel:+380997246400">
+                    <a href="tel:<?=$site->tel_voda?>">
                         <img src="images/vodafone.svg" alt="">
-                        +38 099 724 64 00
+                        <?=$site->tel_voda?>
                     </a>
                 </div>
                 <div class="d-flex head-info">
-                    <a href="mailto:office@comfortheat.kiev.ua">office@comfortheat.kiev.ua</a>
-                    <div>м. Київ, вул. В. Хвойки, 10, оф. 3</div>
+                    <a href="mailto:<?=$site->email?>"><?=$site->email?></a>
+                    <div><?=$site->address?></div>
                 </div>
             </div>
             <div class="d-flex">
@@ -313,13 +294,13 @@ AppComfortAsset::register($this);
 
     <div class="block header-mr">
         <div class="head-mr-top d-flex">
-            <a href="tel:+380967246400">
+            <a href="tel:<?=$site->tel_kyiv?>">
                 <img src="images/kyivstar.svg" alt="">
-                +38 096 724 64 00
+                <?=$site->tel_kyiv?>
             </a>
-            <a href="tel:+380997246400">
+            <a href="tel:<?=$site->tel_voda?>">
                 <img src="images/vodafone.svg" alt="">
-                +38 099 724 64 00
+                <?=$site->tel_voda?>
             </a>
         </div>
         <div class="head-mr-bottom d-flex jcsb aic">
@@ -370,32 +351,33 @@ AppComfortAsset::register($this);
                     <img src="images/logo-foot.svg" alt="">
                 </div>
                 <h6>Контакти</h6>
-                <p>м. Київ, вул. В. Хвойки, 10, оф. 3</p>
-                <a href="tel:+380967246400">
+                <p><?=$site->address?></p>
+                <a href="tel:<?=$site->tel_kyiv?>">
                     <img src="images/kyivstar.svg" alt="">
-                    +38 096 724 64 00
+                    <?=$site->tel_kyiv?>
                 </a>
-                <a href="tel:+380997246400">
+                <a href="tel:<?=$site->tel_voda?>">
                     <img src="images/vodafone.svg" alt="">
-                    +38 099 724 64 00
+                    <?=$site->tel_voda?>
                 </a>
-                <a href="tel:+380937246400">
+                <a href="tel:<?=$site->tel_life?>">
                     <img src="images/lifecell.svg" alt="">
-                    +38 093 724 64 00
+                    <?=$site->tel_life?>
                 </a>
-                <a href="mailto:office@comfortheat.kiev.ua" class="foot-mail">office@comfortheat.kiev.ua
+                <a href="mailto:<?=$site->email?>" class="foot-mail"><?=$site->email?>
                 </a>
                 <div class="d-flex foot-social">
-                    <a href="#"><img src="images/fb-white.svg" alt=""></a>
-                    <a href="#"><img src="images/insta-white.svg" alt=""></a>
-                    <a href="#"><img src="images/in-white.svg" alt=""></a>
+                    <a href="<?=$site->fb?>"><img src="images/fb-white.svg" alt=""></a>
+                    <a href="<?=$site->insta?>"><img src="images/insta-white.svg" alt=""></a>
+                    <a href="<?=$site->in?>"><img src="images/in-white.svg" alt=""></a>
                 </div>
                 <div class="d-flex foot-links">
-                    <a href="news.html">Новини</a>
-                    <a href="service.html">Сервіс та обслуговування</a>
-                    <a href="techinfo.html">Технічна інформація</a>
-                    <a href="designers.html">Дизайнерам та архітекторам</a>
-                    <a href="company.html">Компанія</a>
+                    <a href="<?=Url::to(['news'])?>">Новини</a>
+                    <a href="<?=Url::to(['service'])?>">Сервіс та обслуговування</a>
+                    <a href="<?=Url::to(['techinfo'])?>">Технічна інформація</a>
+                    <a href="<?=Url::to(['designers'])?>">Дизайнерам та архітекторам</a>
+                    <a href="<?=Url::to(['about'])?>">Компанія</a>
+
                 </div>
             </div>
         </div>
