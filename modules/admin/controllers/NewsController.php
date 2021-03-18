@@ -115,6 +115,7 @@ class NewsController extends Controller
             if (Storage::clean($news->image) && Storage::clean($news->mini)) {
                 $news->image = null;
                 $news->mini = null;
+                $news->type_view = News::WITHOUT_IMAGE;
                 if($news->save()) {
                     return $this->redirect(['view', 'id' => $id]);
                 }

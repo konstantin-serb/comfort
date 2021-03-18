@@ -42,10 +42,12 @@ use yii\widgets\ActiveForm;
         0 => 'Не видно на сайте',
     ]) ?>
 
+    <?php if($project->image):?>
     <?= $form->field($model, 'type_view')->dropDownList([
         9 => 'Тип показа без изображения',
         10 => 'Тип показа с изображением',
     ]) ?>
+    <?php endif;?>
 
     <div class="form-group">
         <?= Html::submitButton('Применить изменения', ['class' => 'btn btn-success']) ?>

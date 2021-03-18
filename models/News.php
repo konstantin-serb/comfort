@@ -23,6 +23,11 @@ use Yii;
  */
 class News extends \yii\db\ActiveRecord
 {
+    const STATUS_VISIBLE = 1;
+    const STATUS_INVISIBLE = 0;
+    const WITH_IMAGE = 10;
+    const WITHOUT_IMAGE = 9;
+
     /**
      * {@inheritdoc}
      */
@@ -63,5 +68,20 @@ class News extends \yii\db\ActiveRecord
             'user_update' => 'User Update',
             'type_view' => 'Type View',
         ];
+    }
+
+    public function getMini()
+    {
+        if ($this->mini) {
+            return '/uploads/' . $this->mini;
+        }
+    }
+
+
+    public function getImage()
+    {
+        if ($this->mini) {
+            return '/uploads/' . $this->image;
+        }
     }
 }

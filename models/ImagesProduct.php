@@ -47,4 +47,24 @@ class ImagesProduct extends \yii\db\ActiveRecord
             'sort' => 'Sort',
         ];
     }
+
+
+    public function getMini()
+    {
+        if ($this->mini) {
+            return '/uploads/' . $this->mini;
+        } else {
+            return '/uploads/no-image.jpg';
+        }
+    }
+
+
+    public function getImage()
+    {
+        if ($this->mini) {
+            return '/uploads/' . $this->image;
+        } else {
+            return '/uploads/no-image.jpg';
+        }
+    }
 }

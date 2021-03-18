@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'title',
+            'description:html',
 //            'slug',
             [
                 'attribute' => 'category_id',
@@ -39,6 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->getCategoryName();
                 }
             ],
+
             'order',
         ],
     ]) ?>

@@ -51,3 +51,41 @@
     margin-bottom: 1em;
     padding-right: 0.5em;
 }
+
+
+.catalog-cart p span.red-color,
+ .catalog-cart p img{
+    color: red;
+}
+
+
+.search .catalog-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: url(../images/close.svg);
+    cursor: pointer;
+}
+
+.search-view {
+    width: 80%;
+    margin: 80px auto;
+    background: #DFF1FD;
+    border-radius: 25px;
+    padding:1em;
+    /* display: none; */
+}
+
+p.cart-link a {
+    font-size: 1.5em;
+}
+
+.image {
+    width: 200px;
+}
+
+.create-block img{
+    max-width: 100%;
+}

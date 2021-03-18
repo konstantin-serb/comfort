@@ -10,6 +10,7 @@ use Yii;
  *
  * @property int $id
  * @property string|null $title
+ * @property string|null $description
  * @property string|null $slug
  * @property int|null $category_id
  * @property int|null $order
@@ -33,6 +34,7 @@ class Subcategory extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Название',
+            'description' => 'Описание',
             'slug' => 'Slug',
             'category_id' => 'Родительская категория',
             'order' => 'Порядок',

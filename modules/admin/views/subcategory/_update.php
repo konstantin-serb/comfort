@@ -14,12 +14,14 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'description')->textarea(['row' => 5]) ?>
+
     <?= $form->field($model, 'categoryId')->dropDownList($categoryArray) ?>
 
     <?= $form->field($model, 'order')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Применить изменения', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

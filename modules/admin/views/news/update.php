@@ -20,6 +20,7 @@ $model->status = $news->status;
 
     <?= $this->render('_update_form', [
         'model' => $model,
+        'news' => $news,
     ]) ?>
 
 </div>

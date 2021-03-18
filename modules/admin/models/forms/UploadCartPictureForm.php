@@ -20,7 +20,8 @@ class UploadCartPictureForm extends Model
                 'extensions' => ['jpg', 'png'],
                 'checkExtensionByMimeType' => true,
             ],
-            [['cartId'], 'integer']
+            [['cartId'], 'integer'],
+            [['image'], 'required'],
         ];
     }
 

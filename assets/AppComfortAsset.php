@@ -37,6 +37,7 @@ class AppComfortAsset extends AssetBundle
         'css/media.css',
 
         'css/site.css',
+        'css/kot-style.css',
     ];
     public $js = [
     ];

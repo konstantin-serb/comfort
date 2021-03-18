@@ -20,7 +20,8 @@ class UploadNewsPictureForm extends Model
                 'extensions' => ['jpg', 'png'],
                 'checkExtensionByMimeType' => true,
             ],
-            [['newsId'], 'integer']
+            [['newsId'], 'integer'],
+            [['image'], 'required'],
         ];
     }
 

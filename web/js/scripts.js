@@ -22,6 +22,11 @@ $('#catalog-close').click(function(){
     $('#modal-bcg').css('transform','scaleY(0)');
 });
 
+$('#catalog-close1').click(function(){
+  $('#catalog').css('display','none');
+    $('#modal-bcg').css('transform','scaleY(0)');
+});
+
 // Окно каталог среднее 
 
 $('#catalog-button-mr').click(function(){
@@ -228,38 +233,112 @@ $(window).resize(function(){
 
 
 $('#catalog-cart-img-small-1').click(function(){
-    $('#catalog-cart-img-big').attr( 'src', 'images/img4.svg' );
-    $('#catalog-cart-item-h2').html('Нагрівальний кабель DEVIflex');
-    $('#catalog-cart-item-h3').html('3525 ₴');
-    $('#catalog-cart-item-p1').html('Модель: DEVIflex');
+
+  var image = $('#catalog-cart-img-small-1').attr('data-id');
+  console.log(image);
+    $('#catalog-cart-img-big').attr( 'src', image );
+    // $('#catalog-cart-item-h2').html('Нагрівальний кабель DEVIflex');
+    // $('#catalog-cart-item-h3').html('3525 ₴');
+    // $('#catalog-cart-item-p1').html('Модель: DEVIflex');
 });
 
 $('#catalog-cart-img-small-2').click(function(){
-    $('#catalog-cart-img-big').attr( 'src', 'images/img5.svg' );
-    $('#catalog-cart-item-h2').html('Тонкий нагрівальний кабель CTAV-18 260W 14м');
-    $('#catalog-cart-item-h3').html('4326 ₴');
-    $('#catalog-cart-item-p1').html('Модель: CTAV-18');
+    var image = $('#catalog-cart-img-small-2').attr('data-id');
+  console.log(image);
+    $('#catalog-cart-img-big').attr( 'src', image );
+    // $('#catalog-cart-item-h2').html('Тонкий нагрівальний кабель CTAV-18 260W 14м');
+    // $('#catalog-cart-item-h3').html('4326 ₴');
+    // $('#catalog-cart-item-p1').html('Модель: CTAV-18');
 });
 
 $('#catalog-cart-img-small-3').click(function(){
-    $('#catalog-cart-img-big').attr( 'src', 'images/result-img.svg' );
-    $('#catalog-cart-item-h2').html('Нагрівальний кабель CTAСV-30 195W 7м');
-    $('#catalog-cart-item-h3').html('2193 ₴');
-    $('#catalog-cart-item-p1').html('Модель: CTACV-30');
+    var image = $('#catalog-cart-img-small-3').attr('data-id');
+  console.log(image);
+    $('#catalog-cart-img-big').attr( 'src', image );
+    // $('#catalog-cart-item-h2').html('Нагрівальний кабель CTAСV-30 195W 7м');
+    // $('#catalog-cart-item-h3').html('2193 ₴');
+    // $('#catalog-cart-item-p1').html('Модель: CTACV-30');
 });
 
+$('#catalog-cart-img-small-4').click(function(){
+    var image = $('#catalog-cart-img-small-4').attr('data-id');
+  console.log(image);
+    $('#catalog-cart-img-big').attr( 'src', image );
+    // $('#catalog-cart-item-h2').html('Нагрівальний кабель CTAСV-30 195W 7м');
+    // $('#catalog-cart-item-h3').html('2193 ₴');
+    // $('#catalog-cart-item-p1').html('Модель: CTACV-30');
+});
+
+$('#catalog-cart-img-small-5').click(function(){
+    var image = $('#catalog-cart-img-small-5').attr('data-id');
+  console.log(image);
+    $('#catalog-cart-img-big').attr( 'src', image );
+    // $('#catalog-cart-item-h2').html('Нагрівальний кабель CTAСV-30 195W 7м');
+    // $('#catalog-cart-item-h3').html('2193 ₴');
+    // $('#catalog-cart-item-p1').html('Модель: CTACV-30');
+});
+
+$('#catalog-cart-img-small-6').click(function(){
+    var image = $('#catalog-cart-img-small-6').attr('data-id');
+  console.log(image);
+    $('#catalog-cart-img-big').attr( 'src', image );
+    // $('#catalog-cart-item-h2').html('Нагрівальний кабель CTAСV-30 195W 7м');
+    // $('#catalog-cart-item-h3').html('2193 ₴');
+    // $('#catalog-cart-item-p1').html('Модель: CTACV-30');
+});
+
+$('#catalog-cart-img-small-7').click(function(){
+    var image = $('#catalog-cart-img-small-7').attr('data-id');
+  console.log(image);
+    $('#catalog-cart-img-big').attr( 'src', image );
+    // $('#catalog-cart-item-h2').html('Нагрівальний кабель CTAСV-30 195W 7м');
+    // $('#catalog-cart-item-h3').html('2193 ₴');
+    // $('#catalog-cart-item-p1').html('Модель: CTACV-30');
+});
+
+$('#catalog-cart-img-small-8').click(function(){
+    var image = $('#catalog-cart-img-small-8').attr('data-id');
+  console.log(image);
+    $('#catalog-cart-img-big').attr( 'src', image );
+    // $('#catalog-cart-item-h2').html('Нагрівальний кабель CTAСV-30 195W 7м');
+    // $('#catalog-cart-item-h3').html('2193 ₴');
+    // $('#catalog-cart-item-p1').html('Модель: CTACV-30');
+});
+
+$('#catalog-cart-img-small-9').click(function(){
+    var image = $('#catalog-cart-img-small-9').attr('data-id');
+  console.log(image);
+    $('#catalog-cart-img-big').attr( 'src', image );
+    // $('#catalog-cart-item-h2').html('Нагрівальний кабель CTAСV-30 195W 7м');
+    // $('#catalog-cart-item-h3').html('2193 ₴');
+    // $('#catalog-cart-item-p1').html('Модель: CTACV-30');
+});
+
+$('#catalog-cart-img-small-10').click(function(){
+    var image = $('#catalog-cart-img-small-10').attr('data-id');
+  console.log(image);
+    $('#catalog-cart-img-big').attr( 'src', image );
+    // $('#catalog-cart-item-h2').html('Нагрівальний кабель CTAСV-30 195W 7м');
+    // $('#catalog-cart-item-h3').html('2193 ₴');
+    // $('#catalog-cart-item-p1').html('Модель: CTACV-30');
+});
+
+
+
 $('#catalog-cart-info-buttons-1').click(function(){
+  var content = $('#catalog-cart-info-buttons-1').attr('data-id');
     $('#catalog-cart-info-buttons-1').removeClass('catalog-cart-info-buttons-off').addClass('catalog-cart-info-buttons-on');
     $('#catalog-cart-info-buttons-2').removeClass('catalog-cart-info-buttons-on').addClass('catalog-cart-info-buttons-off');
-    $('#catalog-cart-info-text-1').html("Двожильний нагрівальний кабель CTACV-30 потужністю 30 Вт/м застосовується для обігріву елементів покрівлі, жолобів, водостоків, водоприймальних воронок для забезпечення стоку талої води в зимовий період, а також для захисту від намерзання снігу та льоду на вуличних майданчиках (балконах, терасах, сходах, тротуарних доріжках, пандусах, під'їздних шляхах, мостах та ін.).");
-    $('#catalog-cart-info-text-2').html("Нагрівальний кабель CTACV-30 має подвійну посилену ізоляцію (клас М2), екранований алюмінієвою фольгою та лудженою міддю (з функцією пам'яті), з фторполімерною ізоляцією провідників і зовнішньою поліпропіленовою оболонкою. Зовнішня ізоляція стійка до ультрафіолетового випромінювання.")
+    $('#catalog-cart-info-text-1').html(content);
+    $('#catalog-cart-info-text-2').html(content)
 });
 
 $('#catalog-cart-info-buttons-2').click(function(){
+  var content = $('#catalog-cart-info-buttons-2').attr('data-id');
     $('#catalog-cart-info-buttons-2').removeClass('catalog-cart-info-buttons-off').addClass('catalog-cart-info-buttons-on');
     $('#catalog-cart-info-buttons-1').removeClass('catalog-cart-info-buttons-on').addClass('catalog-cart-info-buttons-off');    
-    $('#catalog-cart-info-text-2').html("Двожильний нагрівальний кабель CTACV-30 потужністю 30 Вт/м застосовується для обігріву елементів покрівлі, жолобів, водостоків, водоприймальних воронок для забезпечення стоку талої води в зимовий період, а також для захисту від намерзання снігу та льоду на вуличних майданчиках (балконах, терасах, сходах, тротуарних доріжках, пандусах, під'їздних шляхах, мостах та ін.).");
-    $('#catalog-cart-info-text-1').html("Нагрівальний кабель CTACV-30 має подвійну посилену ізоляцію (клас М2), екранований алюмінієвою фольгою та лудженою міддю (з функцією пам'яті), з фторполімерною ізоляцією провідників і зовнішньою поліпропіленовою оболонкою. Зовнішня ізоляція стійка до ультрафіолетового випромінювання.")
+    $('#catalog-cart-info-text-2').html(content);
+    $('#catalog-cart-info-text-1').html(content)
 });
 
 // Окно catalog-cart-slider 

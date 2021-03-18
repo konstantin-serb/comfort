@@ -46,7 +46,12 @@ AppAsset::register($this);
             ],
             [
                 'label' => 'Сайт',
-                'url' => ['/admin/mysite/view', 'id' => 1],
+                // 'url' => ['/admin/mysite/view', 'id' => 1],
+                'items' => [
+                    ['label' => 'Основноей контент сайта', 'url' => ['/admin/mysite/view', 'id' => 1]],
+                    ['label' => 'Статьи', 'url' => ['/admin/article']],
+
+                ],
 
             ],
             [

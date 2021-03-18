@@ -19,16 +19,17 @@ class CreateCartForm extends Model
     public $manufacturer;
     public $availability;
     public $subcategory_id;
+    public $recommend;
 
     public function rules()
     {
         return [
-            [['title'], 'required'],
+            [['title', 'text', 'info', 'price', 'manufacturer', 'availability','subcategory_id'], 'required'],
             [['title', 'model'], 'string', 'length' => [3,255]],
             [['description'], 'string', 'length' => [3, 500]],
             [['text', 'info'], 'string', 'min' => 2],
             [['price'], 'safe'],
-            [['manufacturer', 'availability', 'subcategory_id'], 'integer']
+            [['manufacturer', 'recommend', 'availability', 'subcategory_id'], 'integer']
         ];
     }
 
@@ -52,6 +53,7 @@ class CreateCartForm extends Model
             'time_update' => 'Time Update',
             'user_create' => 'User Create',
             'user_update' => 'User Update',
+            'recommend' => 'Рекомендованные',
         ];
     }
 

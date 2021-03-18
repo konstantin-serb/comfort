@@ -5,10 +5,11 @@
  */
 
 use yii\helpers\Html;
+use app\components\StringHelper;
 
-$this->title = 'Редактирование проекта: ' . $model->title;
+$this->title = 'Редактирование проекта: ' . $project->title;
 $this->params['breadcrumbs'][] = ['label' => 'Проекты', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => StringHelper::getShort($project->title, 10), 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Редактирование проекта';
 
 $model->title = $project->title;
@@ -23,6 +24,7 @@ $model->status = $project->status;
 
     <?= $this->render('_update_form', [
         'model' => $model,
+        'project' => $project,
     ]) ?>
 
 </div>

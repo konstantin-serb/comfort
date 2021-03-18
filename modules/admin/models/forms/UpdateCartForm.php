@@ -21,16 +21,17 @@ class UpdateCartForm extends Model
     public $availability;
     public $subcategory_id;
     public $status;
+    public $recommend;
 
     public function rules()
     {
         return [
-            [['title'], 'required'],
+            [['title', 'text', 'info', 'price', 'manufacturer', 'availability','subcategory_id', 'status'], 'required'],
             [['title', 'model'], 'string', 'length' => [3,255]],
             [['description'], 'string', 'length' => [3, 500]],
             [['text', 'info'], 'string', 'min' => 2],
             [['price'], 'safe'],
-            [['id','manufacturer', 'availability', 'subcategory_id' , 'status'], 'integer']
+            [['id','manufacturer', 'recommend', 'availability', 'subcategory_id' , 'status'], 'integer']
         ];
     }
 
@@ -57,6 +58,7 @@ class UpdateCartForm extends Model
             'time_update' => 'Time Update',
             'user_create' => 'User Create',
             'user_update' => 'User Update',
+            'recommend' => 'Рекомендованные',
         ];
     }
 
@@ -78,6 +80,7 @@ class UpdateCartForm extends Model
             $cart->user_update = Yii::$app->user->identity->getId();
             $cart->time_update = time();
             $cart->status = $this->status;
+            $cart->recommend = $this->recommend;
 
             if ($cart->save()) {
                 return true;

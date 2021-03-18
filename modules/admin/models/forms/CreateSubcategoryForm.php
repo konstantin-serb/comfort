@@ -11,15 +11,17 @@ class CreateSubcategoryForm extends Model
 {
     public $title;
     public $categoryId;
+    public $description;
 
 
     public function rules()
     {
         return [
-            [['title', 'categoryId'], 'required'],
+            [['title', 'categoryId', 'description'], 'required'],
             [['title'], 'unique', 'targetClass' => Subcategory::class],
             [['title'], 'string', 'length' => [3,255]],
             [['categoryId'], 'integer'],
+            [['description'], 'string'],
         ];
     }
 
@@ -29,6 +31,7 @@ class CreateSubcategoryForm extends Model
         if($this->validate()) {
             $cat = new Subcategory();
             $cat->title = $this->title;
+            $cat->description = $this->description;
             $cat->slug = $cat->createSlug($this->title);
 
             $count = 1;

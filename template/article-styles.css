@@ -1,0 +1,148 @@
+
+/***** Артикль *****/
+
+.article {
+	padding: 40px 0 80px;
+	border-bottom: 1px solid #007AC9;
+}
+
+.article .block div {
+	color: #202023;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.article a {	
+	color: #007AC9;
+}
+
+.article h1 {
+	font-size: 50px;
+	font-weight: 700;
+	color: #00407A;
+}
+
+.article img {
+	width: 100%;
+	margin-bottom: 30px;
+}
+
+.article p {
+	font-size: 20px;
+	line-height: 36px;
+}
+
+.article h3 {
+	font-size: 24px;
+	font-weight: 700;
+	color: #00407A;
+	padding: 40px 0 20px;
+}
+
+.article ul {
+	list-style-image: url(images/check2.svg);
+}
+
+.article li {
+	font-size: 16px;
+	margin: 20px 0;
+}
+
+/***** Артикль-док *****/
+
+.article-doc {
+	padding: 40px 0 80px;
+	border-bottom: 1px solid #007AC9;
+}
+
+.article-doc .block {
+	flex-wrap: wrap;
+}
+
+.article-doc .block h3 {
+	font-size: 24px;
+	font-weight: 700;
+	color: #00407A;
+	padding: 40px 0 20px;
+}
+
+.article-doc .article-doc-item {
+	border: 1px solid #BDE3FB;
+	border-radius: 4px;
+	padding: 20px;	
+	margin-bottom: 40px;
+	width: 45%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.article-doc .article-doc-item h2 {
+    color: #202023;
+	font-size: 36px;
+	font-weight: 700;
+	white-space: normal;
+}
+
+.article-doc .article-doc-item p {
+    font-size: 16px;
+	font-weight: 400;
+	color: #202023;
+}
+
+.article-doc .article-doc-item a {
+    margin: 25px 0 0 auto;
+	font-weight: 600;
+	font-size: 16px;
+	background: transparent;
+	border: 1px solid transparent;
+	display: flex;
+	align-items: center;
+	width: max-content;
+	padding: 5px 10px;
+	border-radius: 17px;
+}
+
+.article-doc .article-doc-item a:hover {
+	background: #fff;
+	color: #007AC9;
+	border: 1px solid #BDE3FB;
+}
+
+.article-doc .article-doc-item img {
+	margin-left: 15px;
+	width: 16px;
+	height: 16px;
+}
+
+@media  (max-width: 768px) {
+
+	.article-doc .article-doc-item {
+		width: 100%;
+	}
+
+}
+
+@media  (max-width: 480px) {
+
+    .article h1 {
+    	font-size: 36px;
+    }
+
+    .article-doc {
+    	padding: 40px 0;
+    }
+
+}
+
+@media  (max-width: 320px) {
+
+    .article h1 {
+    	font-size: 24px;
+    }
+
+    .article-doc .article-doc-item h2 {
+    	font-size: 20px;
+    }
+
+}

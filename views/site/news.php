@@ -1,5 +1,13 @@
 <?php
+/**
+*@var $item \app\models\News
+*/
 
+use app\components\StringHelper;
+use yii\helpers\Url;
+use app\models\News;
+
+$this->title = 'Новини';
 
 
 $this->registerJsFile('/owl/owl.carousel.min.js', [
@@ -12,166 +20,262 @@ $this->registerJsFile('/js/scripts.js', [
 ?>
 
 <!------- Новости  ------->
+<!-- background: url(../images/img3.svg) no-repeat center center; -->
 
+<?php if($array[0]):?>
 <section class="news">
     <div class="block">
         <h1>Новини</h1>
         <div class="owl-carousel" id="owl-carousel">
             <div class="news-page d-flex jcsb" data-dot="1">
                 <div class="news-page-half">
-                    <div class="news-page-item">
-                        <h2>Переваги електричної теплої підлоги</h2>
-                        <p>Що подарують вам електричні кабельні нагрівальні системи окрім комфорту?</p>
-                        <a href="article.html">
+                    <?php foreach($array[0] as $item):?>
+                    <div class="news-page-item<?php 
+                    if($item->type_view == News::WITH_IMAGE) {
+                        echo '-img';
+                    } 
+                    ?>" <?php if($item->type_view == News::WITH_IMAGE){
+                        echo 'style="background: url('.$item->getMini().') no-repeat center center; background-size: cover;"';
+                    }
+
+                    ?>>
+                        <h2><?=$item->title?></h2>
+                        <p><?=StringHelper::getShort($item->description, 200)?></p>
+                        <a href="<?=Url::to(['/one-news', 'id'=>$item->slug])?>">
                             Читати
-                            <img src="../web/images/arrow-white.svg" alt="">
+                            <img src="/images/arrow-white.svg" alt="">
                         </a>
                     </div>
-                    <div class="news-page-item-img">
-                        <h2>Тепла підлога в квартирі</h2>
-                        <p>Електрична тепла підлога в квартирі. У яких кімнатах потрібна? Під які підлогові покриття можна встановлювати? На якому етапі краще монтувати? Вартість експлуатації</p>
-                        <a href="article.html">
-                            Читати
-                            <img src="../web/images/arrow-white.svg" alt="">
-                        </a>
-                    </div>
-                    <div class="news-page-item">
-                        <h2>Comfort FAQ - електрична тепла підлога</h2>
-                        <p>Збірник питань та відповідей, що базуються на наших знаннях та досвіді у сфері електричної теплої підлоги.</p>
-                        <a href="article.html">
-                            Читати
-                            <img src="../web/images/arrow-white.svg" alt="">
-                        </a>
-                    </div>
-                    <div class="news-page-item">
-                        <h2>Переваги електричної теплої підлоги</h2>
-                        <p>Що подарують вам електричні кабельні нагрівальні системи окрім комфорту?</p>
-                        <a href="article.html">
-                            Читати
-                            <img src="../web/images/arrow-white.svg" alt="">
-                        </a>
-                    </div>
+                    <?php endforeach;?>
                 </div>
                 <div class="news-page-half">
-                    <div class="news-page-item">
-                        <h2>Comfort FAQ - електрична тепла підлога</h2>
-                        <p>Збірник питань та відповідей, що базуються на наших знаннях та досвіді у сфері електричної теплої підлоги.</p>
-                        <a href="article.html">
+                    <?php if(!empty($array[1])):?>
+                    <?php foreach($array[1] as $item):?>
+                    <div class="news-page-item<?php 
+                    if($item->type_view == News::WITH_IMAGE) {
+                        echo '-img';
+                    } 
+                    ?>" <?php if($item->type_view == News::WITH_IMAGE){
+                        echo 'style="background: url('.$item->getMini().') no-repeat center center; background-size: cover;"';
+                    }
+
+                    ?>>
+                        <h2><?=$item->title?></h2>
+                        <p><?=StringHelper::getShort($item->description, 200)?></p>
+                        <a href="<?=Url::to(['/one-news', 'id'=>$item->slug])?>">
                             Читати
-                            <img src="../web/images/arrow-white.svg" alt="">
+                            <img src="/images/arrow-white.svg" alt="">
                         </a>
                     </div>
-                    <div class="news-page-item">
-                        <h2>Тепла підлога в квартирі</h2>
-                        <p>Електрична тепла підлога в квартирі. У яких кімнатах потрібна? Під які підлогові покриття можна встановлювати? На якому етапі краще монтувати? Вартість експлуатації</p>
-                        <a href="article.html">
-                            Читати
-                            <img src="../web/images/arrow-white.svg" alt="">
-                        </a>
-                    </div>
-                    <div class="news-page-item">
-                        <h2>Comfort FAQ - електрична тепла підлога</h2>
-                        <p>Збірник питань та відповідей, що базуються на наших знаннях та досвіді у сфері електричної теплої підлоги.</p>
-                        <a href="article.html">
-                            Читати
-                            <img src="../web/images/arrow-white.svg" alt="">
-                        </a>
-                    </div>
-                    <div class="news-page-item">
-                        <h2>Comfort FAQ - електрична тепла підлога</h2>
-                        <p>Збірник питань та відповідей, що базуються на наших знаннях та досвіді у сфері електричної теплої підлоги.</p>
-                        <a href="article.html">
-                            Читати
-                            <img src="../web/images/arrow-white.svg" alt="">
-                        </a>
-                    </div>
+                    <?php endforeach;?>
+                    <?php endif;?>
                 </div>
             </div>
+
+            <?php if(!empty($array[2])):?>
             <div class="news-page d-flex jcsb" data-dot="<span>2</span>">
                 <div class="news-page-half">
-                    <div class="news-page-item">
-                        <h2>Переваги електричної теплої підлоги</h2>
-                        <p>Що подарують вам електричні кабельні нагрівальні системи окрім комфорту?</p>
-                        <a href="article.html">
+                    <?php if(!empty($array[2])):?>
+                    <?php foreach($array[2] as $item):?>
+                    <div class="news-page-item<?php 
+                    if($item->type_view == News::WITH_IMAGE) {
+                        echo '-img';
+                    } 
+                    ?>" <?php if($item->type_view == News::WITH_IMAGE){
+                        echo 'style="background: url('.$item->getMini().') no-repeat center center; background-size: cover;"';
+                    }
+
+                    ?>>
+                        <h2><?=$item->title?></h2>
+                        <p><?=StringHelper::getShort($item->description, 200)?></p>
+                        <a href="<?=Url::to(['/one-news', 'id'=>$item->slug])?>">
                             Читати
-                            <img src="../web/images/arrow-white.svg" alt="">
+                            <img src="/images/arrow-white.svg" alt="">
                         </a>
                     </div>
-                    <div class="news-page-item">
-                        <h2>Comfort FAQ - електрична тепла підлога</h2>
-                        <p>Збірник питань та відповідей, що базуються на наших знаннях та досвіді у сфері електричної теплої підлоги.</p>
-                        <a href="article.html">
-                            Читати
-                            <img src="../web/images/arrow-white.svg" alt="">
-                        </a>
-                    </div>
-                    <div class="news-page-item">
-                        <h2>Переваги електричної теплої підлоги</h2>
-                        <p>Що подарують вам електричні кабельні нагрівальні системи окрім комфорту?</p>
-                        <a href="article.html">
-                            Читати
-                            <img src="../web/images/arrow-white.svg" alt="">
-                        </a>
-                    </div>
-                    <div class="news-page-item-img">
-                        <h2>Тепла підлога в квартирі</h2>
-                        <p>Електрична тепла підлога в квартирі. У яких кімнатах потрібна? Під які підлогові покриття можна встановлювати? На якому етапі краще монтувати? Вартість експлуатації</p>
-                        <a href="article.html">
-                            Читати
-                            <img src="../web/images/arrow-white.svg" alt="">
-                        </a>
-                    </div>
+                    <?php endforeach;?>
+
+                    <?php endif;?>
                 </div>
                 <div class="news-page-half">
-                    <div class="news-page-item">
-                        <h2>Comfort FAQ - електрична тепла підлога</h2>
-                        <p>Збірник питань та відповідей, що базуються на наших знаннях та досвіді у сфері електричної теплої підлоги.</p>
-                        <a href="article.html">
+                    <?php if(!empty($array[3])):?>
+                    <?php foreach($array[3] as $item):?>
+                    <div class="news-page-item<?php 
+                    if($item->type_view == News::WITH_IMAGE) {
+                        echo '-img';
+                    } 
+                    ?>" <?php if($item->type_view == News::WITH_IMAGE){
+                        echo 'style="background: url('.$item->getMini().') no-repeat center center; background-size: cover;"';
+                    }
+
+                    ?>>
+                        <h2><?=$item->title?></h2>
+                        <p><?=StringHelper::getShort($item->description, 200)?></p>
+                        <a href="<?=Url::to(['/one-news', 'id'=>$item->slug])?>">
                             Читати
-                            <img src="../web/images/arrow-white.svg" alt="">
+                            <img src="/images/arrow-white.svg" alt="">
                         </a>
                     </div>
-                    <div class="news-page-item">
-                        <h2>Тепла підлога в квартирі</h2>
-                        <p>Електрична тепла підлога в квартирі. У яких кімнатах потрібна? Під які підлогові покриття можна встановлювати? На якому етапі краще монтувати? Вартість експлуатації</p>
-                        <a href="article.html">
+                    <?php endforeach;?>
+                    <?php endif;?>
+                </div>
+            </div>
+            <?php endif;?>
+
+            <?php if(!empty($array[4])):?>
+            <div class="news-page d-flex jcsb" data-dot="<span>3</span>">
+                <div class="news-page-half">
+                    <?php if(!empty($array[4])):?>
+                    <?php foreach($array[4] as $item):?>
+                    <div class="news-page-item<?php 
+                    if($item->type_view == News::WITH_IMAGE) {
+                        echo '-img';
+                    } 
+                    ?>" <?php if($item->type_view == News::WITH_IMAGE){
+                        echo 'style="background: url('.$item->getMini().') no-repeat center center; background-size: cover;"';
+                    }
+
+                    ?>>
+                        <h2><?=$item->title?></h2>
+                        <p><?=StringHelper::getShort($item->description, 200)?></p>
+                        <a href="<?=Url::to(['/one-news', 'id'=>$item->slug])?>">
                             Читати
-                            <img src="../web/images/arrow-white.svg" alt="">
+                            <img src="/images/arrow-white.svg" alt="">
                         </a>
                     </div>
-                    <div class="news-page-item">
-                        <h2>Comfort FAQ - електрична тепла підлога</h2>
-                        <p>Збірник питань та відповідей, що базуються на наших знаннях та досвіді у сфері електричної теплої підлоги.</p>
-                        <a href="article.html">
+                    <?php endforeach;?>
+                    <?php endif;?>
+                </div>
+                <div class="news-page-half">
+                    <?php if(!empty($array[5])):?>
+                    <?php foreach($array[5] as $item):?>
+                    <div class="news-page-item<?php 
+                    if($item->type_view == News::WITH_IMAGE) {
+                        echo '-img';
+                    } 
+                    ?>" <?php if($item->type_view == News::WITH_IMAGE){
+                        echo 'style="background: url('.$item->getMini().') no-repeat center center; background-size: cover;"';
+                    }
+
+                    ?>>
+                        <h2><?=$item->title?></h2>
+                        <p><?=StringHelper::getShort($item->description, 200)?></p>
+                        <a href="<?=Url::to(['/one-news', 'id'=>$item->slug])?>">
                             Читати
-                            <img src="../web/images/arrow-white.svg" alt="">
+                            <img src="/images/arrow-white.svg" alt="">
                         </a>
                     </div>
-                    <div class="news-page-item">
-                        <h2>Comfort FAQ - електрична тепла підлога</h2>
-                        <p>Збірник питань та відповідей, що базуються на наших знаннях та досвіді у сфері електричної теплої підлоги.</p>
-                        <a href="article.html">
+                    <?php endforeach;?>
+                    <?php endif;?>
+                </div>
+            </div>
+            <?php endif;?>
+
+            <?php if(!empty($array[6])):?>
+            <div class="news-page d-flex jcsb" data-dot="<span>4</span>">
+                <div class="news-page-half">
+                    <?php if(!empty($array[6])):?>
+                    <?php foreach($array[6] as $item):?>
+                    <div class="news-page-item<?php 
+                    if($item->type_view == News::WITH_IMAGE) {
+                        echo '-img';
+                    } 
+                    ?>" <?php if($item->type_view == News::WITH_IMAGE){
+                        echo 'style="background: url('.$item->getMini().') no-repeat center center; background-size: cover;"';
+                    }
+
+                    ?>>
+                        <h2><?=$item->title?></h2>
+                        <p><?=StringHelper::getShort($item->description, 200)?></p>
+                        <a href="<?=Url::to(['/one-news', 'id'=>$item->slug])?>">
                             Читати
-                            <img src="../web/images/arrow-white.svg" alt="">
+                            <img src="/images/arrow-white.svg" alt="">
                         </a>
+                    </div>
+                    <?php endforeach;?>
+                    <?php endif;?>
+                </div>
+                <div class="news-page-half">
+                    <?php if(!empty($array[7])):?>
+                    <?php foreach($array[7] as $item):?>
+                    <div class="news-page-item<?php 
+                    if($item->type_view == News::WITH_IMAGE) {
+                        echo '-img';
+                    } 
+                    ?>" <?php if($item->type_view == News::WITH_IMAGE){
+                        echo 'style="background: url('.$item->getMini().') no-repeat center center; background-size: cover;"';
+                    }
+
+                    ?>>
+                        <h2><?=$item->title?></h2>
+                        <p><?=StringHelper::getShort($item->description, 200)?></p>
+                        <a href="<?=Url::to(['/one-news', 'id'=>$item->slug])?>">
+                            Читати
+                            <img src="/images/arrow-white.svg" alt="">
+                        </a>
+                    </div>
+                    <?php endforeach;?>
+                    <?php endif;?>
+                </div>
+            </div>
+            <?php endif;?>
+
+            <?php if(!empty($array[8])):?>
+            <div class="news-page d-flex jcsb" data-dot="<span>5</span>">
+                <div class="news-page-half">
+                    <?php if(!empty($array[8])):?>
+                    <?php foreach($array[8] as $item):?>
+                    <div class="news-page-item<?php 
+                    if($item->type_view == News::WITH_IMAGE) {
+                        echo '-img';
+                    } 
+                    ?>" <?php if($item->type_view == News::WITH_IMAGE){
+                        echo 'style="background: url('.$item->getMini().') no-repeat center center; background-size: cover;"';
+                    }
+
+                    ?>>
+                        <h2><?=$item->title?></h2>
+                        <p><?=StringHelper::getShort($item->description, 200)?></p>
+                        <a href="<?=Url::to(['/one-news', 'id'=>$item->slug])?>">
+                            Читати
+                            <img src="/images/arrow-white.svg" alt="">
+                        </a>
+                    </div>
+                    <?php endforeach;?>
+                    <?php endif;?>
+                </div>
+                <div class="news-page-half">
+                    <?php if(!empty($array[9])):?>
+                    <?php foreach($array[9] as $item):?>
+                    <div class="news-page-item<?php 
+                    if($item->type_view == News::WITH_IMAGE) {
+                        echo '-img';
+                    } 
+                    ?>" <?php if($item->type_view == News::WITH_IMAGE){
+                        echo 'style="background: url('.$item->getMini().') no-repeat center center; background-size: cover;"';
+                    }
+
+                    ?>>
+                        <h2><?=$item->title?></h2>
+                        <p><?=StringHelper::getShort($item->description, 200)?></p>
+                        <a href="<?=Url::to(['/one-news', 'id'=>$item->slug])?>">
+                            Читати
+                            <img src="/images/arrow-white.svg" alt="">
+                        </a>
+                    </div>
+                    <?php endforeach;?>
+                    <?php endif;?>
                     </div>
                 </div>
             </div>
+            <?php endif;?>
         </div>
     </div>
 </section>
+<?php endif;?>
 
 <!------- Секция 4 ------->
 
-<section class="sect-4">
-    <div class="block">
-        <h1>Професійне співробітництво</h1>
-        <p>Досвід Comfort Heat та високі стандарти компанії є міцною основою в реалізації проектів будь-якої складності.</p>
-        <a href="#" class="project-button">
-            Стати партнером
-            <img src="../web/images/arrow-blue.svg" alt="">
-        </a>
-    </div>
-</section>
+<?=$this->render('blocks/collaborate')?>
 
 

@@ -52,7 +52,7 @@ class ImagesProduct extends \yii\db\ActiveRecord
         if ($this->mini) {
             return '/uploads/' . $this->mini;
         } else {
-            return '/uploads/mini/no-image.jpg';
+            return '/uploads/cart/mini/no-image.jpg';
         }
     }
 
@@ -62,7 +62,7 @@ class ImagesProduct extends \yii\db\ActiveRecord
         if ($this->mini) {
             return '/uploads/' . $this->image;
         } else {
-            return '/uploads/no-image.jpg';
+            return '/uploads/cart/no-image.jpg';
         }
     }
 }

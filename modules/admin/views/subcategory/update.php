@@ -6,12 +6,13 @@
 
 use yii\helpers\Html;
 
-$this->title = 'Update Subcategory: ' . $subCat->title;
+$this->title = 'Редактировать: ' . $subCat->title;
 $this->params['breadcrumbs'][] = ['label' => 'Подкатегории', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $subCat->title, 'url' => ['view', 'id' => $subCat->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Изменить';
 
 $model->title = $subCat->title;
+$model->description = $subCat->description;
 $model->order = $subCat->order;
 $model->categoryId = $subCat->category_id;
 ?>

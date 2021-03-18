@@ -1,5 +1,7 @@
 <?php
 
+Yii::setAlias('@images', dirname(__DIR__). '/web/uploads/img/');
+
 
 function debug($string)
 {

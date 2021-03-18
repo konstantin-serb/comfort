@@ -17,7 +17,7 @@ class CreateProjectForm extends Model
     public function rules()
     {
         return [
-            [['title'], 'required'],
+            [['title', 'description', 'text', 'type_view'], 'required'],
             [['title'], 'string', 'length' => [3,255]],
             [['description'], 'string', 'length' => [3, 500]],
             [['text'], 'string', 'min' => 2],

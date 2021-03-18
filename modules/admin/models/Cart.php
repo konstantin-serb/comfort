@@ -24,6 +24,7 @@ use Yii;
  * @property int|null $time_update
  * @property int|null $user_create
  * @property int|null $user_update
+ * @property int|null $recommend
  */
 class Cart extends \yii\db\ActiveRecord
 {
@@ -48,8 +49,8 @@ class Cart extends \yii\db\ActiveRecord
     {
         return [
             [['text', 'description', 'info'], 'string'],
-            [['availability', 'subcategory_id', 'status', 'time_create', 'time_update', 'user_create', 'user_update'], 'integer'],
-            [['slug', 'title', 'model', 'manufacturer'], 'string', 'max' => 255],
+            [['availability', 'subcategory_id', 'status', 'time_create', 'time_update', 'user_create', 'recommend', 'user_update'], 'integer'],
+            [['slug', 'title',  'model', 'manufacturer'], 'string', 'max' => 255],
         ];
     }
 
@@ -75,6 +76,7 @@ class Cart extends \yii\db\ActiveRecord
             'time_update' => 'Time Update',
             'user_create' => 'User Create',
             'user_update' => 'User Update',
+            'recommend' => 'Рекомендованные',
         ];
     }
 

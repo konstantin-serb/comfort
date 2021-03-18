@@ -20,6 +20,10 @@ $config = [
         ],
     ],
     'components' => [
+        'image' => [
+                'class' => 'yii\image\ImageDriver',
+                'driver' => 'GD',  //GD or Imagick
+                ],
 
         'assetManager' => [
             'bundles' => [
@@ -71,11 +75,14 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 'news' => 'site/news',
+                'projects' => 'site/projects',
                 'service' => 'site/service',
                 'techinfo' => 'site/techinfo',
                 'designers' => 'site/designers',
                 'about' => 'site/about',
                 'search' => 'site/search',
+                'one-news' => 'site/one-news',
+                'one-project' => 'site/one-project',
             ],
         ],
 

@@ -45,4 +45,11 @@ class Category extends \yii\db\ActiveRecord
             'order' => 'Order',
         ];
     }
+
+
+    public function getSubcategories()
+    {
+        return Subcategory::find()->where(['category_id' => $this->id])->orderBy('order')->all();
+
+    }
 }

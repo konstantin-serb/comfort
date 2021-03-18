@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 
+
 /**
  * This is the model class for table "subcategory".
  *
@@ -12,6 +13,7 @@ use Yii;
  * @property string|null $slug
  * @property int|null $category_id
  * @property int|null $order
+ * @property string|null $description
  */
 class Subcategory extends \yii\db\ActiveRecord
 {
@@ -42,9 +44,13 @@ class Subcategory extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Title',
+            'description' => 'Описание',
             'slug' => 'Slug',
             'category_id' => 'Category ID',
             'order' => 'Order',
         ];
     }
+
+
+    
 }

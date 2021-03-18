@@ -5,7 +5,7 @@ use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use vova07\imperavi\Widget;
-
+use yii\helpers\Url;
 
 $this->registerJsFile('/js/back/addManufacturer.js', [
     'depends' => \yii\web\JqueryAsset::class,
@@ -61,6 +61,11 @@ $this->registerJsFile('/js/back/addSubcategory.js', [
                 ['green', '<span class="label-green">green</span>'],
                 ['blue', '<span class="label-blue">blue</span>'],
             ],
+            // 'imageUpload' => Url::to(['save-image']),
+            // 'imageManagerJson' => Url::to(['/default/images-get']),
+            // 'plugins' => [
+            // 'imagemanager',
+        // ],
         ],
     ]);
     ?>
@@ -145,6 +150,12 @@ $this->registerJsFile('/js/back/addSubcategory.js', [
     <?= $form->field($model, 'status')->dropDownList([
         Cart::STATUS_VISIBLE => 'Видно на сайте',
         Cart::STATUS_INVISIBLE => 'Не видно на сайте',
+    ]) ?>
+
+    <?= $form->field($model, 'recommend')->dropDownList([
+        
+        0 => 'Не показывать в рекомендованных',
+        1 => 'Показывать в рекомендованных',
     ]) ?>
 
     <div class="form-group">

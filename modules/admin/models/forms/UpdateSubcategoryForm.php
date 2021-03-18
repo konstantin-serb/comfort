@@ -13,6 +13,7 @@ class UpdateSubcategoryForm extends Model
     public $order;
     public $categoryId;
     public $id;
+    public $description;
 
 
     public function rules()
@@ -21,6 +22,7 @@ class UpdateSubcategoryForm extends Model
             [['title', 'id', 'categoryId'], 'required'],
             [['title'], 'string', 'length' => [3,255]],
             [['order','id', 'categoryId'], 'integer'],
+            [['description'], 'string'],
         ];
     }
 
@@ -30,6 +32,7 @@ class UpdateSubcategoryForm extends Model
         return [
             'id' => 'ID',
             'title' => 'Название',
+            'description' => 'Описание',
             'slug' => 'Slug',
             'order' => 'Порядковый номер',
             'categoryId' => 'Родительская категория',
@@ -45,6 +48,7 @@ class UpdateSubcategoryForm extends Model
             $cat->title = $this->title;
             $cat->slug = $cat->createSlug($this->title);
             $cat->order = $this->order;
+            $cat->description = $this->description;
             $cat->category_id = $this->categoryId;
 
             if ($cat->save()) {

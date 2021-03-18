@@ -20,6 +20,8 @@ $model->manufacturer = $cart->manufacturer;
 $model->availability = $cart->availability;
 $model->subcategory_id = $cart->subcategory_id;
 $model->status = $cart->status;
+$model->price = $cart->price;
+$model->recommend = $cart->recommend;
 
 ?>
 <div class="cart-update">
