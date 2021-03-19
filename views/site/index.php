@@ -36,10 +36,10 @@ $this->registerJsFile('/owl/owl.carousel.min.js', [
 <section class="sect-1">
     <div class="block">
         <h1><?= $site->title_main ?></h1>
-        <button>
-            Стати партнером
-            <img src="/images/arrow-white.svg" alt="">
-        </button>
+<!--        <button>-->
+<!--            Стати партнером-->
+<!--            <img src="/images/arrow-white.svg" alt="">-->
+<!--        </button>-->
     </div>
 </section>
 

@@ -113,7 +113,6 @@ class CartController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
 
-
             if($slug = $model->save()) {
                 return $this->redirect(['view', 'id' => $slug]);
             }

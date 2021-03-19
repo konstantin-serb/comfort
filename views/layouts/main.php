@@ -109,7 +109,7 @@ $this->registerJsFile('/js/search.js', [
         <img src="/images/logo-foot.svg" alt="">
         <button class="burger-menu-catalog" id="burger-menu-catalog">
             <img src="/images/menu-left.svg" alt="">
-            <nobr>Каталог продукції</nobr>
+            Каталог продукції
         </button>
         <div id="burger-close" class="burger-close">
             <img src="/images/close.svg" alt="">
@@ -170,11 +170,11 @@ $this->registerJsFile('/js/search.js', [
         <form >
             <input id="textsearch" type="text" class="search-text" name="text">
             <label for="submit" class="search-img">
-                <!-- <input type="submit" id="search-submit"> -->
+                 <input type="submit" id="search-submit">
                 <a id="search-submit"><label for="submit" class="search-img"></a>
             </label>
         </form>
-        <div id="catalog-close1" class="catalog-close"></div>
+<!--        <div id="catalog-close1" class="catalog-close"></div>-->
         <p id="addResult" class="">
             
         </p>
@@ -236,7 +236,7 @@ $this->registerJsFile('/js/search.js', [
                 <a href="<?= Url::to(['/techinfo']) ?>">Технічна інформація</a>
                 <a href="<?= Url::to(['/designers']) ?>">Дизайнерам та архітекторам</a>
                 <a href="<?= Url::to(['/about']) ?>">Компанія</a>
-                <a href="<?= Url::to(['/search']) ?>">search</a>
+<!--                <a href="--><?//= Url::to(['/search']) ?><!--">search</a>-->
             </div>
             <div class="head-top-right">
                 <a href="<?= $site->fb ?>"><img src="/images/fb-blue.svg" alt=""></a>
@@ -340,7 +340,7 @@ $this->registerJsFile('/js/search.js', [
 <!------- Футер ------->
 
 <footer>
-    <div class="d-flex">
+    <div class="block d-flex">
 
         <div class="foot-left">
             <div class="foot-left-block">
@@ -383,7 +383,7 @@ $this->registerJsFile('/js/search.js', [
             <img src="/images/map.svg" alt="">
         </div>
     </div>
-    <div class="foot-down d-flex">
+    <div class="foot-down d-flex block">
         <div>
             © Comfort Heat - офіційний дистриб'ютор
         </div>

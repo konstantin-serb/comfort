@@ -80,7 +80,7 @@ class CatalogController extends Controller
         $data = Cart::getAll(6, $subcategory->id);
         $randomNews = News::find()->where(['status'=>News::STATUS_VISIBLE])
             ->orderBy('RAND()')->limit(2)->all();
-
+        $recommend = Cart::find()->where(['recommend' => '1'])->all();
 
     
 
@@ -90,6 +90,7 @@ class CatalogController extends Controller
             'carts' => $data['carts'],
             'pagination' => $data['pagination'],           
             'randomNews' => $randomNews,
+            'recommend' => $recommend,
 
         ]);
     } 

@@ -45,12 +45,12 @@ $this->registerJsFile('/owl/owl.carousel.min.js', [
                     <div class="catalog-cart-item-part d-flex jcsb">
                         <div class="catalog-cart-item-part-top">
                             <h2 id="catalog-cart-item-h2"><?=$cart->title?></h2>
-                            <h3 id="catalog-cart-item-h3"><?=$cart->price?> ₴</h3>
+<!--                            <h3 id="catalog-cart-item-h3">--><?//=$cart->price?><!-- ₴</h3>-->
                         </div>
                         <div class="catalog-cart-item-part-bottom">
                             <p id="catalog-cart-item-p1">Модель: <?=$cart->model?></p>
                             <p id="catalog-cart-item-p2">Виробник: <?=$cart->getManufacturer()?></p>
-                            <p><?=$cart->checkAvailability()?></p>
+<!--                            <p>--><?//=$cart->checkAvailability()?><!--</p>-->
                         </div>
                     </div>
                     <div class="catalog-cart-item-down d-flex">

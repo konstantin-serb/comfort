@@ -68,9 +68,9 @@ $this->registerJsFile('/js/back/addSubcategory.js', [
     ]);
     ?>
 
-    <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
+<!--    --><?//= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'model')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'mod')->textInput() ?>
 
     <div class="inputPlus">
     <?= $form->field($model, 'manufacturer')->dropDownList($manufacArray) ?>
@@ -102,10 +102,10 @@ $this->registerJsFile('/js/back/addSubcategory.js', [
         </div>
     </div>
 
-    <?= $form->field($model, 'availability')->dropDownList([
-            Cart::AVAILABILITY => 'Есть на складе',
-            Cart::NOT_AVAILABILITY => 'Нет на складе',
-    ]) ?>
+<!--    --><?//= $form->field($model, 'availability')->dropDownList([
+//            Cart::AVAILABILITY => 'Есть на складе',
+//            Cart::NOT_AVAILABILITY => 'Нет на складе',
+//    ]) ?>
 
 <!--    --><?//=printer($array2)?>
 

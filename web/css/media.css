@@ -28,78 +28,78 @@
 }
 
 
-@media  (max-width: 768px) {
+@media  (max-width: 1110px) {
 
-	/****** Окно поиск ******/
+        /****** Окно поиск ******/
 
-	.modal-bcg .search form {
-	    width: 80%;
+    .modal-bcg .search form {
+        width: 80%;
     }
 
     /****** Окно каталог средний ******/
 
     .catalog-mr {
-    	display: block;
-    	position: absolute;
-    	left: 0;
-    	right: 0;
-    	top: 15px;
-    	border: 2px solid #007AC9;
-    	box-sizing: border-box;
-    	width: 95%;
-    	margin: auto;
-    	padding: 20px;
-    	background: #fff;
-    	transform: scaleY(0);
-    	transform-origin: 0 0;
-    	z-index: 10;
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 15px;
+        border: 2px solid #007AC9;
+        box-sizing: border-box;
+        width: 95%;
+        margin: auto;
+        padding: 20px;
+        background: #fff;
+        transform: scaleY(0);
+        transform-origin: 0 0;
+        z-index: 10;
     }
 
     .catalog-mr .heading {
-    	font-size: 18px;
-    	font-weight: 700;
-    	color: #202023;
+        font-size: 18px;
+        font-weight: 700;
+        color: #202023;
     }
 
     .catalog-mr .catalog-close-mr img {
-    	width: 18px;
-	    height: 18px;
-	    padding: 11px;
-	    border-radius: 20px;
-	    background-color : #DFF1FD;
-	    cursor: pointer;
+        width: 18px;
+        height: 18px;
+        padding: 11px;
+        border-radius: 20px;
+        background-color : #DFF1FD;
+        cursor: pointer;
     }
 
     .catalog-mr .catalog-close-mr img:hover {
-    	transform: scale(1.2);
+        transform: scale(1.2);
     }
 
     .catalog-mr .catalog-mr-block {
-    	padding: 30px 0;
-    	flex-wrap: wrap;
+        padding: 30px 0;
+        flex-wrap: wrap;
     }
 
     .catalog-mr .catalog-mr-part {
-    	width: 50%;
+        width: 50%;
     }
 
     .catalog-mr .catalog-mr-item {
-    	margin-bottom: 20px;
+        margin-bottom: 20px;
     }
 
     .catalog-mr .catalog-mr-item div {
-    	width: 80%;
-    	font-size: 16px;
-    	font-weight: 600;
-    	color: #007AC9;
-    	padding: 5px 12px;
-    	border: 1px solid #BDE3FB;
-    	border-radius: 15px;
+        width: 80%;
+        font-size: 16px;
+        font-weight: 600;
+        color: #007AC9;
+        padding: 5px 12px;
+        border: 1px solid #BDE3FB;
+        border-radius: 15px;
     }
 
     .catalog-mr .catalog-mr-item a {
-    	margin: 15px 0 15px 15px;
-    	background: #fff;
+        margin: 15px 0 15px 15px;
+        background: #fff;
         font-size: 14px;
         font-weight: 600;
         display: block;
@@ -107,47 +107,55 @@
     }
 
     .catalog-mr .catalog-mr-item a:hover {
-    	color: #007AC9;
+        color: #007AC9;
     }
 
     /****** Окно бургер меню ******/
 
     .burger-menu {
         display: block;
-    	transform: scaleY(0);
-    	transform-origin: 0 0;
-    	position: absolute;
-    	left: 0;
-    	right: 0;
-    	top: 15px;
-    	width: 95%;
-    	margin: auto;
-    	background: #fff;
-    	z-index: 9;
+        transform: scaleY(0);
+        transform-origin: 0 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        width: 95%;
+        margin: auto;
+        background: #fff;
+        z-index: 9;
         border-bottom: 10px solid #00407A;
     }
 
     .burger-menu .burger-menu-top{
-        padding: 40px;
+        padding: 40px 0;
         background: #00407A;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .burger-menu .burger-menu-top .burger-menu-logo {
+        margin-left: 20px;
     }
 
     .burger-menu .burger-menu-catalog {
-    	background: #E95D2A;
-    	color: #fff;
+        background: #E95D2A;
+        color: #fff;
+        white-space: nowrap;
     }
 
     .burger-menu .burger-menu-catalog:hover {
-    	background: #fff;
-    	color: #E95D2A;
+        background: #fff;
+        color: #E95D2A;
     }
 
     .burger-menu .burger-menu-catalog img {
-    	margin-right: 10px;
+        margin-right: 10px;
     }
 
     .burger-menu .burger-close {
-    	cursor: pointer;
+        cursor: pointer;
+        margin-right: 20px;
     }
 
     .burger-menu .burger-close:hover {
@@ -155,55 +163,55 @@
     }
 
     .burger-menu .burger-menu-mid {
-    	flex-direction: column;
-    	padding: 20px 40px;
-    	border-bottom: 1px solid #007ac9;
+        flex-direction: column;
+        padding: 20px 40px;
+        border-bottom: 1px solid #007ac9;
     }
 
     .burger-menu .burger-menu-mid .burger-menu-mid-serch {
-    	display: none;
+        display: none;
     }
 
     .burger-menu .burger-menu-mid a {
-    	font-size: 14px;
-    	color: #202023;
-    	margin: 20px 0;
+        font-size: 14px;
+        color: #202023;
+        margin: 20px 0;
     }
 
     .burger-menu .burger-menu-mid a:hover {
-    	color: #00407A;
+        color: #00407A;
     }
 
     .burger-menu .burger-menu-bottom {
-    	padding: 40px;
+        padding: 40px;
     }
 
     .burger-menu .burger-menu-bottom .burger-menu-bottom-links1 {
-    	margin-right: 40px;
+        margin-right: 40px;
     }
 
     .burger-menu .burger-menu-bottom .burger-menu-bottom-links1 a {
-    	font-size: 16px;
-    	font-weight: 600;
-    	color: #007AC9;
-    	display: flex;
-    	align-items: center;    	
+        font-size: 16px;
+        font-weight: 600;
+        color: #007AC9;
+        display: flex;
+        align-items: center;        
     }
 
     .burger-menu .burger-menu-bottom .burger-menu-bottom-links1 a img {
-    	margin-right: 10px;
+        margin-right: 10px;
     }
 
     .burger-menu .burger-menu-bottom .burger-menu-bottom-links2 {
-    	font-size: 14px;
-    	color: #202023;
-    	display: flex;
-    	flex-direction: column;
-    	justify-content: space-between;
+        font-size: 14px;
+        color: #202023;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     .burger-menu .burger-menu-bottom .burger-menu-bottom-social {
-    	padding-top: 100px;
+        padding-top: 100px;
     }
 
     .burger-menu .burger-menu-bottom .burger-menu-bottom-social a {
@@ -211,7 +219,7 @@
     }
 
     .burger-menu .burger-menu-bottom .burger-menu-bottom-social a img {
-    	transform: scale(2);
+        transform: scale(2);
     }
 
     /* proposition */
@@ -227,60 +235,74 @@
     /****** Хедер ******/
 
     header .header-hr {
-    	display: none;
+        display: none;
     }
 
     header .header-mr {
-    	display: block;
+        display: block;
     }
 
     header .header-mr .head-mr-top {
-    	padding: 10px 0;
-    	flex-direction: row;
-    	border-bottom: 1px solid #BDE3FB;
+        padding: 10px 0;
+        flex-direction: row;
+        border-bottom: 1px solid #BDE3FB;
     }
 
     header .header-mr .head-mr-top a {
-    	font-size: 16px;
-    	font-weight: 600;
-    	color: #007AC9;
-    	margin-right: 20px;
-    	display: flex;
-    	align-items: center;
+        font-size: 16px;
+        font-weight: 600;
+        color: #007AC9;
+        margin-right: 20px;
+        display: flex;
+        align-items: center;
     }
 
     header .header-mr .head-mr-top img {
-    	margin-right: 10px;
+        margin-right: 10px;
     }
 
     header .header-mr .head-mr-bottom {
-    	padding: 20px 0;
+        padding: 20px 0;
+    }
+
+    header .header-mr .head-mr-bottom a {
+        display: block;
+        width: 30%;
+
     }
 
     header .header-mr .head-mr-bottom .logo-head p {
+        display: block;
         font-size: 15px;
-	    margin: 5px 15px;
-	    color: #89898B;
+        margin: 5px 0 5px 15px;
+        color: #89898B;
     }
 
     header .header-mr .head-mr-bottom .head-mr-bottom-search,
     header .header-mr .head-mr-bottom .head-mr-bottom-burger {
-    	padding: 10px;
-    	background: #DFF1FD;
+        padding: 10px;
+        background: #DFF1FD;
+        margin-left: 30px;
     }
 
     header .header-mr .head-mr-bottom .catalog-button-mr {
-    	color: #fff;
-	    background: #E95D2A;
+        color: #fff;
+        background: #E95D2A;
+        margin-left: 30px;
     }
 
     header .header-mr .head-mr-bottom .catalog-button-mr img {
-    	margin-right: 10px;
+        margin-right: 10px;
     }
 
     header .header-mr .head-mr-bottom .head-ms-burger {
-    	display: none;
+        display: none;
     }
+
+}
+
+
+@media  (max-width: 768px) {
 
     /****** Секция 1 ******/
 
@@ -296,7 +318,7 @@
     /****** Секция 2 ******/
 
     .sect-2 {
-    	padding: 80px 0 15px;
+    	padding: 0 0 15px;
     }
 
     .sect-2 .block {
@@ -358,7 +380,7 @@
     	margin-left: 20px;
     }
 
-    .sect-4 ..project-button img {
+    .sect-4 .project-button img {
     	margin-left: 15px;
     }
 
@@ -390,10 +412,11 @@
     }
 
     footer .foot-down {
-	    padding: 15px 0;
+	    padding: 15px;
     }   
 
 }
+
 
 @media  (max-width: 767px) {
     /* proposition */
@@ -403,56 +426,56 @@
     }
 }
 
-@media  (max-width: 480px) {
+@media  (max-width: 670px) {
 
-	/****** Окно бургер меню ******/
+    /****** Окно бургер меню ******/
 
-	.burger-menu {
-		width: 99%;
-		padding-bottom: 40px;
-	}
+    .burger-menu {
+        width: 100%;
+        padding-bottom: 40px;
+    }
 
-	.burger-menu .burger-menu-top {
-		padding: 30px 20px;
-	}
+    .burger-menu .burger-menu-top {
+        padding: 30px 0;
+    }
 
-	.burger-menu .burger-menu-mid {
-		padding: 20px;
-	}
+    .burger-menu .burger-menu-mid {
+        padding: 20px;
+    }
 
-	.burger-menu .burger-menu-mid .burger-menu-mid-serch {
-		display: block;
-	}
+    .burger-menu .burger-menu-mid .burger-menu-mid-serch {
+        display: block;
+    }
 
-	.burger-menu .burger-menu-mid .burger-menu-mid-serch .burger-search-text {
-		width: 100%;
-		border: 1px solid #BDE3FB;
-	}
+    .burger-menu .burger-menu-mid .burger-menu-mid-serch .burger-search-text {
+        width: 100%;
+        border: 1px solid #BDE3FB;
+    }
 
-	.burger-menu .burger-menu-mid .burger-menu-mid-serch {
-		margin-top: 15px;
-		position: relative;
-	}
+    .burger-menu .burger-menu-mid .burger-menu-mid-serch {
+        margin-top: 15px;
+        position: relative;
+    }
 
-	.burger-menu .burger-menu-mid .burger-menu-mid-serch label input {
-	    width: 0.1px;
-	    height: 0.1px;
-	    opacity: 0;
-	    z-index: -10;
-	    cursor: pointer;
+    .burger-menu .burger-menu-mid .burger-menu-mid-serch label input {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        z-index: -10;
+        cursor: pointer;
     }
 
     .burger-menu .burger-menu-mid .burger-menu-mid-serch label {
-    	width: 24px;
-    	height: 24px;
-    	background: url(../images/search-white.svg) no-repeat center center;
-    	position: absolute;
-    	top: 10px;
-    	right: 10px;
+        width: 24px;
+        height: 24px;
+        background: url(images/search-white.svg) no-repeat center center;
+        position: absolute;
+        top: 10px;
+        right: 10px;
     }
 
-	.burger-menu .burger-menu-bottom {
-    	padding: 20px;
+    .burger-menu .burger-menu-bottom {
+        padding: 20px;
     }
 
     .burger-menu .burger-menu-bottom .d-flex {
@@ -460,98 +483,98 @@
     }
 
     .burger-menu .burger-menu-bottom .burger-menu-bottom-links2 a {
-    	margin: 25px 0;
+        margin: 25px 0;
     }
 
     /****** Окно каталог средний ******/
 
     .catalog-mr .catalog-mr-block .catalog-mr-part {
-    	width: 100%;
+        width: 100%;
     }
 
-	/***** Хедер ****/
+    /***** Хедер ****/
 
-	header .header-mr .head-mr-bottom .head-mr-bottom-search,
-	header .header-mr .head-mr-bottom .catalog-button-mr,
-	header .header-mr .head-mr-bottom .head-mr-bottom-burger {
-		display: none;
-	}
-
-	header .header-mr .head-mr-bottom {
-    	padding: 10px 0;
+    header .header-mr .head-mr-bottom .head-mr-bottom-search,
+    header .header-mr .head-mr-bottom .catalog-button-mr,
+    header .header-mr .head-mr-bottom .head-mr-bottom-burger {
+        display: none;
     }
 
-	header .header-mr .head-mr-bottom .head-ms-burger {
-    	display: flex;
-    	background: #DFF1FD;
-    	color: #00407A;
+    header .header-mr .head-mr-bottom {
+        padding: 10px 0;
+    }
+
+    header .header-mr .head-mr-bottom .head-ms-burger {
+        display: flex;
+        background: #DFF1FD;
+        color: #00407A;
     }
 
     header .header-mr .head-mr-bottom .head-ms-burger img {
-    	margin-right: 10px;
+        margin-right: 10px;
     }
 
     /***** Секция 1 ****/
 
     .sect-1 .block {
-	    padding: 80px 20px;
+        padding: 80px 20px;
     }
 
-    .sect-1 h1 {
-    	font-size: 50px;
+    .sect-1  h1 {
+        font-size: 50px;
     }
 
     /****** Секция 2 ******/
 
     .sect-2 {
-	    padding: 40px 0;
+        padding: 0 0 40px;
     }
-	
-	.sect-2 h3 {
-		font-size: 24px;
-	}
+    
+    .sect-2 h3 {
+        font-size: 24px;
+    }
 
     .sect-2 p {
-    	font-size: 16px;
+        font-size: 16px;
     }
 
     .sect-2 .years25 {
-    	top: 20px;
+        top: 20px;
     }
 
     /****** Секция 3 ******/
 
     .sect-3 {
-	    padding: 40px 0;
+        padding: 40px 0;
     }
 
     .sect-3 h3 {
-    	margin: 0 0 10px 0;
-    	font-size: 45px;
+        margin: 0 0 10px 0;
+        font-size: 45px;
     }
 
     .sect-3 .sect-3-item {
-    	font-size: 24px;
+        font-size: 24px;
     } 
 
     /****** Секция 4 ******/
 
     .sect-4 {
-	    padding: 40px 0;
+        padding: 40px 0;
     }
 
-    .sect-4 .block h1 {
-	    font-size: 36px;
-	    margin-top: 5px;
+    .sect-4 h1 {
+        font-size: 34px;
+        margin-top: 5px;
     }
 
     .sect-4 .block p {
-	    font-size: 18px;
+        font-size: 18px;
     }
-    
+
 }
 
-@media  (max-width: 320px) {
+@media  (max-width: 420px) {
 
 	/****** Окно бургер меню ******/
 
@@ -562,17 +585,32 @@
 	}
 
 	.burger-menu .burger-menu-top {
-		justify-content: center;
+        padding: 20px 0;
 	}
 
-	.burger-menu .burger-menu-catalog,
-	.burger-menu img:nth-child(1),
-	.burger-menu .burger-close {
-		transform: scale(.7);
+    .burger-menu .burger-menu-top .burger-menu-logo {
+        width: 67px;
+        height: 28px;
+    }
+
+    .burger-menu .burger-menu-top .burger-menu-catalog {
+        font-size: 12px;
+        padding: 7px 10px;
+    }
+
+    .burger-menu .burger-menu-top .burger-menu-catalog img {
+        width: 17px;
+        height: 17px;
+    }
+
+	
+	.burger-menu .burger-close img {
+		width: 28px;
+        height: 28px;
 	}
 
 	.burger-menu .burger-close:hover {
-		transform: scale(.9);
+		transform: scale(1.2);
 	}
 
 	/****** Окно каталог средний ******/
@@ -585,6 +623,10 @@
 
 	/****** Хедер ******/
 
+    header .block.header-mr {
+        padding: 0;
+    }
+
 	header .header-mr .head-mr-top {
 		flex-direction: column;
 		align-items: center;
@@ -595,13 +637,14 @@
 	}
 
 	header .header-mr .head-ms-burger {
-        margin-left: -60px;
+        margin-right: 10px;
 	}
 
 	header .header-mr .head-mr-bottom .logo-head {
 		transform: scale(0.7);
 		width: 30%;
-		margin-left: -20px;
+		margin: 0;
+        padding: 0;
 	}
 
 	/***** Секция 1 ****/
@@ -617,7 +660,7 @@
     /***** Секция 2 ****/
 
     .sect-2 {
-	    padding: 40px 0 15px;
+	    padding: 0 0 15px;
     }
     
     .sect-2 .sect-2-img {
@@ -663,8 +706,12 @@
 	    font-size: 16px;
     }
 
+    footer .foot-left-block .foot-mail {
+        font-size: 16px;
+    }
+
     footer .foot-down {
-	    padding: 20px 0;
+	    padding: 20px 15px;
 	    flex-direction: column;
 	    justify-content: space-between;
     }

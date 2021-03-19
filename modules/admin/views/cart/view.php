@@ -117,7 +117,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'text:html',
             'description:html',
             'info:html',
-            'price:html',
+//            'price:html',
             'model',
 //            'manufacturer',
             [
@@ -127,18 +127,18 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->getManufacturer();
                 }
             ],
-            [
-                'attribute' => 'availability',
-                'format' => 'raw',
-                'value' => function ($model) {
-                    if ($model->availability == 0) {
-                        return '<span class="red-color">Нет на складе</span>';
-                    } else if ($model->availability == 1) {
-                        return '<span class="blue-color">Есть на складе</span>';
-                    }
-
-                }
-            ],
+//            [
+//                'attribute' => 'availability',
+//                'format' => 'raw',
+//                'value' => function ($model) {
+//                    if ($model->availability == 0) {
+//                        return '<span class="red-color">Нет на складе</span>';
+//                    } else if ($model->availability == 1) {
+//                        return '<span class="blue-color">Есть на складе</span>';
+//                    }
+//
+//                }
+//            ],
 //            'subcategory_id',
             [
                 'attribute' => 'subcategory_id',

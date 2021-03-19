@@ -14,8 +14,24 @@ $this->registerJsFile('/js/select.js', [
     'depends' => \yii\web\JqueryAsset::class,
 ]);
 ?>
+<div class="proposition d-flex aic">
+    <div>
+<!--        <h5>--><?//= $site->title_main ?><!--</h5>-->
 
+    </div>
+    <?php if($recommend):?>
+        <?php foreach($recommend as $cart):?>
+            <a style="max-width: 16em;" href="<?=Url::to(['/catalog/cart', 'id' => $cart->slug])?>" class="d-flex">
+                <img src="<?=$cart->getMini()?>" alt="">
+                <?=$cart->title?>
+            </a>
+        <?php endforeach;?>
+
+    <?php endif;?>
+
+</div>
  <!------- Секция page-catalog ------->
+
 
 <section class="page-catalog">
     <div class="block">
@@ -59,7 +75,7 @@ $this->registerJsFile('/js/select.js', [
                     <img src="<?=$cart->getMini()?>" alt="image">
                     <div>
                         <h5><?=StringHelper::getShort($cart->title, 50)?></h5>
-                        <h6><?=$cart->price?> ₴</h6>
+<!--                        <h6>--><?//=$cart->price?><!-- ₴</h6>-->
                         <p><?=StringHelper::getShort($cart->description, 100)?></p>
                     </div>
                 </a>

@@ -3,7 +3,8 @@ $(document).ready(function() {
 });
 
 function search() {
-    $(document).on('click', '#search-submit', function() {
+    $(document).on('click', '#search-submit', function(event) {
+        event.preventDefault();
         var params = {
             key: $('#textsearch').val()
 

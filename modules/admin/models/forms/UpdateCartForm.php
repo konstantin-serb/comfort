@@ -26,11 +26,11 @@ class UpdateCartForm extends Model
     public function rules()
     {
         return [
-            [['title', 'text', 'info', 'price', 'manufacturer', 'availability','subcategory_id', 'status'], 'required'],
+            [['title', 'text', 'info', 'manufacturer', 'subcategory_id', 'status'], 'required'],
             [['title', 'model'], 'string', 'length' => [3,255]],
             [['description'], 'string', 'length' => [3, 500]],
             [['text', 'info'], 'string', 'min' => 2],
-            [['price'], 'safe'],
+            [['price', 'availability'], 'safe'],
             [['id','manufacturer', 'recommend', 'availability', 'subcategory_id' , 'status'], 'integer']
         ];
     }
@@ -72,10 +72,10 @@ class UpdateCartForm extends Model
             $cart->description = $this->description;
             $cart->text = $this->text;
             $cart->info = $this->info;
-            $cart->price = $this->price;
+//            $cart->price = $this->price;
             $cart->model = $this->model;
             $cart->manufacturer = $this->manufacturer;
-            $cart->availability  = $this->availability;
+//            $cart->availability  = $this->availability;
             $cart->subcategory_id = $this->subcategory_id;
             $cart->user_update = Yii::$app->user->identity->getId();
             $cart->time_update = time();

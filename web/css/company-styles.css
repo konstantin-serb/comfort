@@ -1,8 +1,8 @@
 
 /***** компания банер ****/
 
-.company-banner {
-	background: url(../images/company.svg) no-repeat center center;
+.company-banner .block {
+    background: url(../images/company.svg) no-repeat center center;
 	background-size: cover;
 }
 
@@ -10,7 +10,7 @@
 	font-size: 50px;
 	font-weight: 700;
 	color: #fff;
-	padding: 290px 0;
+	padding: 290px 0 290px 0.5em;
 	margin: 0;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .company-links .block {
-	margin: 40px 20px;
+	margin: 40px auto;
 	padding: 40px 20px;
 	border: 1px solid #BDE3FB;
 	border-radius: 4px;
