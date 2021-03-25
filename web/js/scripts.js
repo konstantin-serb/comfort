@@ -13,7 +13,7 @@ $('#search-submit').click(function(){
 // Окно каталог
 
 $('#catalog-button').click(function(){
-	$('#catalog').css('display','block');
+	$('#catalog').css('display','bloccatalog-cart-info-buttons-1k');
     $('#modal-bcg').css('transform','scaleY(1)');
 });
 
@@ -326,19 +326,23 @@ $('#catalog-cart-img-small-10').click(function(){
 
 
 $('#catalog-cart-info-buttons-1').click(function(){
-  var content = $('#catalog-cart-info-buttons-1').attr('data-id');
+  // var content = $('#catalog-cart-info-buttons-1').attr('data-id');
     $('#catalog-cart-info-buttons-1').removeClass('catalog-cart-info-buttons-off').addClass('catalog-cart-info-buttons-on');
     $('#catalog-cart-info-buttons-2').removeClass('catalog-cart-info-buttons-on').addClass('catalog-cart-info-buttons-off');
-    $('#catalog-cart-info-text-1').html(content);
-    $('#catalog-cart-info-text-2').html(content)
+    $('#catalog-cart-info-text-1').removeClass('hidden');
+    $('#catalog-cart-info-text-2').addClass('hidden');
+    // $('#catalog-cart-info-text-1').html(content);
+    // $('#catalog-cart-info-text-2').html(content)
 });
 
 $('#catalog-cart-info-buttons-2').click(function(){
-  var content = $('#catalog-cart-info-buttons-2').attr('data-id');
+  // var content2 = $('#catalog-cart-info-buttons-2').attr('data-id');
     $('#catalog-cart-info-buttons-2').removeClass('catalog-cart-info-buttons-off').addClass('catalog-cart-info-buttons-on');
-    $('#catalog-cart-info-buttons-1').removeClass('catalog-cart-info-buttons-on').addClass('catalog-cart-info-buttons-off');    
-    $('#catalog-cart-info-text-2').html(content);
-    $('#catalog-cart-info-text-1').html(content)
+    $('#catalog-cart-info-buttons-1').removeClass('catalog-cart-info-buttons-on').addClass('catalog-cart-info-buttons-off');
+    $('#catalog-cart-info-text-1').addClass('hidden');
+    $('#catalog-cart-info-text-2').removeClass('hidden');
+    // $('#catalog-cart-info-text-2').html(content2);
+    // $('#catalog-cart-info-text-1').html(content)
 });
 
 // Окно catalog-cart-slider 

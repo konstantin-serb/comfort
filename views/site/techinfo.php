@@ -12,8 +12,14 @@ $this->title = 'Технічна інформація';
 
         <?php foreach($info as $item):?>
         <a href="<?=$item->link?>" target="blank">
-            <?=$item->title?> (<?=$item->size?> Мб)
-            <img src="/images/pdf.svg" alt="">
+            <?=$item->title?>
+            <?php if($item->size):?>
+            (<?=$item->size?>)
+            <?php endif;?>
+
+            <?php if($item->format):?>
+            .<?=$item->format?>
+            <?php endif;?>
         </a>
         <?php endforeach;?>
     </div>

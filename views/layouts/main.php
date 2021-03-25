@@ -136,11 +136,11 @@ $this->registerJsFile('/js/search.js', [
         <div class="d-flex">
             <div class="burger-menu-bottom-links1">
                 <a href="tel:<?= $site->tel_kyiv ?>>">
-                    <img src="/images/kyivstar.svg" alt="">
+<!--                    <img src="/images/kyivstar.svg" alt="">-->
                     <?= $site->tel_kyiv ?>
                 </a><br>
                 <a href="tel:<?= $site->tel_voda ?>">
-                    <img src="/images/vodafone.svg" alt="">
+<!--                    <img src="/images/vodafone.svg" alt="">-->
                     <?= $site->tel_voda ?>
                 </a>
             </div>
@@ -261,11 +261,11 @@ $this->registerJsFile('/js/search.js', [
                 </a>
                 <div class="d-flex head-phones aic">
                     <a href="tel:<?= $site->tel_kyiv ?>">
-                        <img src="/images/kyivstar.svg" alt="">
+<!--                        <img src="/images/kyivstar.svg" alt="">-->
                         <?= $site->tel_kyiv ?>
                     </a>
                     <a href="tel:<?= $site->tel_voda ?>">
-                        <img src="/images/vodafone.svg" alt="">
+<!--                        <img src="/images/vodafone.svg" alt="">-->
                         <?= $site->tel_voda ?>
                     </a>
                 </div>
@@ -292,11 +292,11 @@ $this->registerJsFile('/js/search.js', [
     <div class="block header-mr">
         <div class="head-mr-top d-flex">
             <a href="tel:<?= $site->tel_kyiv ?>">
-                <img src="/images/kyivstar.svg" alt="">
+<!--                <img src="/images/kyivstar.svg" alt="">-->
                 <?= $site->tel_kyiv ?>
             </a>
             <a href="tel:<?= $site->tel_voda ?>">
-                <img src="/images/vodafone.svg" alt="">
+<!--                <img src="/images/vodafone.svg" alt="">-->
                 <?= $site->tel_voda ?>
             </a>
         </div>
@@ -350,15 +350,15 @@ $this->registerJsFile('/js/search.js', [
                 <h6>Контакти</h6>
                 <p><?= $site->address ?></p>
                 <a href="tel:<?= $site->tel_kyiv ?>">
-                    <img src="/images/kyivstar.svg" alt="">
+<!--                    <img src="/images/kyivstar.svg" alt="">-->
                     <?= $site->tel_kyiv ?>
                 </a>
                 <a href="tel:<?= $site->tel_voda ?>">
-                    <img src="/images/vodafone.svg" alt="">
+<!--                    <img src="/images/vodafone.svg" alt="">-->
                     <?= $site->tel_voda ?>
                 </a>
                 <a href="tel:<?= $site->tel_life ?>">
-                    <img src="/images/lifecell.svg" alt="">
+<!--                    <img src="/images/lifecell.svg" alt="">-->
                     <?= $site->tel_life ?>
                 </a>
                 <a href="mailto:<?= $site->email ?>" class="foot-mail"><?= $site->email ?>

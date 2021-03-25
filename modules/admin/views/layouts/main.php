@@ -48,9 +48,13 @@ AppAsset::register($this);
                 'label' => 'Сайт',
                 // 'url' => ['/admin/mysite/view', 'id' => 1],
                 'items' => [
-                    ['label' => 'Основноей контент сайта', 'url' => ['/admin/mysite/view', 'id' => 1]],
-                    ['label' => 'Статьи', 'url' => ['/admin/article']],
-
+                    ['label' => 'Головна', 'url' => ['/admin/site-main']],
+                    ['label' => 'Сервіс і обслуговування', 'url' => ['/admin/site-service']],
+                    ['label' => 'Технічна інформація', 'url' => ['/admin/site-tech']],
+                    ['label' => 'Дизайнерам і архітекторам', 'url' => ['/admin/site-designers']],
+                    ['label' => 'Компанія', 'url' => ['/admin/site-company']],
+                    ['label' => 'Тест', 'url' => ['/admin/site-test']],
+                    ['label' => 'Співробітництво', 'url' => ['/admin/site-colaborate']],
                 ],
 
             ],

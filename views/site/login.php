@@ -10,7 +10,7 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="block techinfo" style="height: 50vh;">
+<div class="block" style="height: 50vh;">
 <div class="site-login">
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -42,5 +42,5 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="col-lg-offset-1" style="color:#999;">
 
     </div>
-</div>
+
 </div>

@@ -14,11 +14,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'format')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'size')->textInput() ?>
-
-    <?= $form->field($model, 'link')->textInput(['maxlength' => true]) ?>
+<!--    --><?//= $form->field($model, 'format')->textInput(['maxlength' => true]) ?>
+<!---->
+<!--    --><?//= $form->field($model, 'size')->textInput() ?>
+<!---->
+<!--    --><?//= $form->field($model, 'link')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'status')->dropDownList([
         1 => 'Видно на сайте',

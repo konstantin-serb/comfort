@@ -236,10 +236,12 @@
 
     header .header-hr {
         display: none;
+        padding: 0 1em;
     }
 
     header .header-mr {
         display: block;
+
     }
 
     header .header-mr .head-mr-top {

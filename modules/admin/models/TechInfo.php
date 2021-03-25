@@ -10,7 +10,7 @@ use Yii;
  * @property int $id
  * @property string|null $title
  * @property string|null $format
- * @property float|null $size
+ * @property string|null $size
  * @property string|null $link
  * @property int|null $status
  */
@@ -30,7 +30,7 @@ class TechInfo extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['size'], 'number'],
+            [['size'], 'string'],
             [['status'], 'integer'],
             [['title', 'format', 'link'], 'string', 'max' => 255],
         ];

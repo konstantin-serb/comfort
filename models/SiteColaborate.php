@@ -1,0 +1,51 @@
+<?php
+
+namespace app\models;
+
+use Yii;
+
+/**
+ * This is the model class for table "site_colaborate".
+ *
+ * @property int $id
+ * @property string|null $title
+ * @property int|null $status
+ * @property string|null $text
+ * @property string|null $link
+ */
+class SiteColaborate extends \yii\db\ActiveRecord
+{
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName()
+    {
+        return 'site_colaborate';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['status'], 'integer'],
+            [['text'], 'string'],
+            [['title', 'link'], 'string', 'max' => 255],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'title' => 'Title',
+            'status' => 'Status',
+            'text' => 'Text',
+            'link' => 'Link',
+        ];
+    }
+}

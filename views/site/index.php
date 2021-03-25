@@ -15,13 +15,13 @@ $this->registerJsFile('/owl/owl.carousel.min.js', [
 
 
 ?>
-
+<?php if($recommend):?>
 <div class="proposition d-flex aic">
     <div>
         <h5><?= $site->title_main ?></h5>
 
     </div>
-    <?php if($recommend):?>
+
         <?php foreach($recommend as $cart):?>
     <a style="max-width: 16em;" href="<?=Url::to(['/catalog/cart', 'id' => $cart->slug])?>" class="d-flex">
         <img src="<?=$cart->getMini()?>" alt="">
@@ -29,10 +29,10 @@ $this->registerJsFile('/owl/owl.carousel.min.js', [
     </a>
 <?php endforeach;?>
 
-    <?php endif;?>
+
     
 </div>
-
+<?php endif;?>
 <section class="sect-1">
     <div class="block">
         <h1><?= $site->title_main ?></h1>

@@ -292,8 +292,8 @@ class SiteController extends Controller
 
     public function actionLogin()
     {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+        if (Yii::$app->user->identity && Yii::$app->user->identity->is_admin == 1) {
+            $this->redirect('/admin');
         }
 
         $model = new LoginForm();

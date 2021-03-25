@@ -46,6 +46,19 @@ class Storage
     }
 
 
+    public function saveUploadedFile($file, $length)
+    {
+        $filename = Yii::$app->security->generateRandomString($length);
+
+        $ext = strtolower(($file->extension));
+        $tableName = $this->folder . $filename . '.' . $ext;
+        $newFileName = $this->uploadsPath . $tableName;
+        $newName = $_SERVER['DOCUMENT_ROOT'] . $newFileName;
+
+        dumper($newName); die;
+    }
+
+
     public static function clean($fileName)
     {
         $path = '/uploads/';

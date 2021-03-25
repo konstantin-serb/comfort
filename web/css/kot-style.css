@@ -89,3 +89,7 @@ p.cart-link a {
 .create-block img{
     max-width: 100%;
 }
+
+img {
+    max-width: 100%;
+}

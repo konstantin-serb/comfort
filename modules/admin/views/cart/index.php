@@ -25,8 +25,6 @@ use yii\helpers\Url;
     </p>
 
 
-
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -41,11 +39,9 @@ use yii\helpers\Url;
             [
                 'attribute' => 'description',
                 'format' => 'raw',
-                'value' => function($article) {
-                    if (strlen($article->description) > 100) {
-                        $points = '...';
-                        return  StringHelper::getShort($article->description, 100). $points;
-                    }
+                'value' => function ($article) {
+                    return StringHelper::getShort($article->description, 100);
+
 
                 },
             ],
@@ -115,7 +111,7 @@ use yii\helpers\Url;
                         //Текст в title ссылки, что виден при наведении
                         $title = \Yii::t('yii', 'Вид');
 
-                        $id = 'info-'.$key;
+                        $id = 'info-' . $key;
                         $options = [
                             'title' => $title,
                             'aria-label' => $title,

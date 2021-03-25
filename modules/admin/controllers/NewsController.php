@@ -158,12 +158,15 @@ class NewsController extends Controller
     public function actionDelete($id)
     {
         $news = News::findOne($id);
-        if ($news->image) {
-            if (Storage::clean($news->image) && Storage::clean($news->mini)) {
-                $news->delete();
-                return $this->redirect(['index']);
-            }
+//        dumper($news);die;
+        if (!$news->image == '' || !$news->image == null) {
+            Storage::clean($news->image) && Storage::clean($news->mini);
+            $news->delete();
+        } else {
+            $news->delete();
         }
+            return $this->redirect(['index']);
+
     }
 
     /**

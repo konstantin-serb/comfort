@@ -10,22 +10,23 @@ $this->registerJsFile('/owl/owl.carousel.min.js', [
     'depends' => \yii\web\JqueryAsset::class,
 ]);
 ?>
-
+<?php if($recom):?>
 <div class="proposition d-flex aic">
-    
-    <?php if(isset($recom)):?>
+
         <?php foreach($recom as $oneCart):?>
     <a style="max-width: 16em;" href="<?=Url::to(['/catalog/cart', 'id' => $oneCart->slug])?>" class="d-flex">
         <img src="<?=$oneCart->getMini()?>" alt="">
         <?=$oneCart->title?>
     </a>
 <?php endforeach;?>
-
-    <?php endif;?>
-    
 </div>
+ <?php endif;?>
 
-
+<style>
+    .hidden {
+        display: none !important;
+    }
+</style>
 
 
 
@@ -80,31 +81,31 @@ $this->registerJsFile('/owl/owl.carousel.min.js', [
                     <button id="catalog-cart-info-buttons-2" class="catalog-cart-info-buttons-off" data-id="<?=$cart->info?>">Технічні характеристики</button>
                 </div>
                 <div class="catalog-cart-info-text">
-                    <p id="catalog-cart-info-text-1"><?=$cart->text?></p>
-                    <p id="catalog-cart-info-text-2"><?=$cart->info?></p>
+                    <div id="catalog-cart-info-text-1"><?=$cart->text?></div>
+                    <div id="catalog-cart-info-text-2" class="hidden"><?=$cart->info?></div>
                 </div>
             </div>
         </section>
 
         <!------- Секция catalog-cart-goods ------->
 
-        <?php if($recommend):?>
-        <section class="catalog-cart-goods">
-            <div class="block">
-                <h3>Товари категорії</h3>
-            </div>
-            <div class="block d-flex jcsb">
-            	<?php foreach($recommend as $item):?>
-                <a href="<?=Url::to(['cart', 'id' => $item->slug])?>" class="catalog-cart-goods-item">
-                    <img src="<?=$item->getMini()?>" alt="">
-                    <h4><?=StringHelper::getShort($item->title, 50)?></h4>
-                    <p><?=StringHelper::getShort($item->description, 100)?></p>
-                </a>
-            	<?php endforeach;?>
-                
-            </div>
-        </section>
-    	<?php endif;?>
+<!--        --><?php //if($recommend):?>
+<!--        <section class="catalog-cart-goods">-->
+<!--            <div class="block">-->
+<!--                <h3>Товари категорії</h3>-->
+<!--            </div>-->
+<!--            <div class="block d-flex jcsb">-->
+<!--            	--><?php //foreach($recommend as $item):?>
+<!--                <a href="--><?//=Url::to(['cart', 'id' => $item->slug])?><!--" class="catalog-cart-goods-item">-->
+<!--                    <img src="--><?//=$item->getMini()?><!--" alt="">-->
+<!--                    <h4>--><?//=StringHelper::getShort($item->title, 50)?><!--</h4>-->
+<!--                    <p>--><?//=StringHelper::getShort($item->description, 100)?><!--</p>-->
+<!--                </a>-->
+<!--            	--><?php //endforeach;?>
+<!--                -->
+<!--            </div>-->
+<!--        </section>-->
+<!--    	--><?php //endif;?>
 
         <!------- Секция 4 ------->
 
