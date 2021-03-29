@@ -58,7 +58,7 @@ class UpdateCartForm extends Model
             'time_update' => 'Time Update',
             'user_create' => 'User Create',
             'user_update' => 'User Update',
-            'recommend' => 'Рекомендованные',
+            'recommend' => 'Sort',
         ];
     }
 

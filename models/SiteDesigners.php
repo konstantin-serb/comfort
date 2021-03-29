@@ -11,6 +11,7 @@ use Yii;
  * @property string $title
  * @property int|null $status
  * @property string|null $fonts
+ * @property string|null $text
  */
 class SiteDesigners extends \yii\db\ActiveRecord
 {
@@ -30,6 +31,7 @@ class SiteDesigners extends \yii\db\ActiveRecord
         return [
             [['title'], 'required'],
             [['status'], 'integer'],
+            [['text'], 'string'],
             [['title', 'fonts'], 'string', 'max' => 255],
         ];
     }
@@ -41,9 +43,10 @@ class SiteDesigners extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'status' => 'Status',
-            'fonts' => 'Fonts',
+            'title' => 'Название',
+            'status' => 'Статус',
+            'fonts' => 'Размер шрифта',
+            'text' => 'Текст',
         ];
     }
 }

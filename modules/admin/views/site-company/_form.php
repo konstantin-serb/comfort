@@ -1,7 +1,10 @@
 <?php
 
+use app\models\Article;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use vova07\imperavi\Widget;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\SiteCompany */
@@ -14,19 +17,87 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?= $form->field($model, 'status')->dropDownList([
+        Article::STATUS_VISIBLE => 'Видно на сайте',
+        Article::STATUS_INVISIBLE => 'Не видно на сайте',
+    ]) ?>
 
     <?= $form->field($model, 'fonts')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
+    <?php
+    echo $form->field($model, 'text')->widget(Widget::className(), [
+        'settings' => [
+            'lang' => 'ru',
+            'minHeight' => 200,
+            'plugins' => [
+                'clips',
+                'fullscreen',
+            ],
+            'clips' => [
+                ['Lorem ipsum...', 'Lorem...'],
+                ['red', '<span class="label-red">red</span>'],
+                ['green', '<span class="label-green">green</span>'],
+                ['blue', '<span class="label-blue">blue</span>'],
+            ],
+            'imageUpload' => Url::to(['save-image']),
+            'imageManagerJson' => Url::to(['/default/images-get']),
+            'plugins' => [
+                'imagemanager',
+            ],
+        ],
+    ]);
+    ?>
 
-    <?= $form->field($model, 'text2')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'text3')->textarea(['rows' => 6]) ?>
+    <?php
+    echo $form->field($model, 'text2')->widget(Widget::className(), [
+        'settings' => [
+            'lang' => 'ru',
+            'minHeight' => 200,
+            'plugins' => [
+                'clips',
+                'fullscreen',
+            ],
+            'clips' => [
+                ['Lorem ipsum...', 'Lorem...'],
+                ['red', '<span class="label-red">red</span>'],
+                ['green', '<span class="label-green">green</span>'],
+                ['blue', '<span class="label-blue">blue</span>'],
+            ],
+            'imageUpload' => Url::to(['save-image']),
+            'imageManagerJson' => Url::to(['/default/images-get']),
+            'plugins' => [
+                'imagemanager',
+            ],
+        ],
+    ]);
+    ?>
 
-    <?= $form->field($model, 'image1')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'image2')->textInput(['maxlength' => true]) ?>
+    <?php
+    echo $form->field($model, 'text3')->widget(Widget::className(), [
+        'settings' => [
+            'lang' => 'ru',
+            'minHeight' => 200,
+            'plugins' => [
+                'clips',
+                'fullscreen',
+            ],
+            'clips' => [
+                ['Lorem ipsum...', 'Lorem...'],
+                ['red', '<span class="label-red">red</span>'],
+                ['green', '<span class="label-green">green</span>'],
+                ['blue', '<span class="label-blue">blue</span>'],
+            ],
+            'imageUpload' => Url::to(['save-image']),
+            'imageManagerJson' => Url::to(['/default/images-get']),
+            'plugins' => [
+                'imagemanager',
+            ],
+        ],
+    ]);
+    ?>
+
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

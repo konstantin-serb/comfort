@@ -6,7 +6,6 @@ use yii\helpers\Html;
 /* @var $model app\models\SiteNews */
 
 $this->title = 'Create Site News';
-$this->params['breadcrumbs'][] = ['label' => 'Site News', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-news-create">

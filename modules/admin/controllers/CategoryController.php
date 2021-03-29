@@ -81,7 +81,8 @@ class CategoryController extends Controller
         $model = new UpdateCategoryForm();
         $model->id = $cat->id;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+//            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [

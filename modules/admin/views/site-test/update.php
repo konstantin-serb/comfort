@@ -5,10 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\SiteTest */
 
-$this->title = 'Update Site Test: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Site Tests', 'url' => ['index']];
+$this->title = 'Редактирование';
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Редактирование';
 ?>
 <div class="site-test-update">
 

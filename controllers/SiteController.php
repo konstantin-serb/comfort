@@ -4,6 +4,14 @@ namespace app\controllers;
 
 use app\models\News;
 use app\models\Project;
+use app\models\SiteColaborate;
+use app\models\SiteCompany;
+use app\models\SiteDesigners;
+use app\models\SiteMain;
+use app\models\SiteNews;
+use app\models\SiteService;
+use app\models\SiteTech;
+use app\models\SiteTest;
 use app\models\Subcategory;
 use app\models\Category;
 use app\models\SearchCarts;
@@ -67,11 +75,10 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-    
-        $limit = 50;
-        $site = Mysite::findOne(1);
+        $limit = 20;
         $projects = Project::find()->where(['status' => Project::STATUS_VISIBLE])
             ->orderBy('id desc')->limit(4)->all();
+        $siteMain = SiteMain::findOne(1);
         if (count($projects)) {
             $number = 1;
            foreach ($projects as $project) {
@@ -82,20 +89,23 @@ class SiteController extends Controller
         } else {
             $item = '';
         }
-        $recommend = Cart::find()->where(['recommend' => '1'])->all();
-
-
+//        $recommend = Cart::find()->where(['recommend' => '1'])->all();
+        $recommend = false;
 
         return $this->render('index', [
-            'site' => $site,
             'item' => $item,
             'limit' => $limit,
             'recommend' => $recommend,
+            'siteMain' => $siteMain,
         ]);
     }
 
     public function actionNews()
     {
+        $content = SiteNews::findOne(1);
+        if ($content->status == 0){
+            return $this->redirect(['/']);
+        }
         $news = News::find()->where(['status'=>News::STATUS_VISIBLE])
             ->orderBy('id desc')->limit(40)->all();
 
@@ -124,12 +134,17 @@ class SiteController extends Controller
     
         return $this->render('news', [
             'array' => $array,
+            'content' => $content,
         ]);
     }
 
 
     public function actionOneNews($id) 
     {
+        $content = SiteNews::findOne(1);
+        if ($content->status == 0){
+            return $this->redirect(['/']);
+        }
         $news = News::find()->where(['slug' => $id])->one();
         $randomNews = News::find()->where(['status'=>News::STATUS_VISIBLE])
             ->orderBy('RAND()')->limit(2)->all();
@@ -196,32 +211,63 @@ class SiteController extends Controller
 
     public function actionService()
     {
-        $article = Article::findOne(1);
+        $content = SiteService::findOne(1);
 
         return $this->render('service', [
-            'article' => $article,
+            'content' => $content,
         ]);
     }
-    
+
+
+    public function actionTest()
+    {
+        $content = SiteTest::findOne(1);
+        $info = Techinfo::find()->where(['status' => 1])->andWhere(['type'=>2])->all();
+
+        return $this->render('test', [
+            'content' => $content,
+            'info' => $info,
+        ]);
+    }
+
+
+    public function actionCollaborate()
+    {
+        $content = SiteColaborate::findOne(1);
+
+        return $this->render('collaborate', [
+            'content' => $content,
+        ]);
+    }
   
 
 
     public function actionTechinfo()
     {
-        $info = Techinfo::find()->where(['status' => 1])->all();
+        $content = SiteTech::findOne(1);
+        if ($content->status == 0){
+            return $this->redirect(['/']);
+        }
+        $info = Techinfo::find()->where(['status' => 1])->andWhere(['type'=>1])->all();
 
         return $this->render('techinfo', [
             'info' => $info,
+            'content' => $content,
         ]);
     }
 
 
     public function actionDesigners()
     {
+        $content = SiteDesigners::findOne(1);
+        if ($content->status == 0){
+            return $this->redirect(['/']);
+        }
        $article = Article::findOne(2);
 
         return $this->render('designers', [
             'article' => $article,
+            'content' => $content,
         ]);
 
     }
@@ -229,6 +275,10 @@ class SiteController extends Controller
 
      public function actionAbout()
     {
+        $content = SiteCompany::findOne(1);
+        if ($content->status == 0){
+            return $this->redirect(['/']);
+        }
         $tags = Carttag::find()->all();
         $site = Mysite::findOne(1);
         $article = Article::findOne(3);
@@ -237,6 +287,7 @@ class SiteController extends Controller
             'tags' => $tags,
             'site' => $site,
             'article' => $article,
+            'content' => $content,
         ]);
     }
 

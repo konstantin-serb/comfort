@@ -77,8 +77,8 @@ $this->registerJsFile('/owl/owl.carousel.min.js', [
         <section class="catalog-cart-info">
             <div class="block">
                 <div class="catalog-cart-info-buttons d-flex">
-                    <button id="catalog-cart-info-buttons-1" class="catalog-cart-info-buttons-on" data-id="<?=$cart->text?>">Опис товару</button>
-                    <button id="catalog-cart-info-buttons-2" class="catalog-cart-info-buttons-off" data-id="<?=$cart->info?>">Технічні характеристики</button>
+                    <button id="catalog-cart-info-buttons-1" class="catalog-cart-info-buttons-on" >Опис товару</button>
+                    <button id="catalog-cart-info-buttons-2" class="catalog-cart-info-buttons-off" >Технічні характеристики</button>
                 </div>
                 <div class="catalog-cart-info-text">
                     <div id="catalog-cart-info-text-1"><?=$cart->text?></div>

@@ -1,5 +1,5 @@
 body {
-    font-family: 'Open Sans', sans-serif;
+	font-family: 'M PLUS Rounded 1c', sans-serif;
     font-weight: 400;
     background: #fff;
     margin: 0;
@@ -63,6 +63,10 @@ button:focus {
 
 .jcsb {
 	justify-content: space-between;
+}
+
+.jcsb.cartBlock {
+	justify-content: start;
 }
 
 .aic {
@@ -153,7 +157,10 @@ button:focus {
 	margin: -36px 15px 0 auto;
 	z-index: 11;
 	width: 30px;
-	height: 30px;
+	height: 70vh;
+}
+.catalog .d-flex {
+	height: 70vh;
 }
 
 .modal-bcg .search .search-img {
@@ -162,7 +169,7 @@ button:focus {
 	margin: -36px 15px 0 auto;
 	z-index: 11;
 	width: 30px;
-	height: 30px;
+	height: 70vh;
 }
 
 /****** Окно каталог ******/
@@ -183,10 +190,17 @@ button:focus {
 	height: 40px;
 	background: url(../images/close.svg);
 	cursor: pointer;
+	overflow: auto;
 }
 
-.catalog .catalog-close:hover {
-	transform: scale(1.2);
+.catalog .catalog-left::-webkit-scrollbar {
+	width: 7px;
+	background: #fff;
+}
+
+.catalog .catalog-left::-webkit-scrollbar-thumb {
+	border-radius: 3.5px;
+	background: #00407A;
 }
 
 .catalog .catalog-left {
@@ -194,6 +208,7 @@ button:focus {
 	background: #fff;
 	padding: 10px 40px;
 	border-radius: 25px 0 0 25px;
+	overflow: auto;
 }
 
 .catalog .catalog-left button {
@@ -363,20 +378,26 @@ header .head-down button img {
 	margin-right: 15px;
 }
 
-header .head-down button:nth-child(1) {
-	color: #007AC9;
-	background: #DFF1FD;
-}
+/*header .head-down button:nth-child(1) {*/
+/*	color: #007AC9;*/
+/*	background: #DFF1FD;*/
+/*}*/
 
-header .head-down button:nth-child(1):hover {
-	background: #BDE2FB;
-}
+/*header .head-down button:nth-child(1):hover {*/
+/*	background: #BDE2FB;*/
+/*}*/
 
 header .head-down .catalog-button {
 	color: #fff;
 	background: #E95D2A;
-	margin-left: 40px;
+	width: 400px;
+	/*margin-left: 40px;*/
 }
+
+.in-button {
+	margin: 0 auto;
+}
+
 
 header .head-down .catalog-button:hover {
 	background: #DB511F;
@@ -515,6 +536,7 @@ header .header-sr {
 	font-weight: 700;
 	white-space: normal;
 	margin-bottom: 40px;
+	height: 220px;
 }
 
 .sect-3 .sect-3-item button {

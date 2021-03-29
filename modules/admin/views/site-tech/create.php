@@ -6,7 +6,6 @@ use yii\helpers\Html;
 /* @var $model app\models\SiteTech */
 
 $this->title = 'Create Site Tech';
-$this->params['breadcrumbs'][] = ['label' => 'Site Teches', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-tech-create">

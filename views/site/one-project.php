@@ -14,9 +14,9 @@ $this->title = $project->title;
                     <a href="<?=Url::to(['/projects'])?>">Проекти&nbsp;&nbsp;></a> &nbsp;&nbsp;<?=$project->title;?>
                 </div>
                 <h1><?=$project->title;?></h1>
-                	<?php if($project->image):?>
-               			<img src="<?=$project->getImage()?>" alt="">
-            		<?php endif;?>
+<!--                	--><?php //if($project->image):?>
+<!--               			<img src="--><?//=$project->getImage()?><!--" alt="">-->
+<!--            		--><?php //endif;?>
                 	<p><?=$project->text;?></p>
             </div>
         </section>

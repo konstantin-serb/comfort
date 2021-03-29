@@ -4,10 +4,14 @@ namespace app\modules\admin\controllers;
 
 use Yii;
 use app\models\SiteTech;
+use yii\base\DynamicModel;
 use yii\data\ActiveDataProvider;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\Response;
+use yii\web\UploadedFile;
 
 /**
  * SiteTechController implements the CRUD actions for SiteTech model.
@@ -124,4 +128,7 @@ class SiteTechController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+
+
 }

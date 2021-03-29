@@ -25,7 +25,7 @@ class CreateCartForm extends Model
     {
         return [
             [['title', 'text', 'info', 'manufacturer', 'subcategory_id'], 'required'],
-            [['title', 'mod'], 'string', 'length' => [3,255]],
+            [['title', 'mod'], 'string', 'length' => [3, 255]],
             [['description'], 'string', 'length' => [3, 500]],
             [['text', 'info'], 'string', 'min' => 2],
             [['price'], 'safe'],
@@ -60,7 +60,7 @@ class CreateCartForm extends Model
 
     public function save()
     {
-        if($this->validate()) {
+        if ($this->validate()) {
             $cart = new Cart();
             $cart->title = $this->title;
             $cart->slug = $cart->createSlug($this->title);
@@ -70,11 +70,12 @@ class CreateCartForm extends Model
             $cart->price = 0.00;
             $cart->model = $this->mod;
             $cart->manufacturer = $this->manufacturer;
-            $cart->availability  = 1;
+            $cart->availability = 1;
             $cart->subcategory_id = $this->subcategory_id;
             $cart->user_create = Yii::$app->user->identity->getId();
             $cart->time_create = time();
             $cart->status = Cart::STATUS_INVISIBLE;
+            $cart->recommend = $this->calc();
 
             if ($cart->save()) {
                 return $cart->slug;
@@ -82,6 +83,13 @@ class CreateCartForm extends Model
 
             return false;
         }
+    }
+
+
+    private function calc()
+    {
+        $calc = Cart::find()->count();
+        return $calc + 1;
     }
 
 }

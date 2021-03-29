@@ -41,9 +41,9 @@ class SiteNews extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'status' => 'Status',
-            'fonts' => 'Fonts',
+            'title' => 'Название',
+            'status' => 'Статус',
+            'fonts' => 'Размер шрифта',
         ];
     }
 }

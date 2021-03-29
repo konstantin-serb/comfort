@@ -159,19 +159,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 }
             ],
-
-            [
-                'attribute' => 'recommend',
-                'format' => 'raw',
-                'value' => function ($model) {
-                    if ($model->recommend == 1) {
-                        return '<span class="blue-color">Рекомедовано</span>';
-                    } else {
-                        return '<span class="red-color">Не рекомендовано</span>';
-                    }
-
-                }
-            ],
+            'recommend',
 //            'time_create:datetime',
 //            'time_update:datetime',
 //            'user_create',

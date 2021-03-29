@@ -35,10 +35,11 @@ class UploadNewsPictureForm extends Model
         $fileUpload->imageQuality = 90;
         $nameLength = 15;
 
-        $image = News::findOne($this->newsId);
+        $news = News::findOne($this->newsId);
         if ($fileTableName = $fileUpload->saveUploadedImage($file, $nameLength)) {
-            $image->image = $fileTableName;
-            if ($image->save()) {
+            $news->image = $fileTableName;
+            $news->type_view = News::WITH_IMAGE;
+            if ($news->save()) {
                 if ($this->addMini($file)) {
                     return true;
                 }
@@ -52,8 +53,8 @@ class UploadNewsPictureForm extends Model
     {
         $fileUpload = new Storage();
         $fileUpload->folder = 'news/mini/';
-        $fileUpload->imageWidth = 300;
-        $fileUpload->imageHeight = 120;
+        $fileUpload->imageWidth = 400;
+        $fileUpload->imageHeight = 200;
         $fileUpload->imageMethod = 'crop';
         $fileUpload->imageQuality = 90;
         $nameLength = 15;

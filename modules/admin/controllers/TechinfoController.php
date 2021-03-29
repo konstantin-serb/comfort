@@ -39,7 +39,7 @@ class TechinfoController extends Controller
     public function actionIndex()
     {
         $searchModel = new TechInfoSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->searchTech(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -68,9 +68,10 @@ class TechinfoController extends Controller
     public function actionCreate()
     {
         $model = new TechInfo();
-
+        $model->type = 1;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+//            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
@@ -94,7 +95,8 @@ class TechinfoController extends Controller
                     $tech->size = KotHelper::get_size($model->file->size);
                     $tech->format = $model->file->extension;
                     $tech->save();
-                    return $this->redirect(['view', 'id' => $id]);
+//                    return $this->redirect(['view', 'id' => $id]);
+                    return $this->redirect(['index']);
                 }
 
             }
@@ -104,9 +106,6 @@ class TechinfoController extends Controller
             'model' => $model,
         ]);
     }
-
-
-
 
 
     /**
@@ -121,7 +120,8 @@ class TechinfoController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+//            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [

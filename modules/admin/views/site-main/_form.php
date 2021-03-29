@@ -18,14 +18,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'image_main')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'image2')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'image3')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'image_map')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'tel1')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'tel2')->textInput(['maxlength' => true]) ?>
@@ -43,6 +35,10 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'fb3')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'fonts')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'meta_description')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'meta_keywords')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

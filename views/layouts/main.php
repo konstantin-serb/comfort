@@ -12,13 +12,19 @@ use app\models\Subcategory;
 
 AppComfortAsset::register($this);
 
-$site = Mysite::findOne(1);
-$category = Category::find()->all();
+$site = \app\models\SiteMain::findOne(1);
+$service = \app\models\SiteService::findOne(1);
+$news = \app\models\SiteNews::findOne(1);
+$tech = \app\models\SiteTech::findOne(1);
+$designers = \app\models\SiteDesigners::findOne(1);
+$company = \app\models\SiteCompany::findOne(1);
+$test = \app\models\SiteTest::findOne(1);
 
+$category = Category::find()->orderBy('order')->all();
 $oneCategory = Category::find()->orderBy('id')->one();
 $subcategory = Subcategory::find()->where(['category_id' => $oneCategory])->all();
 
-if(empty($this->params['modal'])) {
+if (empty($this->params['modal'])) {
     $this->params['modal'] = '';
 }
 
@@ -36,6 +42,7 @@ $this->registerJsFile('/js/search.js', [
     'depends' => \yii\web\JqueryAsset::class,
 ]);
 
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -44,9 +51,12 @@ $this->registerJsFile('/js/search.js', [
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <meta name="description" content="<?= $site->meta_description ?>">
+    <meta name="keywords" content="<?= $site->meta_keywords ?>">
     <?php $this->head() ?>
 </head>
 <body>
@@ -54,53 +64,53 @@ $this->registerJsFile('/js/search.js', [
 <body>
 
 <!------- Окно каталог средний ------->
- <?php if($category):?>
-<div class="catalog-mr" id="catalog-mr">
-    <div class="d-flex jcsb aic">
-        <div class="heading">
-            Каталог продукції
+<?php if ($category): ?>
+    <div class="catalog-mr" id="catalog-mr">
+        <div class="d-flex jcsb aic">
+            <div class="heading">
+                Каталог продукції
+            </div>
+            <div id="catalog-close-mr" class="catalog-close-mr">
+                <img src="/images/closetr.svg" alt="">
+            </div>
         </div>
-        <div id="catalog-close-mr" class="catalog-close-mr">
-            <img src="/images/closetr.svg" alt="">
+        <div class="d-flex catalog-mr-block">
+            <div class="catalog-mr-part">
+
+                <?php
+                $count = count($category);
+                $del = ceil($count / 2);
+                $halfCategory = array_chunk($category, $del);
+
+                ?>
+                <?php foreach ($halfCategory[0] as $half): ?>
+                    <div class="catalog-mr-item">
+                        <div><?= $half->title ?></div>
+                        <?php $subs = Subcategory::find()->where(['category_id' => $half->id])->orderBy('order')->all(); ?>
+
+                        <?php foreach ($subs as $oneSub): ?>
+                            <a href="<?= Url::to(['/catalog/subcategory', 'id' => $oneSub->slug]) ?>"><?= $oneSub->title ?></a>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endforeach; ?>
+
+            </div>
+            <div class="catalog-mr-part">
+                <?php foreach ($halfCategory[1] as $half): ?>
+                    <div class="catalog-mr-item">
+                        <div><?= $half->title ?></div>
+                        <?php $subs = Subcategory::find()->where(['category_id' => $half->id])->orderBy('order')->all(); ?>
+
+                        <?php foreach ($subs as $oneSub): ?>
+                            <a href="<?= Url::to(['/catalog/subcategory', 'id' => $oneSub->slug]) ?>"><?= $oneSub->title ?></a>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endforeach; ?>
+
+            </div>
         </div>
     </div>
-    <div class="d-flex catalog-mr-block">
-        <div class="catalog-mr-part">
-
-            <?php 
-            $count = count($category);
-            $del = ceil($count/2);
-            $halfCategory = array_chunk($category, $del);
-            
-            ?>
-            <?php foreach($halfCategory[0] as $half):?>
-            <div class="catalog-mr-item">
-                <div><?=$half->title?></div>
-                <?php $subs = Subcategory::find()->where(['category_id' => $half->id])->orderBy('order')->all();?>
-
-                <?php foreach($subs as $oneSub):?>
-                <a href="<?=Url::to(['/catalog/subcategory', 'id' => $oneSub->slug])?>"><?=$oneSub->title?></a>
-                <?php endforeach;?>
-            </div>
-            <?php endforeach;?>
-            
-        </div>
-        <div class="catalog-mr-part">
-            <?php foreach($halfCategory[1] as $half):?>
-            <div class="catalog-mr-item">
-                <div><?=$half->title?></div>
-                <?php $subs = Subcategory::find()->where(['category_id' => $half->id])->orderBy('order')->all();?>
-
-                <?php foreach($subs as $oneSub):?>
-                <a href="<?=Url::to(['/catalog/subcategory', 'id' => $oneSub->slug])?>"><?=$oneSub->title?></a>
-                <?php endforeach;?>
-            </div>
-           <?php endforeach;?>
-
-        </div>
-    </div>
-</div>
-<?php endif;?>
+<?php endif; ?>
 
 <!------- Окно бургер меню ------->
 
@@ -124,37 +134,55 @@ $this->registerJsFile('/js/search.js', [
                 </label>
             </form>
         </div>
+        <?php if ($company->status == 1): ?>
+            <a href="<?= Url::to(['/about']) ?>"><?= $company->title ?></a>
+        <?php endif; ?>
 
-        <a href="<?= Url::to(['/news']) ?>">Новини</a>
-        <a href="<?= Url::to(['/service']) ?>">Сервіс та обслуговування</a>
-        <a href="<?= Url::to(['/techinfo']) ?>">Технічна інформація</a>
-        <a href="<?= Url::to(['/designers']) ?>">Дизайнерам та архітекторам</a>
-        <a href="<?= Url::to(['/about']) ?>">Компанія</a>
-        <a href="<?= Url::to(['/search']) ?>">search</a>
+        <?php if ($news->status == 1): ?>
+        <a href="<?= Url::to(['/news']) ?>"><?= $news->title ?>/a>
+            <?php endif; ?>
+
+            <?php if ($service->status == 1): ?>
+                <a href="<?= Url::to(['/service']) ?>"><?= $service->title ?></a>
+            <?php endif; ?>
+
+            <?php if ($tech->status == 1): ?>
+                <a href="<?= Url::to(['/techinfo']) ?>"><?= $tech->title ?></a>
+            <?php endif; ?>
+
+            <?php if ($designers->status == 1): ?>
+                <a href="<?= Url::to(['/designers']) ?>"><?= $designers->title ?></a>
+            <?php endif; ?>
+
+
+            <?php if ($test->status == 1): ?>
+                <a href="<?= Url::to(['/test']) ?>"><?= $test->title ?></a>
+            <?php endif; ?>
+            <!--            <a href="--><? //= Url::to(['/search']) ?><!--">search</a>-->
     </div>
     <div class="burger-menu-bottom">
         <div class="d-flex">
             <div class="burger-menu-bottom-links1">
-                <a href="tel:<?= $site->tel_kyiv ?>>">
-<!--                    <img src="/images/kyivstar.svg" alt="">-->
-                    <?= $site->tel_kyiv ?>
+                <a href="tel:<?= $site->tel1 ?>>">
+                    <!--                    <img src="/images/kyivstar.svg" alt="">-->
+                    <?= $site->tel1 ?>
                 </a><br>
-                <a href="tel:<?= $site->tel_voda ?>">
-<!--                    <img src="/images/vodafone.svg" alt="">-->
-                    <?= $site->tel_voda ?>
+                <a href="tel:<?= $site->tel2 ?>">
+                    <!--                    <img src="/images/vodafone.svg" alt="">-->
+                    <?= $site->tel2 ?>
                 </a>
             </div>
             <div class="burger-menu-bottom-links2">
-                <a href="mailto:<?=$site->email;?>"><?=$site->email;?></a>
+                <a href="mailto:<?= $site->email; ?>"><?= $site->email; ?></a>
                 <div>
-                    <?=$site->address;?>
+                    <?= $site->address; ?>
                 </div>
             </div>
         </div>
         <div class="burger-menu-bottom-social">
-            <a href="<?=$site->fb?>"><img src="/images/fb-blue.svg" alt=""></a>
-            <a href="<?=$site->insta?>"><img src="/images/insta-blue.svg" alt=""></a>
-            <a href="<?=$site->in?>"><img src="/images/in-blue.svg" alt=""></a>
+            <a href="<?= $site->fb1 ?>"><img src="/images/fb-blue.svg" alt=""></a>
+            <a href="<?= $site->fb2 ?>"><img src="/images/insta-blue.svg" alt=""></a>
+            <a href="<?= $site->fb3 ?>"><img src="/images/in-blue.svg" alt=""></a>
         </div>
     </div>
 </div>
@@ -167,21 +195,21 @@ $this->registerJsFile('/js/search.js', [
 
     <div class="search" id="search">
 
-        <form >
+        <form>
             <input id="textsearch" type="text" class="search-text" name="text">
             <label for="submit" class="search-img">
-                 <input type="submit" id="search-submit">
+                <input type="submit" id="search-submit">
                 <a id="search-submit"><label for="submit" class="search-img"></a>
             </label>
         </form>
-<!--        <div id="catalog-close1" class="catalog-close"></div>-->
+        <!--        <div id="catalog-close1" class="catalog-close"></div>-->
         <p id="addResult" class="">
-            
+
         </p>
     </div>
 
     <!------- Окно каталог большой ------->
-    <div class="catalog" id="catalog">
+    <div class="catalog" id="catalog" style="display: block">
         <div class="d-flex">
             <div class="catalog-left">
                 <?php foreach ($category as $item): ?>
@@ -196,7 +224,7 @@ $this->registerJsFile('/js/search.js', [
                 <span id="subcat1">
                 <?php if ($subcategory): ?>
                     <?php foreach ($subcategory as $item): ?>
-                        <a href="<?=Url::to(['/catalog/subcategory', 'id' => $item->slug])?>">
+                        <a href="<?= Url::to(['/catalog/subcategory', 'id' => $item->slug]) ?>">
                             <?= $item->title; ?>
                         </a>
                     <?php endforeach; ?>
@@ -211,10 +239,10 @@ $this->registerJsFile('/js/search.js', [
 
     <!------- Окно catalog-cart-slider ------->
 
-    <?php if($this->params['modal']):?>
+    <?php if ($this->params['modal']): ?>
 
-            <?=$this->params['modal']?>
-    <?php endif;?>
+        <?= $this->params['modal'] ?>
+    <?php endif; ?>
 
 </div>
 
@@ -231,17 +259,35 @@ $this->registerJsFile('/js/search.js', [
 
         <div class="head-top d-flex jcsb">
             <div class="head-top-left">
-                <a href="<?= Url::to(['/news']) ?>">Новини</a>
-                <a href="<?= Url::to(['/service']) ?>">Сервіс та обслуговування</a>
-                <a href="<?= Url::to(['/techinfo']) ?>">Технічна інформація</a>
-                <a href="<?= Url::to(['/designers']) ?>">Дизайнерам та архітекторам</a>
-                <a href="<?= Url::to(['/about']) ?>">Компанія</a>
-<!--                <a href="--><?//= Url::to(['/search']) ?><!--">search</a>-->
+                <?php if ($company->status == 1): ?>
+                    <a href="<?= Url::to(['/about']) ?>"><?= $company->title ?></a>
+                <?php endif; ?>
+
+                <?php if ($news->status == 1): ?>
+                    <a href="<?= Url::to(['/news']) ?>"><?= $news->title ?></a>
+                <?php endif; ?>
+
+                <?php if ($service->status == 1): ?>
+                    <a href="<?= Url::to(['/service']) ?>"><?= $service->title ?></a>
+                <?php endif; ?>
+
+                <?php if ($tech->status == 1): ?>
+                    <a href="<?= Url::to(['/techinfo']) ?>"><?= $tech->title ?></a>
+                <?php endif; ?>
+
+                <?php if ($designers->status == 1): ?>
+                    <a href="<?= Url::to(['/designers']) ?>"><?= $designers->title ?></a>
+                <?php endif; ?>
+
+                <?php if ($test->status == 1): ?>
+                    <a href="<?= Url::to(['/test']) ?>"><?= $test->title ?></a>
+                <?php endif; ?>
+                <!--                <a href="--><? //= Url::to(['/search']) ?><!--">search</a>-->
             </div>
             <div class="head-top-right">
-                <a href="<?= $site->fb ?>"><img src="/images/fb-blue.svg" alt=""></a>
-                <a href="<?= $site->insta ?>"><img src="/images/insta-blue.svg" alt=""></a>
-                <a href="<?= $site->in ?>"><img src="/images/in-blue.svg" alt=""></a>
+                <a href="<?= $site->fb1 ?>"><img src="/images/fb-blue.svg" alt=""></a>
+                <a href="<?= $site->fb2 ?>"><img src="/images/insta-blue.svg" alt=""></a>
+                <a href="<?= $site->fb3 ?>"><img src="/images/in-blue.svg" alt=""></a>
             </div>
         </div>
 
@@ -253,20 +299,20 @@ $this->registerJsFile('/js/search.js', [
                             <img src="/images/logo-head.svg" alt="">
                         </div>
                         <div>
-                            <p>Smart</p>
-                            <p>Heating</p>
-                            <p>Solutions</p>
+<!--                            <p>Smart</p>-->
+<!--                            <p>Heating</p>-->
+<!--                            <p>Solutions</p>-->
                         </div>
                     </div>
                 </a>
                 <div class="d-flex head-phones aic">
-                    <a href="tel:<?= $site->tel_kyiv ?>">
-<!--                        <img src="/images/kyivstar.svg" alt="">-->
-                        <?= $site->tel_kyiv ?>
+                    <a href="tel:<?= $site->tel1 ?>">
+                        <!--                        <img src="/images/kyivstar.svg" alt="">-->
+                        <?= $site->tel1 ?>
                     </a>
-                    <a href="tel:<?= $site->tel_voda ?>">
-<!--                        <img src="/images/vodafone.svg" alt="">-->
-                        <?= $site->tel_voda ?>
+                    <a href="tel:<?= $site->tel2 ?>">
+                        <!--                        <img src="/images/vodafone.svg" alt="">-->
+                        <?= $site->tel2 ?>
                     </a>
                 </div>
                 <div class="d-flex head-info">
@@ -274,14 +320,16 @@ $this->registerJsFile('/js/search.js', [
                     <div><?= $site->address ?></div>
                 </div>
             </div>
-            <div class="d-flex">
-                <button class="search-btn" id="search-btn">
-                    <img src="/images/search.svg" alt="">
-                    Пошук
-                </button>
+            <div class="catalog-bu">
+                <!--                <button class="search-btn" id="search-btn">-->
+                <!--                    <img src="/images/search.svg" alt="">-->
+                <!--                    Пошук-->
+                <!--                </button>-->
                 <button class="catalog-button" id="catalog-button">
-                    <img src="/images/menu-left.svg" alt="">
-                    Каталог продукції
+                    <div class="in-button">
+                        <img src="/images/menu-left.svg" alt="">
+                        Каталог продукції
+                    </div>
                 </button>
             </div>
         </div>
@@ -291,13 +339,13 @@ $this->registerJsFile('/js/search.js', [
 
     <div class="block header-mr">
         <div class="head-mr-top d-flex">
-            <a href="tel:<?= $site->tel_kyiv ?>">
-<!--                <img src="/images/kyivstar.svg" alt="">-->
-                <?= $site->tel_kyiv ?>
+            <a href="tel:<?= $site->tel1 ?>">
+                <!--                <img src="/images/kyivstar.svg" alt="">-->
+                <?= $site->tel1 ?>
             </a>
-            <a href="tel:<?= $site->tel_voda ?>">
-<!--                <img src="/images/vodafone.svg" alt="">-->
-                <?= $site->tel_voda ?>
+            <a href="tel:<?= $site->tel2 ?>">
+                <!--                <img src="/images/vodafone.svg" alt="">-->
+                <?= $site->tel2 ?>
             </a>
         </div>
         <div class="head-mr-bottom d-flex jcsb aic">
@@ -307,9 +355,9 @@ $this->registerJsFile('/js/search.js', [
                         <img src="/images/logo-head.svg" alt="">
                     </div>
                     <div>
-                        <p>Smart</p>
-                        <p>Heating</p>
-                        <p>Solutions</p>
+<!--                        <p>Smart</p>-->
+<!--                        <p>Heating</p>-->
+<!--                        <p>Solutions</p>-->
                     </div>
                 </div>
             </a>
@@ -349,38 +397,60 @@ $this->registerJsFile('/js/search.js', [
                 </div>
                 <h6>Контакти</h6>
                 <p><?= $site->address ?></p>
-                <a href="tel:<?= $site->tel_kyiv ?>">
-<!--                    <img src="/images/kyivstar.svg" alt="">-->
-                    <?= $site->tel_kyiv ?>
+                <a href="tel:<?= $site->tel1 ?>">
+                    <!--                    <img src="/images/kyivstar.svg" alt="">-->
+                    <?= $site->tel1 ?>
                 </a>
-                <a href="tel:<?= $site->tel_voda ?>">
-<!--                    <img src="/images/vodafone.svg" alt="">-->
-                    <?= $site->tel_voda ?>
+                <a href="tel:<?= $site->tel2 ?>">
+                    <!--                    <img src="/images/vodafone.svg" alt="">-->
+                    <?= $site->tel2 ?>
                 </a>
-                <a href="tel:<?= $site->tel_life ?>">
-<!--                    <img src="/images/lifecell.svg" alt="">-->
-                    <?= $site->tel_life ?>
+                <a href="tel:<?= $site->tel3 ?>">
+                    <!--                    <img src="/images/lifecell.svg" alt="">-->
+                    <?= $site->tel3 ?>
                 </a>
                 <a href="mailto:<?= $site->email ?>" class="foot-mail"><?= $site->email ?>
                 </a>
                 <div class="d-flex foot-social">
-                    <a href="<?= $site->fb ?>"><img src="/images/fb-white.svg" alt=""></a>
-                    <a href="<?= $site->insta ?>"><img src="/images/insta-white.svg" alt=""></a>
-                    <a href="<?= $site->in ?>"><img src="/images/in-white.svg" alt=""></a>
+                    <a href="<?= $site->fb1 ?>"><img src="/images/fb-white.svg" alt=""></a>
+                    <a href="<?= $site->fb2 ?>"><img src="/images/insta-white.svg" alt=""></a>
+                    <a href="<?= $site->fb3 ?>"><img src="/images/in-white.svg" alt=""></a>
                 </div>
                 <div class="d-flex foot-links">
-                    <a href="<?= Url::to(['/news']) ?>">Новини</a>
-                    <a href="<?= Url::to(['/service']) ?>">Сервіс та обслуговування</a>
-                    <a href="<?= Url::to(['/techinfo']) ?>">Технічна інформація</a>
-                    <a href="<?= Url::to(['/designers']) ?>">Дизайнерам та архітекторам</a>
-                    <a href="<?= Url::to(['/about']) ?>">Компанія</a>
+                    <?php if ($company->status == 1): ?>
+                        <a href="<?= Url::to(['/about']) ?>"><?= $company->title ?></a>
+                    <?php endif; ?>
+
+                    <?php if ($news->status == 1): ?>
+                        <a href="<?= Url::to(['/news']) ?>"><?= $news->title ?></a>
+                    <?php endif; ?>
+
+                    <?php if ($service->status == 1): ?>
+                        <a href="<?= Url::to(['/service']) ?>"><?= $service->title ?></a>
+                    <?php endif; ?>
+
+                    <?php if ($tech->status == 1): ?>
+                        <a href="<?= Url::to(['/techinfo']) ?>"><?= $tech->title ?></a>
+                    <?php endif; ?>
+
+                    <?php if ($designers->status == 1): ?>
+                        <a href="<?= Url::to(['/designers']) ?>"><?= $designers->title ?></a>
+                    <?php endif; ?>
+
+                    <?php if ($test->status == 1): ?>
+                        <a href="<?= Url::to(['/test']) ?>"><?= $test->title ?></a>
+                    <?php endif; ?>
 
                 </div>
             </div>
         </div>
 
         <div class="foot-right">
-            <img src="/images/map.svg" alt="">
+            <img src="<?php if ($site->image_map) {
+                echo '/uploads/' . $site->image_map;
+            } else {
+                echo '/images/map.svg';
+            } ?>" alt="">
         </div>
     </div>
     <div class="foot-down d-flex block">

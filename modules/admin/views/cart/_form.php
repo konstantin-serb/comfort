@@ -4,6 +4,7 @@
  */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 use vova07\imperavi\Widget;
 use yii\bootstrap\Modal;
@@ -42,6 +43,11 @@ $this->registerJsFile('/js/back/addSubcategory.js', [
                 ['green', '<span class="label-green">green</span>'],
                 ['blue', '<span class="label-blue">blue</span>'],
             ],
+            'imageUpload' => Url::to(['save-image']),
+            'imageManagerJson' => Url::to(['/default/images-get']),
+            'plugins' => [
+                'imagemanager',
+            ],
         ],
     ]);
     ?>
@@ -63,6 +69,11 @@ $this->registerJsFile('/js/back/addSubcategory.js', [
                 ['red', '<span class="label-red">red</span>'],
                 ['green', '<span class="label-green">green</span>'],
                 ['blue', '<span class="label-blue">blue</span>'],
+            ],
+            'imageUpload' => Url::to(['save-image']),
+            'imageManagerJson' => Url::to(['/default/images-get']),
+            'plugins' => [
+                'imagemanager',
             ],
         ],
     ]);

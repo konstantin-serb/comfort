@@ -2,12 +2,15 @@
 
 namespace app\modules\admin\controllers;
 
+use app\components\Storage;
+use app\modules\admin\models\forms\UploadSiteMinePictureForm;
 use Yii;
 use app\models\SiteMain;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * SiteMainController implements the CRUD actions for SiteMain model.
@@ -105,12 +108,12 @@ class SiteMainController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
+//    public function actionDelete($id)
+//    {
+//        $this->findModel($id)->delete();
+//
+//        return $this->redirect(['index']);
+//    }
 
     /**
      * Finds the SiteMain model based on its primary key value.
@@ -131,7 +134,36 @@ class SiteMainController extends Controller
 
     public function actionUpdateImage($type)
     {
+        $currentPhoto = SiteMain::findOne(1)->$type;
+        $model = new UploadSiteMinePictureForm();
+        $model->type = $type;
+        if ($model->load(Yii::$app->request->post())) {
+            $image = UploadedFile::getInstance($model, 'image');
+            if (is_uploaded_file($image->tempName)) {
+                if ($model->addImage($image)) {
+                    return $this->redirect(['index']);
+                }
+            }
+        }
 
-        return $this->render('update-image',[]);
+        return $this->render('update-image',[
+            'model' => $model,
+            'currentPhoto' => $currentPhoto,
+            'type' => $type,
+        ]);
+    }
+
+
+    public function actionDeleteImage($type)
+    {
+        $content = SiteMain::findOne(1);
+        if ($content->$type) {
+            Storage::clean($content->$type);
+            $content->$type = null;
+            $content->save(false);
+            return $this->redirect(['index']);
+        }
+
+
     }
 }

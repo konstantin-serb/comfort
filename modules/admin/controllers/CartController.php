@@ -20,6 +20,7 @@ use app\modules\admin\models\ProductTag;
 use app\modules\admin\models\Subcategory;
 use app\modules\admin\models\Cart;
 use app\modules\admin\models\CartSearch;
+use yii\base\DynamicModel;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -35,7 +36,17 @@ use yii\helpers\Url;
  */
 class CartController extends Controller
 {
-
+    public function actions()
+    {
+        return [
+            'images-get' => [
+                'class' => 'vova07\imperavi\actions\GetImagesAction',
+                'url' => 'http://my-site.com/images/', // Directory URL address, where files are stored.
+                'path' => '@alias/to/my/path', // Or absolute path to directory where files are stored.
+                'options' => ['only' => ['*.jpg', '*.jpeg', '*.png', '*.gif', '*.ico']], // These options are by default.
+            ],
+        ];
+    }
 
     
     /**
@@ -387,6 +398,54 @@ class CartController extends Controller
             return $this->redirect(['view', 'id' => $cart->slug]);
         }
         die;
+    }
+
+
+    public function actionSaveImage()
+    {
+        // Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $this->enableCsrfValidation = false;
+        if (Yii::$app->request->isPost)
+        {
+            $dir = Yii::getAlias('@images');
+            $result_link = Url::home(true) . 'uploads/img/';
+            $file = UploadedFile::getInstanceByName('file');
+            $model = new DynamicModel(compact('file'));
+            $model->addRule('file', 'image')->validate();
+
+            if($model->hasErrors()) {
+                $result = [
+                    'error' => $model->getFirstError('file'),
+                ];
+            } else {
+                $model->file->name = '/'.strtotime('now') . '_'
+                    . Yii::$app->getSecurity()->generateRandomString(6) . '.'
+                    . $model->file->extension;
+
+                if($model->file->saveAs($dir . $model->file->name)) {
+                    // $imag = Yii::$app->image->load($dir . $model->file->name);
+                    // $imag->resize(800, NULL, yii\image\drivers\Image::PRECISE)
+                    // ->save($dir . $model->file->name, 85);
+
+                    $result = [
+                        'filelink' => $result_link . $model->file->name,
+                        'filename' => $model->file->name,
+                    ];
+                } else {
+                    $result = [
+                        'error' => Yii::t('vova07/imperavi', 'ERROR_CAN_NOT_UPLOAD_FILE')
+                    ];
+                }
+            }
+
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return $result;
+
+        } else {
+            throw new BadRequestHttpException('Only POST is allowed');
+        }
+
     }
 
 }

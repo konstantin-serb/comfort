@@ -76,7 +76,7 @@ class Cart extends \yii\db\ActiveRecord
             'time_update' => 'Time Update',
             'user_create' => 'User Create',
             'user_update' => 'User Update',
-            'recommend' => 'Рекомендованные',
+            'recommend' => 'Sort',
         ];
     }
 

@@ -18,12 +18,12 @@ $('#catalog-button').click(function(){
 });
 
 $('#catalog-close').click(function(){
-	$('#catalog').css('display','none');
+	// $('#catalog').css('display','none');
     $('#modal-bcg').css('transform','scaleY(0)');
 });
 
 $('#catalog-close1').click(function(){
-  $('#catalog').css('display','none');
+  // $('#catalog').css('display','none');
     $('#modal-bcg').css('transform','scaleY(0)');
 });
 

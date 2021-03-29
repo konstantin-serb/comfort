@@ -11,7 +11,7 @@ $this->title = 'Технічна інформація';
         <h1>Технічна інформація</h1>
 
         <?php foreach($info as $item):?>
-        <a href="<?=$item->link?>" target="blank">
+        <a style="font-size: <?php if($content->fonts){echo $content->fonts;}else{echo '1.5rem';}?>;" href="<?=$item->link?>" target="blank">
             <?=$item->title?>
             <?php if($item->size):?>
             (<?=$item->size?>)

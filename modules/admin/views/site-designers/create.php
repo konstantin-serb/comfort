@@ -6,7 +6,6 @@ use yii\helpers\Html;
 /* @var $model app\models\SiteDesigners */
 
 $this->title = 'Create Site Designers';
-$this->params['breadcrumbs'][] = ['label' => 'Site Designers', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-designers-create">

@@ -14,9 +14,9 @@ $this->title = $news->title;
                     <a href="<?=Url::to(['/news'])?>">Новини&nbsp;&nbsp;></a> &nbsp;&nbsp;<?=$news->title;?>
                 </div>
                 <h1><?=$news->title;?></h1>
-                	<?php if($news->image):?>
-               			<img src="<?=$news->getImage()?>" alt="">
-            		<?php endif;?>
+<!--                	--><?php //if($news->image):?>
+<!--               			<img src="--><?//=$news->getImage()?><!--" alt="">-->
+<!--            		--><?php //endif;?>
                 	<p><?=$news->text;?></p>
             </div>
         </section>

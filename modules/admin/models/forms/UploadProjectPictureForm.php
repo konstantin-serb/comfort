@@ -34,10 +34,11 @@ class UploadProjectPictureForm extends Model
         $fileUpload->imageQuality = 90;
         $nameLength = 15;
 
-        $image = Project::findOne($this->projectId);
+        $project = Project::findOne($this->projectId);
         if ($fileTableName = $fileUpload->saveUploadedImage($file, $nameLength)) {
-            $image->image = $fileTableName;
-            if ($image->save()) {
+            $project->image = $fileTableName;
+            $project->type_view = Project::WITH_IMAGE;
+            if ($project->save()) {
                 if ($this->addMini($file)) {
                     return true;
                 }
@@ -51,8 +52,8 @@ class UploadProjectPictureForm extends Model
     {
         $fileUpload = new Storage();
         $fileUpload->folder = 'project/mini/';
-        $fileUpload->imageWidth = 300;
-        $fileUpload->imageHeight = 120;
+        $fileUpload->imageWidth = 400;
+        $fileUpload->imageHeight = 200;
         $fileUpload->imageMethod = 'crop';
         $fileUpload->imageQuality = 90;
         $nameLength = 15;

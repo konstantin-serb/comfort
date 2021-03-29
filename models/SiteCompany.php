@@ -16,6 +16,9 @@ use Yii;
  * @property string|null $text3
  * @property string|null $image1
  * @property string|null $image2
+ * @property string|null $image3
+ * @property integer|null $image2_visible
+ * @property integer|null $image3_visible
  */
 class SiteCompany extends \yii\db\ActiveRecord
 {
@@ -36,7 +39,7 @@ class SiteCompany extends \yii\db\ActiveRecord
             [['title'], 'required'],
             [['status'], 'integer'],
             [['text', 'text2', 'text3'], 'string'],
-            [['title', 'fonts', 'image1', 'image2'], 'string', 'max' => 255],
+            [['title', 'fonts', 'image1', 'image2', 'image3'], 'string', 'max' => 255],
         ];
     }
 
@@ -47,14 +50,15 @@ class SiteCompany extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'status' => 'Status',
-            'fonts' => 'Fonts',
-            'text' => 'Text',
-            'text2' => 'Text2',
-            'text3' => 'Text3',
-            'image1' => 'Image1',
-            'image2' => 'Image2',
+            'title' => 'Название',
+            'status' => 'Статус',
+            'fonts' => 'Размер шрифта',
+            'text' => 'Текст1',
+            'text2' => 'Текст2',
+            'text3' => 'Текст3',
+            'image1' => 'Изображение1',
+            'image2' => 'Изображение2',
+            'image3' => 'Изображение3',
         ];
     }
 }

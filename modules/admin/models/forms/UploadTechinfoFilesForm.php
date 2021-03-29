@@ -12,17 +12,19 @@ class UploadTechinfoFilesForm extends Model
 {
     public $file;
     public $techId;
+    public $title;
 
 
     public function rules()
     {
         return [
             [['file'], 'file',
-                'extensions' => ['jpg', 'png', 'doc', 'docx', 'xls', 'xlsx', 'pdf'],
+                'extensions' => ['jpg', 'png', 'doc', 'docx', 'xls', 'xlsx', 'pdf', 'svg'],
                 'checkExtensionByMimeType' => true,
             ],
             [['techId'], 'integer'],
             [['file'], 'required'],
+            [['title'], 'string'],
         ];
     }
 

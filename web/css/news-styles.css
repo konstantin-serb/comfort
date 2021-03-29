@@ -22,6 +22,7 @@
 
 .news .news-page .news-page-item,
 .news .news-page .news-page-item-img,
+.news-page-item-img,
 .news .news-page .projects-page-item-img {
 	border: 1px solid #BDE3FB;
 	border-radius: 4px;
@@ -30,10 +31,12 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	height: 300px;
 }
 
 .news .news-page .news-page-item h2,
 .news .news-page .news-page-item-img h2,
+.news-page-item-img h2,
 .news .news-page .projects-page-item-img h2 {
     color: #202023;
 	font-size: 36px;
@@ -90,6 +93,7 @@
 	background-size: cover;
 }
 
+.news-page-item-img h2,
 .news .news-page .news-page-item-img h2,
 .news .news-page .news-page-item-img p,
 .news .news-page .news-page-item-img a,

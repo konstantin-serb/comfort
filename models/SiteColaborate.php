@@ -11,6 +11,7 @@ use Yii;
  * @property string|null $title
  * @property int|null $status
  * @property string|null $text
+ * @property string|null $description
  * @property string|null $link
  */
 class SiteColaborate extends \yii\db\ActiveRecord
@@ -30,7 +31,7 @@ class SiteColaborate extends \yii\db\ActiveRecord
     {
         return [
             [['status'], 'integer'],
-            [['text'], 'string'],
+            [['text', 'description'], 'string'],
             [['title', 'link'], 'string', 'max' => 255],
         ];
     }
@@ -42,10 +43,12 @@ class SiteColaborate extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'status' => 'Status',
-            'text' => 'Text',
-            'link' => 'Link',
+            'title' => 'Название',
+            'status' => 'Статус',
+            'description' => 'Описание на ссылочном блоке',
+            'text' => 'Текст',
+            'link' => 'Размер шрифта',
+
         ];
     }
 }

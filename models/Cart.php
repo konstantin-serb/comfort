@@ -151,7 +151,8 @@ class Cart extends \yii\db\ActiveRecord
     public static function getAll($pageSize = 8, $subcategory_id)
     {
         // Вывод статей для пагинации
-        $query = Cart::find()->where(['subcategory_id' => $subcategory_id])->andWhere(['status' => Cart::STATUS_VISIBLE])->orderBy('id desc');
+        $query = Cart::find()->where(['subcategory_id' => $subcategory_id])
+            ->andWhere(['status' => Cart::STATUS_VISIBLE])->orderBy('recommend desc');
         $count = $query->count();
         $pagination = new Pagination(['totalCount' => $count, 'pageSize' =>$pageSize]);
         $carts = $query->offset($pagination->offset)

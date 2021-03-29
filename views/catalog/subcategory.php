@@ -67,7 +67,7 @@ $this->registerJsFile('/js/select.js', [
                     </div>
                 </div>
             </div>
-            <div class="d-flex jcsb" id="page-catalog-cont-block">
+            <div class="d-flex jcsb cartBlock" id="page-catalog-cont-block">
             	<?php if($carts):?>
 
             		<?php foreach($carts as $cart):?>

@@ -40,7 +40,7 @@ class CartSearch extends Cart
      */
     public function search($params)
     {
-        $query = Cart::find();
+        $query = Cart::find()->orderBy('recommend desc');
 
         // add conditions that should always apply here
 

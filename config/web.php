@@ -83,6 +83,7 @@ $config = [
                 'search' => 'site/search',
                 'one-news' => 'site/one-news',
                 'one-project' => 'site/one-project',
+                'test' => 'site/test',
             ],
         ],
 

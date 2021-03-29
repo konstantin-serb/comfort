@@ -43,10 +43,10 @@ class SiteTest extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'status' => 'Status',
-            'fonts' => 'Fonts',
-            'text' => 'Text',
+            'title' => 'Название',
+            'status' => 'Статус',
+            'fonts' => 'Размер шрифта',
+            'text' => 'Текст',
         ];
     }
 }

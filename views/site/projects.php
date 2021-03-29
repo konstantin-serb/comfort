@@ -5,7 +5,7 @@ use yii\helpers\Url;
 use app\models\Project;
 
 $this->title = "Наші проекти";
-
+$titleShort = 20;
 
 $this->registerJsFile('/owl/owl.carousel.min.js', [
     'depends' => \yii\web\JqueryAsset::class,
@@ -28,7 +28,7 @@ $this->registerJsFile('/owl/owl.carousel.min.js', [
                     }
 
                     ?>>
-                        <h2><?=$item->title?></h2>
+                        <h2><?=StringHelper::getShort($item->title, $titleShort)?></h2>
                         <p><?=StringHelper::getShort($item->description, 200)?></p>
                         <a href="<?=Url::to(['/one-project', 'id'=>$item->slug])?>">
                             Читати
@@ -49,7 +49,7 @@ $this->registerJsFile('/owl/owl.carousel.min.js', [
                     }
 
                     ?>>
-                        <h2><?=$item->title?></h2>
+                        <h2><?=StringHelper::getShort($item->title, $titleShort)?></h2>
                         <p><?=StringHelper::getShort($item->description, 200)?></p>
                         <a href="<?=Url::to(['/one-project', 'id'=>$item->slug])?>">
                             Читати
@@ -75,7 +75,7 @@ $this->registerJsFile('/owl/owl.carousel.min.js', [
                     }
 
                     ?>>
-                        <h2><?=$item->title?></h2>
+                        <h2><?=StringHelper::getShort($item->title, $titleShort)?></h2>
                         <p><?=StringHelper::getShort($item->description, 200)?></p>
                         <a href="<?=Url::to(['/one-project', 'id'=>$item->slug])?>">
                             Читати
@@ -98,7 +98,7 @@ $this->registerJsFile('/owl/owl.carousel.min.js', [
                     }
 
                     ?>>
-                        <h2><?=$item->title?></h2>
+                        <h2><?=StringHelper::getShort($item->title, $titleShort)?></h2>
                         <p><?=StringHelper::getShort($item->description, 200)?></p>
                         <a href="<?=Url::to(['/one-project', 'id'=>$item->slug])?>">
                             Читати
@@ -125,7 +125,7 @@ $this->registerJsFile('/owl/owl.carousel.min.js', [
                     }
 
                     ?>>
-                        <h2><?=$item->title?></h2>
+                        <h2><?=StringHelper::getShort($item->title, $titleShort)?></h2>
                         <p><?=StringHelper::getShort($item->description, 200)?></p>
                         <a href="<?=Url::to(['/one-project', 'id'=>$item->slug])?>">
                             Читати
@@ -147,7 +147,7 @@ $this->registerJsFile('/owl/owl.carousel.min.js', [
                     }
 
                     ?>>
-                        <h2><?=$item->title?></h2>
+                        <h2><?=StringHelper::getShort($item->title, $titleShort)?></h2>
                         <p><?=StringHelper::getShort($item->description, 200)?></p>
                         <a href="<?=Url::to(['/one-project', 'id'=>$item->slug])?>">
                             Читати
@@ -174,7 +174,7 @@ $this->registerJsFile('/owl/owl.carousel.min.js', [
                     }
 
                     ?>>
-                        <h2><?=$item->title?></h2>
+                        <h2><?=StringHelper::getShort($item->title, $titleShort)?></h2>
                         <p><?=StringHelper::getShort($item->description, 200)?></p>
                         <a href="<?=Url::to(['/one-project', 'id'=>$item->slug])?>">
                             Читати
@@ -196,7 +196,7 @@ $this->registerJsFile('/owl/owl.carousel.min.js', [
                     }
 
                     ?>>
-                        <h2><?=$item->title?></h2>
+                        <h2><?=StringHelper::getShort($item->title, $titleShort)?></h2>
                         <p><?=StringHelper::getShort($item->description, 200)?></p>
                         <a href="<?=Url::to(['/one-project', 'id'=>$item->slug])?>">
                             Читати
@@ -223,7 +223,7 @@ $this->registerJsFile('/owl/owl.carousel.min.js', [
                     }
 
                     ?>>
-                        <h2><?=$item->title?></h2>
+                        <h2><?=StringHelper::getShort($item->title, $titleShort)?></h2>
                         <p><?=StringHelper::getShort($item->description, 200)?></p>
                         <a href="<?=Url::to(['/one-project', 'id'=>$item->slug])?>">
                             Читати
@@ -245,7 +245,7 @@ $this->registerJsFile('/owl/owl.carousel.min.js', [
                     }
 
                     ?>>
-                        <h2><?=$item->title?></h2>
+                        <h2><?=StringHelper::getShort($item->title, $titleShort)?></h2>
                         <p><?=StringHelper::getShort($item->description, 200)?></p>
                         <a href="<?=Url::to(['/one-project', 'id'=>$item->slug])?>">
                             Читати

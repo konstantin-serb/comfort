@@ -2,6 +2,7 @@
 
 use vova07\imperavi\Widget;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
@@ -31,6 +32,11 @@ use yii\widgets\ActiveForm;
                 ['green', '<span class="label-green">green</span>'],
                 ['blue', '<span class="label-blue">blue</span>'],
             ],
+            'imageUpload' => Url::to(['save-image']),
+            'imageManagerJson' => Url::to(['/default/images-get']),
+            'plugins' => [
+                'imagemanager',
+            ],
         ],
     ]);
     ?>
@@ -42,12 +48,12 @@ use yii\widgets\ActiveForm;
         0 => 'Не видно на сайте',
     ]) ?>
 
-    <?php if($project->image):?>
-    <?= $form->field($model, 'type_view')->dropDownList([
-        9 => 'Тип показа без изображения',
-        10 => 'Тип показа с изображением',
-    ]) ?>
-    <?php endif;?>
+<!--    --><?php //if($project->mini):?>
+<!--    --><?//= $form->field($model, 'type_view')->dropDownList([
+//        9 => 'Тип показа без изображения',
+//        10 => 'Тип показа с изображением',
+//    ]) ?>
+<!--    --><?php //endif;?>
 
     <div class="form-group">
         <?= Html::submitButton('Применить изменения', ['class' => 'btn btn-success']) ?>

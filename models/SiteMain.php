@@ -24,6 +24,8 @@ use Yii;
  * @property string|null $fb2
  * @property string|null $fb3
  * @property string|null $fonts
+ * @property string|null $meta_keywords
+ * @property string|null $meta_description
  */
 class SiteMain extends \yii\db\ActiveRecord
 {
@@ -41,9 +43,8 @@ class SiteMain extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title'], 'required'],
-            [['text'], 'string'],
-            [['title', 'title2', 'image_main', 'image2', 'image3', 'image_map', 'tel1', 'tel2', 'tel3', 'email', 'address', 'fb1', 'fb2', 'fb3', 'fonts'], 'string', 'max' => 255],
+            [['text', 'meta_keywords'], 'string'],
+            [['title', 'meta_description', 'title2', 'image_main', 'image2', 'image3', 'image_map', 'tel1', 'tel2', 'tel3', 'email', 'address', 'fb1', 'fb2', 'fb3', 'fonts'], 'string', 'max' => 255],
         ];
     }
 
@@ -54,9 +55,9 @@ class SiteMain extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'title2' => 'Title2',
-            'text' => 'Text',
+            'title' => 'Главный заголовок',
+            'title2' => 'Заголовок 2',
+            'text' => 'Текст',
             'image_main' => 'Image Main',
             'image2' => 'Image2',
             'image3' => 'Image3',
@@ -65,11 +66,13 @@ class SiteMain extends \yii\db\ActiveRecord
             'tel2' => 'Tel2',
             'tel3' => 'Tel3',
             'email' => 'Email',
-            'address' => 'Address',
+            'address' => 'Адрес',
             'fb1' => 'Fb1',
             'fb2' => 'Fb2',
             'fb3' => 'Fb3',
             'fonts' => 'Fonts',
+            'meta_description' => 'Описание сайта',
+            'meta_keywords' => 'Набор слов для поискав в интернете',
         ];
     }
 
@@ -78,7 +81,7 @@ class SiteMain extends \yii\db\ActiveRecord
         $image = $this::findOne(1)->$type;
 
         if ($image) {
-            return '/uploads/site/'.$image;
+            return '/uploads/'.$image;
         } else {
             return '/uploads/no-image.jpg';
         }

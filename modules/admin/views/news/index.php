@@ -34,13 +34,9 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'description',
                 'format' => 'raw',
-                'value' => function($article) {
-                    if (strlen($article->description) > 100) {
-                        $points = '...';
-                        return  StringHelper::getShort($article->description, 100). $points;
-                    }
-
-                },
+                'value' => function ($article) {
+                    return StringHelper::getShort($article->description, 100);
+                    },
             ],
             //'image',
             //'mini',

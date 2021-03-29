@@ -5,10 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\SiteCompany */
 
-$this->title = 'Update Site Company: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Site Companies', 'url' => ['index']];
+$this->title = 'Редактирование';
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Редактирование';
 ?>
 <div class="site-company-update">
 

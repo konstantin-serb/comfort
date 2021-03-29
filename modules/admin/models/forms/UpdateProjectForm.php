@@ -57,7 +57,7 @@ class UpdateProjectForm extends Model
             $news->description = $this->description;
             $news->text = $this->text;
             $news->status = $this->status;
-            $news->type_view = $this->type_view;
+//            $news->type_view = $this->type_view;
             $news->user_update = Yii::$app->user->identity->getId();
             $news->time_update = time();
             $news->status = $this->status;

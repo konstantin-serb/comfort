@@ -5,10 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\SiteNews */
 
-$this->title = 'Update Site News: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Site News', 'url' => ['index']];
+$this->title = 'Редактирование';
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Редактирование';
 ?>
 <div class="site-news-update">
 

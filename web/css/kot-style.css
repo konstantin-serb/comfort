@@ -93,3 +93,22 @@ p.cart-link a {
 img {
     max-width: 100%;
 }
+
+.d-flex.logo-head img{
+    max-width: inherit;
+}
+
+.uploadFiles {
+    padding: 0.5em 0;
+}
+
+.uploadFiles a {
+    color: black;
+    font-size: 1.5rem;
+}
+
+.deleteBut:hover{
+    color:red;
+    font-weight: bold;
+    text-decoration: none;
+}

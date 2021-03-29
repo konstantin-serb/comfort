@@ -28,6 +28,13 @@
 }
 
 
+@media (max-width: 1200px) {
+    .block {
+        padding: 0 15px;
+    }
+}
+
+
 @media  (max-width: 1110px) {
 
         /****** Окно поиск ******/
@@ -41,12 +48,14 @@
     .catalog-mr {
         display: block;
         position: absolute;
+        height: 70vh;
         left: 0;
         right: 0;
         top: 15px;
         border: 2px solid #007AC9;
         box-sizing: border-box;
         width: 95%;
+        overflow: auto;
         margin: auto;
         padding: 20px;
         background: #fff;
@@ -60,6 +69,17 @@
         font-weight: 700;
         color: #202023;
     }
+
+    .catalog-mr::-webkit-scrollbar {
+        width: 7px;
+        background: #fff;
+    }
+
+    .catalog-mr::-webkit-scrollbar-thumb {
+        border-radius: 3.5px;
+        background: #00407A;
+    }
+
 
     .catalog-mr .catalog-close-mr img {
         width: 18px;
@@ -341,6 +361,11 @@
     	position: absolute;
     	top: 40px;
     	right: 20px;
+        display: none;
+    }
+
+    .years25 {
+        display: none;
     }
 
     .sect-2 .sect-2-img {

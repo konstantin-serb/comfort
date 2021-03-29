@@ -25,7 +25,7 @@ $this->registerJsFile('/js/scripts.js', [
 <?php if($array[0]):?>
 <section class="news">
     <div class="block">
-        <h1>Новини</h1>
+        <h1 style="font-size: 2.9rem">Новини</h1>
         <div class="owl-carousel" id="owl-carousel">
             <div class="news-page d-flex jcsb" data-dot="1">
                 <div class="news-page-half">
@@ -40,7 +40,7 @@ $this->registerJsFile('/js/scripts.js', [
 
                     ?>>
                         <h2><?=$item->title?></h2>
-                        <p><?=StringHelper::getShort($item->description, 200)?></p>
+                        <p style="<?php if($content->fonts){echo 'font-size:'.$content->fonts;} else{echo 'font-size:1.4rem';}?>"><?=StringHelper::getShort($item->description, 200)?></p>
                         <a href="<?=Url::to(['/one-news', 'id'=>$item->slug])?>">
                             Читати
                             <img src="/images/arrow-white.svg" alt="">

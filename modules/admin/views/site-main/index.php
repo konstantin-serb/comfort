@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-main-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1>Главная страница сайта</h1>
 
 <!--    <p>-->
 <!--        --><?//= Html::a('Create Site Main', ['create'], ['class' => 'btn btn-success']) ?>
@@ -22,22 +22,38 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <div class="col-md-2 image-box">
             <a class="" href="<?=Url::to(['update-image', 'type'=>'image_main'])?>">
+                <?php if($model->image_main):?>
                 <img src="<?=$model->getImage('image_main')?>">
+                <?php else:?>
+                    <img src="/images/hero.svg">
+                <?php endif;?>
             </a>
         </div>
         <div class="col-md-2 image-box">
             <a class="" href="<?=Url::to(['update-image', 'type'=>'image2'])?>">
+                <?php if($model->image2):?>
                 <img src="<?=$model->getImage('image2')?>">
+                <?php else:?>
+                    <img src="/images/img.svg">
+                <?php endif;?>
             </a>
         </div>
         <div class="col-md-2 image-box">
             <a class="" href="<?=Url::to(['update-image', 'type'=>'image3'])?>">
+                <?php if($model->image3):?>
                 <img src="<?=$model->getImage('image3')?>">
+                <?php else:?>
+                    <img src="/images/25.svg">
+                <?php endif;?>
             </a>
         </div>
         <div class="col-md-2 image-box">
             <a class="" href="<?=Url::to(['update-image', 'type'=>'image_map'])?>">
+                <?php if($model->image_map):?>
                 <img src="<?=$model->getImage('image_map')?>">
+                <?php else:?>
+                    <img src="/images/map.svg">
+                <?php endif;?>
             </a>
         </div>
     </div>

@@ -43,10 +43,10 @@ class SiteService extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'status' => 'Status',
-            'text' => 'Text',
-            'fonts' => 'Fonts',
+            'title' => 'Название',
+            'status' => 'Статус',
+            'text' => 'Текст',
+            'fonts' => 'Размер шрифта',
         ];
     }
 }

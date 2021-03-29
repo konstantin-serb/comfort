@@ -74,7 +74,7 @@ class SubcategoryController extends Controller
         $categoryArray = ArrayHelper::map($categoryObjects, 'id', 'title');
 
         if ($model->load(Yii::$app->request->post()) && $id = $model->save()) {
-            return $this->redirect(['view', 'id' => $id]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
@@ -100,7 +100,7 @@ class SubcategoryController extends Controller
         $categoryArray = ArrayHelper::map($categoryObjects, 'id', 'title');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [

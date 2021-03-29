@@ -39,9 +39,9 @@ class TechInfoSearch extends TechInfo
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function searchTech($params)
     {
-        $query = TechInfo::find();
+        $query = TechInfo::find()->where(['type' => 1]);
 
         // add conditions that should always apply here
 

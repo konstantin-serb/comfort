@@ -75,12 +75,11 @@ class CatalogController extends Controller
     {
         $subcategory = Subcategory::find()->where(['slug' => $id])->one();
         $categories = Category::find()->orderBy('order')->all();
-        $carts = Cart::find()->where(['subcategory_id' => $subcategory->id])->andWhere(['status' => Cart::STATUS_VISIBLE])->orderBy('id desc')->all();
-
         $data = Cart::getAll(6, $subcategory->id);
         $randomNews = News::find()->where(['status'=>News::STATUS_VISIBLE])
             ->orderBy('RAND()')->limit(2)->all();
-        $recommend = Cart::find()->where(['recommend' => '1'])->all();
+//        $recommend = Cart::find()->where(['recommend' => '1'])->all();
+        $recommend = false;
 
     
 
@@ -104,8 +103,9 @@ class CatalogController extends Controller
         $recommend = Cart::find()->where(['subcategory_id' => $cart->subcategory_id])
         ->andWhere(['status' => Cart::STATUS_VISIBLE])
         ->orderBy('RAND()')->limit(4)->all();
-        $recom = Cart::find()->where(['recommend' => 1])->all();
-    
+//        $recom = Cart::find()->where(['recommend' => 1])->all();
+        $recom = false;
+
         $this->view->params['modal'] = $this->addModal($cart);
 
         return $this->render('cart', [

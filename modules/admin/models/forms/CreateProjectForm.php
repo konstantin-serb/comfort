@@ -17,7 +17,7 @@ class CreateProjectForm extends Model
     public function rules()
     {
         return [
-            [['title', 'description', 'text', 'type_view'], 'required'],
+            [['title', 'description', 'text'], 'required'],
             [['title'], 'string', 'length' => [3,255]],
             [['description'], 'string', 'length' => [3, 500]],
             [['text'], 'string', 'min' => 2],
@@ -54,7 +54,7 @@ class CreateProjectForm extends Model
             $cart->slug = $cart->createSlug($this->title);
             $cart->description = $this->description;
             $cart->text = $this->text;
-            $cart->type_view = $this->type_view;
+            $cart->type_view = Project::WITHOUT_IMAGE;
             $cart->user_create = Yii::$app->user->identity->getId();
             $cart->time_create = time();
             $cart->status = Project::STATUS_INVISIBLE;

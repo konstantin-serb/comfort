@@ -13,6 +13,7 @@ use Yii;
  * @property string|null $size
  * @property string|null $link
  * @property int|null $status
+ * @property int|null $type
  */
 class TechInfo extends \yii\db\ActiveRecord
 {
@@ -31,7 +32,7 @@ class TechInfo extends \yii\db\ActiveRecord
     {
         return [
             [['size'], 'string'],
-            [['status'], 'integer'],
+            [['status', 'type'], 'integer'],
             [['title', 'format', 'link'], 'string', 'max' => 255],
         ];
     }
@@ -48,6 +49,7 @@ class TechInfo extends \yii\db\ActiveRecord
             'size' => 'Size',
             'link' => 'Link',
             'status' => 'Status',
+            'type' => 'Type',
         ];
     }
 }

@@ -152,11 +152,7 @@ $this->registerJsFile('/js/back/addSubcategory.js', [
         Cart::STATUS_INVISIBLE => 'Не видно на сайте',
     ]) ?>
 
-    <?= $form->field($model, 'recommend')->dropDownList([
-        
-        0 => 'Не показывать в рекомендованных',
-        1 => 'Показывать в рекомендованных',
-    ]) ?>
+    <?= $form->field($model, 'recommend')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Применить изменения', ['class' => 'btn btn-success']) ?>

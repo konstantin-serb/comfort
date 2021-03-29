@@ -15,7 +15,8 @@ $this->title = 'Изображение к статье: '.$model->title;
 
 <div class="row">
     <div class="col-md-6">
-        <img class="image" src="<?=$model->getImage()?>">
+        <img class="image" src="<?=$model->getMini()?>">
+        <br>
         <?= Html::a('Удалить', ['delete-image', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
